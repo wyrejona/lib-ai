@@ -1,0 +1,35 @@
+{
+  "ollama": {
+    "base_url": "http://localhost:11434",
+    "chat_model": "qwen:0.5b",
+    "embedding_model": "all-minilm:latest",
+    "timeout": 300,
+    "temperature": 0.1
+  },
+  "vector_store": {
+    "path": "vector_store",
+    "chunk_size": 800,
+    "chunk_overlap": 100,
+    "batch_size": 5
+  },
+  "paths": {
+    "pdfs_dir": "pdfs",
+    "data_dir": "data",
+    "templates_dir": "templates",
+    "static_dir": "static",
+    "project_root": "."
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8000
+  },
+  "search": {
+    "default_k": 5,
+    "max_context_length": 3000
+  },
+  "app": {
+    "name": "Library Support AI",
+    "version": "1.0.0",
+    "debug": false
+  }
+}

@@ -1,0 +1,146 @@
+"""
+Chat API endpoints
+"""
+from fastapi import APIRouter, Request, HTTPException
+from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.templating import Jinja2Templates
+import logging
+import traceback
+import os
+
+from app.config import config
+from app.core.vector_store import VectorStore, format_context
+from app.core.llm_client import OllamaClient
+
+router = APIRouter()
+logger = logging.getLogger(__name__)
+
+# Initialize components (can be lazy-loaded or dependency injected)
+vector_store = None
+llm_client = None
+
+def get_vector_store():
+    """Lazy load vector store"""
+    global vector_store
+    if vector_store is None:
+        vector_store = VectorStore()
+        vector_store.load()
+    return vector_store
+
+def get_llm_client():
+    """Lazy load LLM client"""
+    global llm_client
+    if llm_client is None:
+        llm_client = OllamaClient()
+    return llm_client
+
+# Web routes (for templates)
+web_routes = APIRouter()
+
+@web_routes.get("/chat", response_class=HTMLResponse)
+async def chat_page(request: Request):
+    """Chat interface page"""
+    pdfs_dir = config.pdfs_dir
+    files_count = len([f for f in os.listdir(pdfs_dir) if f.endswith(".pdf")]) if pdfs_dir.exists() else 0
+    
+    return config.templates.TemplateResponse("chat.html", {
+        "request": request,
+        "total_files": files_count,
+        "current_model": config.chat_model
+    })
+
+@router.post("/", response_class=JSONResponse)
+async def chat_api(request_data: dict):
+    """Chat API endpoint"""
+    user_message = request_data.get("message") or request_data.get("query") or ""
+    if not user_message:
+        return {"response": "Please enter a question."}
+    
+    try:
+        vector_store = get_vector_store()
+        llm_client = get_llm_client()
+        
+        # Check if vector store is loaded
+        if not vector_store or not vector_store.loaded:
+            return {
+                "response": "Library documents not loaded. Please run ingestion first.",
+                "context_used": False,
+                "model_used": "error"
+            }
+        
+        # Search for relevant context
+        search_results = vector_store.search(user_message, k=config.search_default_k)
+        context = format_context(search_results)
+        
+        if not context or len(context.strip()) < 50:
+            return {
+                "response": "I cannot find relevant information in the library documents.",
+                "context_used": False,
+                "model_used": config.chat_model,
+                "confidence": 0,
+                "search_time": 0,
+                "cache_hit": False,
+                "source": "none"
+            }
+        
+        # Generate response with LLM
+        response = llm_client.generate_response(prompt=user_message, context=context)
+        
+        return {
+            "response": response,
+            "context_used": True,
+            "model_used": config.chat_model,
+            "confidence": 0,
+            "search_time": 0,
+            "cache_hit": False,
+            "source": "vector_store"
+        }
+        
+    except Exception as e:
+        logger.error(f"Chat error: {e}")
+        return {
+            "response": "Sorry, I encountered an error processing your question.",
+            "context_used": False,
+            "model_used": "error",
+            "error": str(e)
+        }
+
+@router.get("/test")
+async def test_chat():
+    """Test endpoint to debug chat functionality"""
+    test_query = "What is MyLOFT?"
+    
+    try:
+        vector_store = get_vector_store()
+        llm_client = get_llm_client()
+        
+        # Ensure vector store is loaded
+        if not vector_store:
+            return {"error": "Vector store not initialized"}
+        
+        # Load the vector store
+        vector_store.load()
+        
+        if not vector_store.loaded:
+            return {
+                "error": "Vector store not loaded", 
+                "vector_store_path": str(config.vector_store_path),
+                "exists": config.vector_store_path.exists()
+            }
+        
+        # Fallback to regular search
+        search_results = vector_store.search(test_query, k=5)
+        context = format_context(search_results)
+        response = llm_client.generate_response(prompt=test_query, context=context)
+        
+        return {
+            "query": test_query,
+            "search_results_count": len(search_results),
+            "context_length": len(context),
+            "response": response,
+            "vector_store_loaded": vector_store.loaded,
+            "chunks_count": len(vector_store.chunks) if vector_store.loaded else 0
+        }
+    except Exception as e:
+        logger.error(f"Test chat error: {e}")
+        return {"error": str(e), "traceback": traceback.format_exc()}
