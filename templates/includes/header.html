@@ -1,0 +1,20 @@
+<header>
+    <div class="logo">
+        <i class="fas fa-brain"></i>
+        <h1>Library Support AI</h1>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">
+            <i class="fas fa-home"></i> Home
+        </a>
+        <a href="/files" class="nav-link {% if request.url.path == '/files' %}active{% endif %}">
+            <i class="fas fa-folder"></i> Manage Files
+        </a>
+        <a href="/chat" class="nav-link {% if request.url.path == '/chat' %}active{% endif %}">
+            <i class="fas fa-comments"></i> Chat
+        </a>
+    </div>
+    
+    {% block header_extra %}{% endblock %}
+</header>

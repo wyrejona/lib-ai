@@ -1,0 +1,22 @@
+Test Library Document
+
+SECTION 1: INTRODUCTION
+Welcome to the University of Embu Library.
+
+SECTION 2: MYLOFT APP
+MyLOFT is our mobile application that allows students to:
+- Access past exam papers
+- Renew borrowed books
+- Check library hours
+- Search the catalog
+
+SECTION 3: BORROWING RULES
+Undergraduate students: 4 books for 14 days
+Postgraduate students: 6 books for 30 days
+
+FAQ:
+Q: How do I access past exam papers?
+A: Use the MyLOFT app or visit the library website.
+
+Q: What are the library hours?
+A: 8:00 AM to 10:00 PM, Monday to Friday.

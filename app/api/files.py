@@ -1,25 +1,20 @@
-"""
-File management API endpoints
-"""
-from fastapi import APIRouter, UploadFile, File, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi.responses import JSONResponse, FileResponse
 import os
 import shutil
 from datetime import datetime
 from typing import List
+from pathlib import Path
 
 from app.config import config
 from app.utils import format_file_size
 
 router = APIRouter()
 
-# Web routes
-web_routes = APIRouter()
-
-@web_routes.get("/files", response_class=HTMLResponse)
-async def manage_files(request: Request):
-    """File management page"""
-    pdfs_dir = config.pdfs_dir
+@router.get("/status")
+async def get_files_status():
+    """Get file and vector store status"""
+    pdfs_dir = Path(config.pdfs_dir)
     files = []
     
     if pdfs_dir.exists():
@@ -29,48 +24,67 @@ async def manage_files(request: Request):
                 files.append({
                     "name": f,
                     "size": os.path.getsize(file_path),
-                    "modified": datetime.fromtimestamp(os.path.getmtime(file_path)),
+                    "modified": datetime.fromtimestamp(os.path.getmtime(file_path)).isoformat(),
                     "formatted_size": format_file_size(os.path.getsize(file_path))
                 })
     
-    files.sort(key=lambda x: x["modified"], reverse=True)
-    total_size = format_file_size(sum(f["size"] for f in files) if files else 0)
+    # Check vector store
+    vector_store_path = Path(config.vector_store_path) / "vector_index.bin"
+    vector_status = "ready" if vector_store_path.exists() else "not_ready"
     
-    # Check vector store status (simplified)
-    vector_status = "Not processed"
-    vector_store_path = config.vector_store_path / "vector_index.bin"
-    if vector_store_path.exists():
-        vector_status = "Ready"
-    
-    return config.templates.TemplateResponse("files.html", {
-        "request": request,
+    return {
         "files": files,
-        "total_files": len(files),
-        "total_size": total_size,
-        "vector_status": vector_status,
-        "current_model": config.chat_model,
-        "embedding_model": config.embedding_model
-    })
+        "file_count": len(files),
+        "vector_store_status": vector_status
+    }
 
 @router.post("/upload")
-async def upload_files(files: List[UploadFile] = File(...)):
+async def upload_files_api(files: List[UploadFile] = File(...)):
     """Upload PDF files"""
     uploaded = []
-    pdfs_dir = config.pdfs_dir
+    errors = []
+    pdfs_dir = Path(config.pdfs_dir)
+    pdfs_dir.mkdir(exist_ok=True)
     
     for file in files:
-        if file.filename.lower().endswith('.pdf'):
-            path = pdfs_dir / file.filename
+        try:
+            if not file.filename.lower().endswith('.pdf'):
+                errors.append(f"{file.filename} is not a PDF file")
+                continue
+            
+            filename = file.filename.replace(" ", "_")
+            path = pdfs_dir / filename
+            
+            # Avoid overwriting
+            if path.exists():
+                name, ext = os.path.splitext(filename)
+                filename = f"{name}_{int(datetime.now().timestamp())}{ext}"
+                path = pdfs_dir / filename
+            
             with open(path, "wb") as buffer:
                 shutil.copyfileobj(file.file, buffer)
-            uploaded.append({"name": file.filename})
+            
+            file_size = path.stat().st_size
+            uploaded.append({
+                "name": filename,
+                "size": file_size,
+                "formatted_size": format_file_size(file_size)
+            })
+            
+        except Exception as e:
+            errors.append(f"Error uploading {file.filename}: {str(e)}")
     
-    return {"status": "success", "uploaded": uploaded}
+    return {
+        "success": True if uploaded else False,
+        "uploaded": uploaded,
+        "errors": errors,
+        "message": f"Uploaded {len(uploaded)} files"
+    }
 
 @router.get("/")
 async def list_files():
     """List all uploaded files"""
-    pdfs_dir = config.pdfs_dir
+    pdfs_dir = Path(config.pdfs_dir)
     files = []
     
     if pdfs_dir.exists():
@@ -87,30 +101,89 @@ async def list_files():
     files.sort(key=lambda x: x["modified"], reverse=True)
     return {"files": files, "count": len(files)}
 
+@router.get("/download/{filename}")
+async def download_file_api(filename: str):
+    """Download a file"""
+    path = Path(config.pdfs_dir) / filename
+    if path.exists() and path.is_file():
+        return FileResponse(
+            path=path,
+            filename=filename,
+            media_type='application/pdf'
+        )
+    raise HTTPException(404, "File not found")
+
 @router.delete("/{filename}")
-async def delete_file(filename: str):
+async def delete_file_api(filename: str):
     """Delete a file"""
-    path = config.pdfs_dir / filename
+    path = Path(config.pdfs_dir) / filename
     if path.exists():
         os.remove(path)
-        return {"status": "deleted"}
+        return {"success": True, "message": f"Deleted {filename}"}
     raise HTTPException(404, "File not found")
 
 @router.delete("/")
-async def clear_all_files():
+async def clear_all_files_api():
     """Clear all files and reset vector store"""
-    try:
-        # Clear PDFs
-        pdfs_dir = config.pdfs_dir
-        if pdfs_dir.exists():
-            for f in os.listdir(pdfs_dir):
+    pdfs_dir = Path(config.pdfs_dir)
+    deleted_count = 0
+    
+    if pdfs_dir.exists():
+        for f in os.listdir(pdfs_dir):
+            if f.endswith(".pdf"):
                 os.remove(pdfs_dir / f)
+                deleted_count += 1
+    
+    # Clear vector store
+    vector_store_dir = Path(config.vector_store_path)
+    if vector_store_dir.exists():
+        shutil.rmtree(vector_store_dir)
+    
+    # Recreate directory
+    vector_store_dir.mkdir(exist_ok=True)
+    
+    return {
+        "success": True,
+        "message": f"Cleared {deleted_count} files and reset vector store",
+        "deleted_count": deleted_count
+    }
+
+@router.post("/process")
+async def process_documents_api():
+    """Process uploaded documents"""
+    try:
+        pdf_files = list(Path(config.pdfs_dir).glob("*.pdf"))
+        if not pdf_files:
+            raise HTTPException(400, "No PDF files found")
         
-        # Clear vector store
-        if config.vector_store_path.exists():
-            shutil.rmtree(config.vector_store_path)
-            os.makedirs(config.vector_store_path, exist_ok=True)
+        import subprocess
+        import sys
         
-        return {"status": "success"}
+        base_dir = Path(__file__).parent.parent.parent
+        ingest_script = base_dir / "ingest.py"
+        
+        if not ingest_script.exists():
+            raise HTTPException(500, "Ingestion script not found")
+        
+        result = subprocess.run(
+            [sys.executable, str(ingest_script)],
+            capture_output=True,
+            text=True,
+            timeout=300
+        )
+        
+        if result.returncode == 0:
+            return {
+                "success": True,
+                "message": f"Processed {len(pdf_files)} documents"
+            }
+        else:
+            return {
+                "success": False,
+                "message": f"Processing failed: {result.stderr}"
+            }
+            
+    except subprocess.TimeoutExpired:
+        raise HTTPException(500, "Processing timeout")
     except Exception as e:
-        raise HTTPException(500, str(e))
+        raise HTTPException(500, f"Processing error: {str(e)}")

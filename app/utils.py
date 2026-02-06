@@ -60,3 +60,33 @@ def validate_pdf_file(filepath: str) -> bool:
     from pathlib import Path
     path = Path(filepath)
     return path.exists() and path.suffix.lower() == '.pdf'
+def format_file_size(size_in_bytes):
+    """Format file size in human readable format"""
+    if size_in_bytes < 1024:
+        return f"{size_in_bytes} B"
+    elif size_in_bytes < 1024 * 1024:
+        return f"{size_in_bytes / 1024:.1f} KB"
+    elif size_in_bytes < 1024 * 1024 * 1024:
+        return f"{size_in_bytes / (1024 * 1024):.1f} MB"
+    else:
+        return f"{size_in_bytes / (1024 * 1024 * 1024):.1f} GB"
+
+def ensure_directories():
+    """Ensure all required directories exist"""
+    import os
+    from pathlib import Path
+    
+    directories = [
+        "pdfs",
+        "vector_store",
+        "templates",
+        "static",
+        "static/css",
+        "static/js",
+        "static/images"
+    ]
+    
+    for dir_name in directories:
+        Path(dir_name).mkdir(parents=True, exist_ok=True)
+    
+    return True

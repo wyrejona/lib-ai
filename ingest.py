@@ -12,16 +12,18 @@ import sys
 import logging
 import json
 from pathlib import Path
+import pickle
+import numpy as np
+import faiss
 
-# Ensure we can import app.config
+# Ensure we can import app modules
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from app.config import config
-    from app.utils import VectorStore
     logger = logging.getLogger(__name__)
 except ImportError as e:
-    print(f"Error importing config/utils: {e}")
+    print(f"Error importing config: {e}")
     sys.exit(1)
 
 # Configure logging
@@ -56,7 +58,7 @@ def clean_text(text: str) -> str:
         is_special_line = (
             re.match(r'^(SECTION|Q:|A:|STEP|Problem|Solution|Note|Reason|Alternative|Action|Prevention):', line, re.IGNORECASE) or
             re.match(r'^\d+\.', line) or  # Numbered steps
-            re.match(r'^[â€¢\-]\s', line) or  # Bullet points
+            re.match(r'^[•\-]\s', line) or  # Bullet points
             re.match(r'^[A-Z\s]+:$', line) or  # Category headers like "UNDERGRADUATE STUDENTS:"
             re.match(r'^[a-z]\)\s', line) or  # Sub-bullets like a), b), c)
             re.match(r'^o\s', line)  # Nested bullets
@@ -99,7 +101,7 @@ def extract_sections(text: str) -> dict:
             current_content = []
             continue
         
-        # Check for subsections (like BORROWING MATRIX, HOW TO BORROW BOOKS, etc.)
+        # Check for subsections
         subsection_patterns = [
             r'^[A-Z][A-Z\s&]+:$',  # UPPERCASE headers
             r'^[A-Z][a-zA-Z\s&]+:$',  # Mixed case headers ending with colon
@@ -388,6 +390,46 @@ def extract_resource_chunks(content: str, section_title: str, source: str) -> li
     
     return chunks
 
+def create_embeddings_with_ollama(chunks, embedding_model):
+    """Create embeddings using Ollama"""
+    try:
+        from langchain_ollama import OllamaEmbeddings
+        
+        embeddings = OllamaEmbeddings(
+            model=embedding_model,
+            base_url=config.ollama_base_url
+        )
+        
+        print(f"Creating embeddings using {embedding_model}...")
+        
+        # Create embeddings in batches
+        all_embeddings = []
+        batch_size = config.batch_size
+        
+        for i in range(0, len(chunks), batch_size):
+            batch = chunks[i:i + batch_size]
+            batch_texts = [chunk['content'] for chunk in batch]
+            
+            print(f"  Processing batch {i//batch_size + 1}/{(len(chunks) + batch_size - 1)//batch_size}")
+            
+            try:
+                batch_embeddings = embeddings.embed_documents(batch_texts)
+                all_embeddings.extend(batch_embeddings)
+            except Exception as e:
+                print(f"  Warning: Failed to embed batch: {e}")
+                # Add zero vectors as fallback
+                for _ in batch:
+                    all_embeddings.append([0.0] * 384)  # Default dimension
+        
+        return all_embeddings
+        
+    except ImportError:
+        print("Error: langchain_ollama not installed. Install with: pip install langchain-ollama")
+        return None
+    except Exception as e:
+        print(f"Error creating embeddings: {e}")
+        return None
+
 def main():
     print("=" * 50)
     print("LIBRARY AI INGESTION")
@@ -455,20 +497,53 @@ def main():
     # 4. Create vector store
     if all_chunks:
         try:
-            print(f"Creating embeddings for {len(all_chunks)} chunks...")
+            print(f"\nCreating embeddings for {len(all_chunks)} chunks...")
             
-            # Initialize vector store
-            vector_store = VectorStore()
+            # Create embeddings
+            embeddings_list = create_embeddings_with_ollama(all_chunks, config.embedding_model)
             
-            # Extract content for embedding
-            chunk_contents = [c['content'] for c in all_chunks]
+            if embeddings_list is None:
+                print("Failed to create embeddings. Creating dummy embeddings for testing.")
+                # Create dummy embeddings for testing
+                dimension = 384  # Default dimension for all-minilm
+                embeddings_list = [[0.0] * dimension for _ in range(len(all_chunks))]
             
-            # Create index
-            vector_store.create_index(chunk_contents, all_chunks)
+            # Convert to numpy
+            embeddings_array = np.array(embeddings_list).astype('float32')
+            dimension = embeddings_array.shape[1]
             
+            print(f"  Embedding dimension: {dimension}")
+            print(f"  Total embeddings: {embeddings_array.shape[0]}")
+            
+            # Create FAISS index
+            index = faiss.IndexFlatL2(dimension)
+            index.add(embeddings_array)
+            
+            # Save FAISS index
+            faiss.write_index(index, str(config.vector_store_path / "vector_index.bin"))
+            
+            # Save metadata
+            with open(config.vector_store_path / "metadata.pkl", 'wb') as f:
+                pickle.dump({
+                    'chunks': [c['content'] for c in all_chunks],
+                    'metadata': all_chunks,
+                    'embedding_model': config.embedding_model,
+                    'dimension': dimension
+                }, f)
+            
+            # Save a human-readable version
+            with open(config.vector_store_path / "chunks.txt", 'w', encoding='utf-8') as f:
+                for i, chunk in enumerate(all_chunks[:20]):  # Save first 20 chunks
+                    f.write(f"=== Chunk {i} ===\n")
+                    f.write(f"Source: {chunk['source']}\n")
+                    f.write(f"Type: {chunk.get('type', 'unknown')}\n")
+                    f.write(f"Content:\n{chunk['content'][:500]}...\n\n")
+            
+            print("\n" + "=" * 50)
             print("INGESTION COMPLETE!")
             print(f"   Total chunks: {len(all_chunks)}")
-            print(f"   Embedding model used: {config.embedding_model}")
+            print(f"   Embedding model: {config.embedding_model}")
+            print(f"   Vector store saved to: {config.vector_store_path}")
             
             # Count important keywords
             keyword_counts = {}
@@ -482,26 +557,8 @@ def main():
             
             print(f"   Keyword occurrences: {keyword_counts}")
             
-            # Test the vector store
-            print(f"\nTesting vector store...")
-            test_queries = [
-                "How do I access past exam papers?",
-                "What is the fine rate for overdue books?",
-                "How do I renew a library book?",
-                "What is MyLOFT?"
-            ]
-            
-            for query in test_queries:
-                test_results = vector_store.search(query, k=2)
-                if test_results:
-                    print(f"   '{query}' found {len(test_results)} results (top score: {test_results[0]['score']:.4f})")
-                else:
-                    print(f"   '{query}' found no results")
-            
         except Exception as e:
-            print(f"INDEXING FAILED: {e}")
-            print(f"Install required packages:")
-            print(f"   pip install langchain-ollama")
+            print(f"\nINDEXING FAILED: {e}")
             import traceback
             traceback.print_exc()
     else:

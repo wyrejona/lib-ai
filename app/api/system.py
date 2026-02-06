@@ -1,11 +1,14 @@
 """
 System management API endpoints
 """
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.templating import Jinja2Templates
 import psutil
 import requests
 from datetime import datetime, timezone
 import logging
+from pathlib import Path
 
 from app.config import config
 from app.core.vector_store import VectorStore
@@ -20,14 +23,73 @@ web_routes = APIRouter()
 @web_routes.get("/", response_class=HTMLResponse)
 async def home_page(request: Request):
     """Home/dashboard page"""
-    return config.templates.TemplateResponse("index.html", {
+    templates = Jinja2Templates(directory=str(config.templates_dir))
+    
+    return templates.TemplateResponse("index.html", {
         "request": request,
         "app_name": config.app_name,
         "app_version": config.app_version,
         "current_model": config.chat_model
     })
 
-@router.get("/status")
+# Root-level routes (for frontend compatibility)
+@router.get("/config")
+async def get_configuration():
+    """Get current configuration and available models - root endpoint for frontend"""
+    try:
+        # Try to get models from Ollama
+        chat_models = []
+        embedding_models = []
+        
+        try:
+            response = requests.get(f"{config.ollama_base_url}/api/tags", timeout=5)
+            if response.status_code == 200:
+                ollama_models = response.json().get("models", [])
+                
+                # Common embedding model patterns
+                embedding_patterns = [
+                    "embed", "bge", "nomic", "mxbai", "e5", "minilm", "multilingual",
+                    "instructor", "text-embedding", "sentence", "all-mpnet"
+                ]
+                
+                for model in ollama_models:
+                    model_name = model.get("name", "")
+                    
+                    # Check if it's an embedding model
+                    is_embedding = any(pattern in model_name.lower() for pattern in embedding_patterns)
+                    
+                    if is_embedding:
+                        embedding_models.append(model_name)
+                    else:
+                        chat_models.append(model_name)
+        except Exception as e:
+            logger.warning(f"Could not fetch Ollama models: {e}")
+            # Fallback to default models
+            chat_models = ["llama2:7b", "mistral:7b", "qwen:0.5b"]
+            embedding_models = ["nomic-embed-text:latest", "all-minilm:latest"]
+        
+        return {
+            "current": {
+                "chat_model": config.chat_model,
+                "embedding_model": config.embedding_model,
+                "ollama_base_url": config.ollama_base_url
+            },
+            "available_models": {
+                "chat_models": chat_models,
+                "embedding_models": embedding_models
+            },
+            "system": {
+                "pdfs_dir": str(config.pdfs_dir),
+                "vector_store_path": str(config.vector_store_path),
+                "max_context_length": config.max_context_length,
+                "search_default_k": config.search_default_k
+            }
+        }
+    except Exception as e:
+        logger.error(f"Error getting config: {e}")
+        raise HTTPException(500, f"Failed to get configuration: {str(e)}")
+
+@router.get("/system/status")
 async def system_status():
     """Get detailed system status"""
     try:
@@ -93,7 +155,7 @@ async def system_status():
 
 @router.get("/health")
 async def health_check():
-    """System health check"""
+    """System health check - root endpoint for frontend"""
     ollama_ok = False
     ollama_models = []
     try:
@@ -125,62 +187,6 @@ async def health_check():
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
 
-@router.get("/config")
-async def get_configuration():
-    """Get current configuration and available models"""
-    try:
-        # Try to get models from Ollama
-        chat_models = []
-        embedding_models = []
-        
-        try:
-            response = requests.get(f"{config.ollama_base_url}/api/tags", timeout=5)
-            if response.status_code == 200:
-                ollama_models = response.json().get("models", [])
-                
-                # Common embedding model patterns
-                embedding_patterns = [
-                    "embed", "bge", "nomic", "mxbai", "e5", "minilm", "multilingual",
-                    "instructor", "text-embedding", "sentence", "all-mpnet"
-                ]
-                
-                for model in ollama_models:
-                    model_name = model.get("name", "")
-                    
-                    # Check if it's an embedding model
-                    is_embedding = any(pattern in model_name.lower() for pattern in embedding_patterns)
-                    
-                    if is_embedding:
-                        embedding_models.append(model_name)
-                    else:
-                        chat_models.append(model_name)
-        except Exception as e:
-            logger.warning(f"Could not fetch Ollama models: {e}")
-            # Fallback to default models
-            chat_models = ["llama2:7b", "mistral:7b", "qwen:0.5b"]
-            embedding_models = ["nomic-embed-text:latest", "all-minilm:latest"]
-        
-        return {
-            "current": {
-                "chat_model": config.chat_model,
-                "embedding_model": config.embedding_model,
-                "ollama_base_url": config.ollama_base_url
-            },
-            "available_models": {
-                "chat_models": chat_models,
-                "embedding_models": embedding_models
-            },
-            "system": {
-                "pdfs_dir": str(config.pdfs_dir),
-                "vector_store_path": str(config.vector_store_path),
-                "max_context_length": config.max_context_length,
-                "search_default_k": config.search_default_k
-            }
-        }
-    except Exception as e:
-        logger.error(f"Error getting config: {e}")
-        raise HTTPException(500, f"Failed to get configuration: {str(e)}")
-
 @router.put("/config/model")
 async def update_model(data: dict):
     """Update model configuration"""
@@ -211,3 +217,37 @@ async def update_model(data: dict):
     except Exception as e:
         logger.error(f"Error updating model: {e}")
         raise HTTPException(500, f"Failed to update model: {str(e)}")
+
+@router.get("/engine-status")
+async def engine_status():
+    """Get AI engine status for frontend"""
+    try:
+        # Check vector store
+        vector_store_ready = False
+        vector_store_path = Path(config.vector_store_path) / "vector_index.bin"
+        if vector_store_path.exists():
+            vector_store_ready = True
+        
+        # Check Ollama connection
+        ollama_connected = False
+        try:
+            response = requests.get(f"{config.ollama_base_url}/api/tags", timeout=3)
+            ollama_connected = response.status_code == 200
+        except:
+            pass
+        
+        return {
+            "chatModel": config.chat_model,
+            "embeddingModel": config.embedding_model,
+            "vectorStore": "Ready" if vector_store_ready else "Not ready",
+            "ollamaStatus": "Connected" if ollama_connected else "Disconnected"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in engine-status: {e}")
+        return {
+            "chatModel": "Unknown",
+            "embeddingModel": "Unknown",
+            "vectorStore": "Error checking",
+            "ollamaStatus": "Error checking"
+        }

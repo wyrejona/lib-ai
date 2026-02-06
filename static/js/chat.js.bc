@@ -1,0 +1,255 @@
+// Chat page JavaScript
+
+// Initialize with current time
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize current time
+    document.getElementById('currentTime').textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    
+    // Auto-resize textarea
+    const inputField = document.getElementById('userInput');
+    if (inputField) {
+        inputField.addEventListener('input', function() {
+            commonUtils.autoResize(this);
+        });
+        
+        // Handle textarea enter key
+        inputField.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+        
+        // Focus input field
+        inputField.focus();
+    }
+    
+    // Scroll to bottom functionality
+    const chatMessages = document.getElementById('chatMessages');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    
+    if (chatMessages && scrollToBottomBtn) {
+        // Monitor scroll position
+        chatMessages.addEventListener('scroll', checkScrollPosition);
+        
+        // Initialize
+        setTimeout(() => {
+            scrollToBottom();
+            checkScrollPosition();
+        }, 100);
+        
+        // Scroll to bottom on button click
+        scrollToBottomBtn.addEventListener('click', scrollToBottom);
+    }
+    
+    // Fetch AI Engine status
+    fetchAIEngineStatus();
+    
+    // Refresh status every 30 seconds
+    setInterval(fetchAIEngineStatus, 30000);
+});
+
+// Scroll to bottom
+function scrollToBottom() {
+    const chatMessages = document.getElementById('chatMessages');
+    if (chatMessages) {
+        chatMessages.scrollTo({
+            top: chatMessages.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Check scroll position
+function checkScrollPosition() {
+    const chatMessages = document.getElementById('chatMessages');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    
+    if (!chatMessages || !scrollToBottomBtn) return;
+    
+    const scrollHeight = chatMessages.scrollHeight;
+    const scrollTop = chatMessages.scrollTop;
+    const clientHeight = chatMessages.clientHeight;
+    
+    // Show scroll-to-bottom button if not at bottom
+    if (scrollHeight - scrollTop - clientHeight > 100) {
+        scrollToBottomBtn.classList.add('visible');
+    } else {
+        scrollToBottomBtn.classList.remove('visible');
+    }
+}
+
+// Send message
+async function sendMessage() {
+    const input = document.getElementById('userInput');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message
+    addMessage(message, 'user');
+    input.value = '';
+    commonUtils.autoResize(input);
+    
+    try {
+        // Show typing indicator
+        const typingIndicator = addTypingIndicator();
+        
+        const response = await fetch('/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        // Remove typing indicator
+        typingIndicator.remove();
+        
+        const data = await response.json();
+        
+        // Add bot response
+        addMessage(data.response, 'bot');
+        
+        // Scroll to bottom after adding message
+        setTimeout(scrollToBottom, 100);
+        
+    } catch (error) {
+        addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+        console.error('Chat error:', error);
+        commonUtils.showNotification('Error sending message. Please try again.', 'error');
+    }
+}
+
+// Add message to chat
+function addMessage(text, type) {
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return;
+    
+    const messageDiv = document.createElement('div');
+    const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    
+    messageDiv.className = `message ${type}-message`;
+    messageDiv.innerHTML = `
+        <div class="message-header">
+            <i class="fas fa-${type === 'user' ? 'user' : 'robot'}"></i>
+            ${type === 'user' ? 'You' : 'Library AI'}
+            <span class="message-time">${time}</span>
+        </div>
+        <div class="message-content">${commonUtils.escapeHtml(text)}</div>
+    `;
+    
+    messagesContainer.appendChild(messageDiv);
+    checkScrollPosition();
+}
+
+// Add typing indicator
+function addTypingIndicator() {
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return null;
+    
+    const typingDiv = document.createElement('div');
+    
+    typingDiv.className = 'typing-indicator';
+    typingDiv.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    `;
+    
+    messagesContainer.appendChild(typingDiv);
+    scrollToBottom();
+    
+    return typingDiv;
+}
+
+// Clear chat
+async function clearChat() {
+    const confirmed = await commonUtils.confirmDialog('Are you sure you want to clear the chat history?');
+    if (!confirmed) return;
+    
+    const messagesContainer = document.getElementById('chatMessages');
+    if (!messagesContainer) return;
+    
+    messagesContainer.innerHTML = `
+        <div class="message bot-message">
+            <div class="message-header">
+                <i class="fas fa-robot"></i> Library AI
+                <span class="message-time" id="currentTime">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+            </div>
+            <div class="message-content">
+                Chat cleared. How can I help you today?
+            </div>
+        </div>
+    `;
+    
+    scrollToBottom();
+    commonUtils.showNotification('Chat cleared successfully', 'success');
+}
+
+// Fetch AI Engine status
+async function fetchAIEngineStatus() {
+    try {
+        const response = await fetch('/api/engine-status');
+        const data = await response.json();
+        
+        // Update status values
+        const updateElement = (id, value) => {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value || 'Not Available';
+        };
+        
+        updateElement('currentChatModel', data.chatModel);
+        updateElement('currentEmbeddingModel', data.embeddingModel);
+        updateElement('vectorStoreStatus', data.vectorStore);
+        updateElement('ollamaStatus', data.ollamaStatus);
+        
+        // Color code the status
+        colorCodeStatus('vectorStoreStatus', data.vectorStore);
+        colorCodeStatus('ollamaStatus', data.ollamaStatus);
+        
+    } catch (error) {
+        console.error('Failed to fetch AI engine status:', error);
+        
+        const updateElement = (id, value) => {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value;
+        };
+        
+        updateElement('currentChatModel', 'Error');
+        updateElement('currentEmbeddingModel', 'Error');
+        updateElement('vectorStoreStatus', 'Connection Failed');
+        updateElement('ollamaStatus', 'Connection Failed');
+        
+        // Set error colors
+        const elements = ['vectorStoreStatus', 'ollamaStatus'];
+        elements.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) element.style.color = 'var(--danger)';
+        });
+    }
+}
+
+// Color code status values
+function colorCodeStatus(elementId, status) {
+    const element = document.getElementById(elementId);
+    if (!element || !status) return;
+    
+    const statusLower = status.toLowerCase();
+    if (statusLower.includes('ready') || statusLower.includes('active') || statusLower.includes('connected')) {
+        element.style.color = 'var(--success)';
+    } else if (statusLower.includes('error') || statusLower.includes('failed') || statusLower.includes('disconnected')) {
+        element.style.color = 'var(--danger)';
+    } else if (statusLower.includes('loading') || statusLower.includes('checking')) {
+        element.style.color = 'var(--warning)';
+    } else {
+        element.style.color = 'var(--secondary)';
+    }
+}
+
+// Export functions for global access
+window.chatFunctions = {
+    sendMessage,
+    clearChat,
+    scrollToBottom
+};

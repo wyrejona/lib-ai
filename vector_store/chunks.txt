@@ -1,0 +1,276 @@
+=== Chunk 0 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+https://library.embuni.ac.ke/eresources/#gsc.tab=0 1/26 E-Resources What are e-resources E-Resources (Electronic Resources) are information materials that are created, stored, accessed, and used digitally , usually via the internet or a library network. Libraries provide them to support teaching, learning, research, and reference without relying on physical copies. E-Resources include digital materials such as: • E-journals –These are digital versions of scholarly or professional j...
+
+=== Chunk 1 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+using open -source software. Subjects covered: health, agriculture, education, climate change, and African studies. AGRIS AGRIS is one of the most comprehensive databases in food and agricultural scientific literature, providing free access to over 13 million bibliographic records in 110 different languages American Institute of Physics journals AIP Citation offers online access to a robust collection of close to 1 million articles from leading Physical Sciences publications includ...
+
+=== Chunk 2 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+are in Open Access and meet academic standards covering all subjects and many languages. https://library.embuni.ac.ke/eresources/#gsc.tab=0 8/26 Directory of Open Access Journals (DOAJ) It is a community -curated online directory that indexes and provides access to high quality, open access, peer -reviewed journals. Subjects covered: science, technology, medicine, social science, and humanities Duke University Press Duke University Press Yearly publishes about 140 new books, more t...
+
+=== Chunk 3 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+account. H Hindawi Hindawi publishes peer -reviewed, Open Access journals across many areas of science, technology, and medicine, as well as several areas of social science. Hindawi’s journals are indexed in the leading abstracting and indexing databases, including the Web of Science, Scopus, PubMed, INSPEC, Mathematical Reviews, and Chemical Abstracts. HeinOnline HeinOnline’s International Core package provides access to 300+ years of information on political development and the c...
+
+=== Chunk 4 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+journals, specializing in literature, modern languages, history, and visual culture. Our journal collection highlights the breadth and scope of journals that complement each other in history, literature, language, cultural studies, religious studies, and planning. Lexis Nexis Legal Library Lexis library delivers thousands of trusted legal, tax and regulatory sources, such as: Butterworths, Halsbury’s Laws, Tolley’s, Harvey on Industrial Relations and Employment Law and Civil Court ...
+
+=== Chunk 5 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+is a digital library that offers readers unlimited access to over 1 million academic, professional and non-fiction eBooks. Perlego offers ebooks from local and international publishers and allows users to read both online and offline on most smartphones, tablets or laptop devices. Policy Press Publishes over 120 peer -reviewed books each year and 7 journals in a wide range of print and digital editions for researchers, students, professionals, practitioners, politicians, policymake...
+
+=== Chunk 6 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+SIAM fosters the development of applied mathematical and computational methodologies needed in these various application areas. Applied mathematics in partnership with computational science is essential in solving many real -world problems. Through publications, research, and community, the mission of SIAM is to build cooperation between mathematics and the worlds of science and technology. Springer eJournals Springer is one of the leading international scientific publishing compan...
+
+=== Chunk 7 ===
+Source: E-Resources – University of Embu Library.pdf
+Type: section_part
+Content:
+INTRODUCTION
+
+banks, national libraries, think tanks, NGOs, and IGOs. contains approximately 15,000 books, chapters, reports, journals, working papers, and case studies. Content in the e -library is carefull y curated to meet the highest academic and editorial standards. Users of e -library are assured full and immediate access to all academic research and scholarship published by the World Bank – the majority made available through Creative Commons Attribution World Bank Africa Development The ...
+
+=== Chunk 8 ===
+Source: Library Circulation.pdf
+Type: section
+Content:
+INTRODUCTION
+
+Library Circulation
+1. Library  Circulation
+Library circulation refers to the process of managing the lending and returning of library
+materials to users. It ensures that library resources are properly issued, tracked, and returned
+on time.
+
+Key Circulation Activities:
+• Issuing  (borrowing)  library  materials
+• Receiving  returned  items
+• Renewing  borrowed  materials
+• Reserving (holding)  items  for users
+• Managing  overdue  items  and fines
+• Updating  borrower  records
+Circ...
+
+=== Chunk 9 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+INTRODUCTION
+
+UNIVERSITY OF EMBU LIBRARY COMPREHENSIVE
+GUIDE...
+
+=== Chunk 10 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+SECTION 1: BORROWING RULES & PRIVILEGES
+
+BORROWING MATRIX ALL USER CATEGORIES
+
+UNDERGRADUATE STUDENTS:
+• Maximum books: 3
+• Loan period: 14 days
+• Renewals allowed: 1 time only
+• Overdue fine: Ksh 5 per book per day (starts immediately after due date)
+
+POSTGRADUATE STUDENTS:
+• Maximum books: 6
+• Loan period: 30 days
+• Renewals allowed: 1 time only
+• Overdue fine: Ksh 5 per book per day (starts immediately after due date)
+NON -ACADEMIC STAFF:
+• Maximum books: 3
+• Loan period: 30 days
+• Renewals a...
+
+=== Chunk 11 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: process
+Content:
+SECTION 2: BORROWING & RENEWAL PROCESS
+
+HOW TO BORROW BOOKS:
+1. Take item (book, DVD, CD) to circulation desk
+2. Present valid University of Embu ID card
+3. Staff will issue the item
+4. Check due date stamp inside book cover for return date HOW TO RENEW BOOKS:
+1. Present the book and your ID at circulation desk
+2. Must be done BEFORE due date
+3. New due date calculated from renewal day (not original due date) RENEWAL RESTRICTIONS CANNOT RENEW IF: • Item is overdue and accruing fines • Item is on...
+
+=== Chunk 12 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+SECTION 3: OVERDUES, FINES & LOST ITEMS
+
+
+OVERDUE FINES:
+• Fine rate: Ksh 5 per item per day
+• Fines start accruing immediately after due date
+• Daily accumulation until item returned
+• Two reasons for fines: Overdue items only
+
+ACCOUNT RESTRICTIONS:
+• Accounts with overdue items are automatically locked
+• Cannot borrow new items while overdue items exist
+• To unlock account: Return all overdue items AND pay all accrued fines
+
+LOST ITEMS PROCEDURE:
+1. Immediate action:  Report loss to librarian ...
+
+=== Chunk 13 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+SECTION 4: CIRCULATION DESK SERVICES
+
+
+SERVICES PROVIDED:
+• Book borrowing and returns
+• University ID verification and registration
+• Renewals and reservations
+• Overdue fine payments and inquiries
+• Lost or damaged item reporting
+• Borrower record updates and corrections
+
+COMMON PROBLEMS & SOLUTIONS:
+PROBLEM 1: "Book shows available in system but not on shelf"
+• Solution:  Check reading tables near shelves
+• Reason:  Another user may be consulting it
+• Alternative:  May be recently returned (a...
+
+=== Chunk 14 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+SECTION 5: LIBRARY MEMBERSHIP & ACCESS
+
+
+WHO CAN JOIN:
+• University of Embu students (current)
+• University of Embu staff (current)
+• University of Embu alumni
+
+ID REQUIREMENTS:
+• Must present valid University of Embu ID card
+• Using another person's ID is PROHIBITED
+• Only card owner can borrow items
+• ID required for all circulation transactions
+
+MEMBERSHIP NOTES:
+• Library serves University community only
+• No public or external membership available
+• Alumni must have valid alumni identificat...
+
+=== Chunk 15 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: section
+Content:
+SECTION 6: LIBRARY ORGANIZATION & LOCATION
+
+
+LIBRARY OF CONGRESS CLASSIFICATION BY FLOOR:
+GROUND FLOOR (CLASSES A -L):
+• A: General Works
+• B: Philosophy, Psychology, Religion
+• C: Auxiliary Sciences of History
+• D: World History
+• E: History of Americas (United States)
+• F: History of Americas (Local & Latin America)
+• G: Geography, Anthropology, Recreation
+• H: Social Sciences
+• L: Education
+
+FIRST FLOOR:
+• J: Political Science
+• K: Law
+SECOND FLOOR (CLASSES Q -Z):
+• Q: Science
+• R: Medicine
+•...
+
+=== Chunk 16 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: resource_list
+Content:
+SECTION 7: E -RESOURCES OVERVIEW
+
+ACCESS METHODS:
+• Library subscriptions (University login required)
+• Open Access platforms (free for everyone)
+• MyLOFT app for mobile access
+• Library website:  https://library.embuni.ac.ke/eresources/...
+
+=== Chunk 17 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: resource_list
+Content:
+SECTION 7: E -RESOURCES OVERVIEW
+
+KEY FEATURES:
+• Accessible anytime, anywhere with internet
+• Searchable text within documents
+• No physical wear or loss
+• Regularly updated content
+• Peer-reviewed quality content...
+
+=== Chunk 18 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: resource_list
+Content:
+SECTION 8: SUBSCRIBED E -RESOURCES (BY CATEGORY)
+
+MAJOR E -JOURNAL DATABASES:
+• ScienceDirect:  Elsevier journals (science, technology, medicine)
+• JSTOR:  Archival academic journals (humanities, social sciences)
+• SpringerLink:  Science, engineering, medicine journals
+• IEEE Xplore:  Engineering, computing, technology journals
+• Taylor & Francis Online:  Multidisciplinary journals...
+
+=== Chunk 19 ===
+Source: Comprehensive University of Embu Library Guide.pdf
+Type: resource_list
+Content:
+SECTION 8: SUBSCRIBED E -RESOURCES (BY CATEGORY)
+
+MAJOR E -BOOK DATABASES:
+• EBSCO eBooks:  Comprehensive academic e -books
+• ProQuest Ebook Central:  120,000+ e -books in all subjects
+• Springer eBooks:  Science and technical e -books
+• Elsevier eBook Collections:  Medical and scientific e -books
+• Cambridge Core:  Academic books and journals...
+

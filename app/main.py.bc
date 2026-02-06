@@ -206,45 +206,6 @@ async def ingest_frontend():
             "message": f"Error: {str(e)}"
         }, status_code=500)
 
-# =================== CHAT ENDPOINT ===================
-
-@app.post("/chat")
-async def chat_frontend_compat(request: Request):
-    """Handle chat messages from frontend"""
-    try:
-        # Get the message from request
-        data = await request.json()
-        message = data.get("message", "")
-        
-        if not message:
-            return JSONResponse({
-                "response": "Please enter a question.",
-                "success": False
-            })
-        
-        # Try to use the chat API
-        try:
-            from app.api.chat import chat_api
-            return await chat_api(data)
-        except ImportError as e:
-            logger.warning(f"Chat API not available: {e}")
-            # Fallback if chat API not available
-            pass
-        
-        # Simple fallback response
-        return JSONResponse({
-            "response": f"I received: '{message}'\n\nAI chat is being initialized. Please check if vector store is loaded and Ollama is running.",
-            "success": True
-        })
-        
-    except Exception as e:
-        logger.error(f"Chat error: {e}")
-        return JSONResponse({
-            "response": "Sorry, I encountered an error processing your question.",
-            "success": False,
-            "error": str(e)
-        }, status_code=500)
-
 # =================== SYSTEM API ENDPOINTS ===================
 
 @app.get("/api/engine-status")

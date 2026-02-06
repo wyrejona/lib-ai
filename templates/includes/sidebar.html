@@ -1,0 +1,39 @@
+<div class="sidebar">
+    <div class="model-status-box">
+        <div class="status-header">
+            <i class="fas fa-microchip"></i> AI Engine Status
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Active Chat Model:</span>
+            <span class="status-value" id="currentChatModel">Loading...</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Active Embedding Model:</span>
+            <span class="status-value" id="currentEmbeddingModel">Loading...</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Architecture:</span>
+            <span class="status-value">RAG (Retrieval-Augmented Generation)</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Provider:</span>
+            <span class="status-value">Local Ollama Instance</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Vector Store:</span>
+            <span class="status-value" id="vectorStoreStatus">Checking...</span>
+        </div>
+        
+        <div class="status-item">
+            <span class="status-label">Ollama Connection:</span>
+            <span class="status-value" id="ollamaStatus">Checking...</span>
+        </div>
+    </div>
+    
+    {% block sidebar_extra %}{% endblock %}
+</div>

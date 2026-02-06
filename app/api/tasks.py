@@ -2,12 +2,14 @@
 Background task management API endpoints
 """
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
+from fastapi.responses import JSONResponse
 import threading
 import time
 import subprocess
 import requests
 from datetime import datetime, timezone
 import logging
+from pathlib import Path  # ADD THIS IMPORT - it's missing
 
 from app.config import config
 
@@ -48,6 +50,37 @@ def update_task_progress(task_id: str, progress: int, message: str, status: str 
         if len(progress_data[task_id]["logs"]) > 100:
             progress_data[task_id]["logs"] = progress_data[task_id]["logs"][-100:]
 
+async def start_reindex_task(background_tasks: BackgroundTasks):
+    """Start reindexing task"""
+    try:
+        # Check if PDFs exist
+        pdf_files = list(config.pdfs_dir.glob("*.pdf"))
+        if not pdf_files:
+            raise HTTPException(400, "No PDF files found. Please upload PDFs first.")
+        
+        # Generate task ID
+        timestamp = int(time.time())
+        task_id = f"reindex_{timestamp}"
+        
+        # Start reindexing task
+        background_tasks.add_task(reindex_task, task_id)
+        
+        return {
+            "task_id": task_id,
+            "message": f"Started reindexing {len(pdf_files)} documents",
+            "status": "started",
+            "monitor_url": f"/api/tasks/progress/{task_id}"
+        }
+        
+    except Exception as e:
+        logger.error(f"Error starting reindex task: {e}")
+        raise HTTPException(500, f"Failed to start reindexing: {str(e)}")
+
+@router.post("/start/reindex")
+async def start_reindex_api(background_tasks: BackgroundTasks):
+    """API endpoint to start reindexing"""
+    return await start_reindex_task(background_tasks)
+
 def reindex_task(task_id: str):
     """Background task for reindexing documents"""
     try:
@@ -61,40 +94,19 @@ def reindex_task(task_id: str):
         
         total_files = len(pdf_files)
         
-        # Simulate processing (in production, replace with actual ingestion)
-        for i, pdf_file in enumerate(pdf_files):
-            progress = int((i / total_files) * 100)
-            update_task_progress(task_id, progress, f"Processing {pdf_file.name} ({i+1}/{total_files})")
-            
-            # Simulate processing time
-            time.sleep(2)  # Simulate processing time
-            
-            # TODO: Add actual PDF processing here
-            
-        update_task_progress(task_id, 100, f"Successfully reindexed {total_files} files", "completed")
+        # Run actual ingestion
+        update_task_progress(task_id, 10, f"Found {total_files} PDF files")
         
-    except Exception as e:
-        logger.error(f"Reindexing failed: {e}")
-        update_task_progress(task_id, 0, f"Reindexing failed: {str(e)}", "failed")
-
-def install_model_task(task_id: str, model_name: str):
-    """Background task for installing models"""
-    try:
-        update_task_progress(task_id, 0, f"Starting installation of {model_name}")
-        
-        # Check if Ollama is available
-        try:
-            response = requests.get(f"{config.ollama_base_url}/api/tags", timeout=5)
-            if response.status_code != 200:
-                update_task_progress(task_id, 0, "Ollama is not running or not accessible", "failed")
-                return
-        except:
-            update_task_progress(task_id, 0, "Ollama is not running or not accessible", "failed")
+        # Run the ingest.py script
+        ingest_script = "ingest.py"
+        if not Path(ingest_script).exists():  # This line needs Path imported
+            update_task_progress(task_id, 0, f"Ingestion script {ingest_script} not found", "failed")
             return
         
-        # Run ollama pull command
+        update_task_progress(task_id, 20, "Running ingestion script...")
+        
         process = subprocess.Popen(
-            ["ollama", "pull", model_name],
+            ["python3", "-u", ingest_script],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
             text=True,
@@ -102,94 +114,39 @@ def install_model_task(task_id: str, model_name: str):
             universal_newlines=True
         )
         
-        # Stream output and update progress
-        line_count = 0
-        max_lines = 50  # Estimated max lines for a pull operation
-        
-        while True:
-            line = process.stdout.readline()
-            if not line and process.poll() is not None:
-                break
-                
-            if line:
-                line_count += 1
-                progress = min(95, int((line_count / max_lines) * 100))
-                
-                # Parse progress from ollama output
-                line_lower = line.lower()
-                if "pulling" in line_lower or "downloading" in line_lower:
-                    update_task_progress(task_id, progress, f"Downloading {model_name}: {line.strip()}")
-                elif "verifying" in line_lower:
-                    update_task_progress(task_id, progress, f"Verifying {model_name}: {line.strip()}")
-                elif "success" in line_lower or "complete" in line_lower or "pulled" in line_lower:
-                    update_task_progress(task_id, 95, f"Finalizing {model_name}: {line.strip()}")
-                else:
-                    update_task_progress(task_id, progress, f"Installing {model_name}: {line.strip()}")
+        # Read output
+        lines = []
+        for line in process.stdout:
+            lines.append(line)
+            progress = 20 + min(70, len(lines) // 2)
+            update_task_progress(task_id, progress, f"Processing... line {len(lines)}")
         
         process.wait()
         
         if process.returncode == 0:
-            update_task_progress(task_id, 100, f"Successfully installed {model_name}", "completed")
+            update_task_progress(task_id, 95, "Ingestion complete, loading vector store...")
+            
+            # Load vector store
+            from app.core.vector_store import VectorStore
+            vector_store = VectorStore()
+            vector_store.load()
+            
+            if vector_store.loaded:
+                update_task_progress(task_id, 100, 
+                    f"Reindexing complete! {len(vector_store.chunks)} chunks loaded.", 
+                    "completed")
+            else:
+                update_task_progress(task_id, 100, 
+                    "Reindexing completed but vector store not loaded.", 
+                    "completed")
         else:
-            update_task_progress(task_id, 0, f"Failed to install {model_name} (exit code: {process.returncode})", "failed")
-            
+            update_task_progress(task_id, 0, 
+                f"Reindexing failed (exit code: {process.returncode})", 
+                "failed")
+                
     except Exception as e:
-        logger.error(f"Model installation failed: {e}")
-        update_task_progress(task_id, 0, f"Installation failed: {str(e)}", "failed")
-
-@router.post("/install-model")
-async def install_model(request: Request, background_tasks: BackgroundTasks):
-    """Install a model via Ollama"""
-    try:
-        data = await request.json()
-        model = data.get("model")
-        
-        if not model:
-            raise HTTPException(status_code=400, detail="Model name required")
-        
-        # Generate task ID
-        task_id = f"install_{model.replace(':', '_')}_{int(time.time())}"
-        
-        # Start installation in background
-        background_tasks.add_task(install_model_task, task_id, model)
-        
-        return {
-            "task_id": task_id,
-            "message": f"Started installation of {model}",
-            "status": "started",
-            "monitor_url": f"/api/tasks/progress/{task_id}"
-        }
-        
-    except Exception as e:
-        logger.error(f"Error starting model installation: {e}")
-        raise HTTPException(status_code=500, detail=f"Failed to start installation: {str(e)}")
-
-@router.post("/start/{task_type}")
-async def start_task(task_type: str, request: Request, background_tasks: BackgroundTasks):
-    """Start a long-running task"""
-    try:
-        data = await request.json() if await request.body() else {}
-        
-        # Generate task ID
-        timestamp = int(time.time())
-        task_id = f"{task_type}_{timestamp}"
-        
-        if task_type == "reindex":
-            # Start reindexing task
-            background_tasks.add_task(reindex_task, task_id)
-            
-            return {
-                "task_id": task_id,
-                "message": "Started reindexing documents",
-                "status": "started",
-                "monitor_url": f"/api/tasks/progress/{task_id}"
-            }
-        else:
-            raise HTTPException(400, f"Unknown task type: {task_type}")
-            
-    except Exception as e:
-        logger.error(f"Error starting task: {e}")
-        raise HTTPException(500, f"Failed to start task: {str(e)}")
+        logger.error(f"Reindexing task failed: {e}")
+        update_task_progress(task_id, 0, f"Reindexing failed: {str(e)}", "failed")
 
 @router.get("/progress/{task_id}")
 async def get_task_progress(task_id: str):
