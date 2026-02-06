@@ -45,7 +45,11 @@ async def chat_endpoint(request: Dict[str, Any]):
         logger.error(f"Chat error: {e}")
         return {"response": "Sorry, I encountered an error."}
 
-@router.get("/test")
+@router.get("/chat/health")
+async def chat_health():
+    return {"status": "ok", "service": "chat"}
+
+@router.get("/chat/test")
 async def test_chat():
     """Test endpoint"""
     return {"status": "ok", "message": "Chat API is working"}

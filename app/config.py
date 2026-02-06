@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, List
 import configparser
 
 class Config:
@@ -77,51 +77,49 @@ class Config:
             self.config.add_section(section)
         self.config.set(section, key, str(value))
         self._save_config()
-
-    # Add to Config class
-
-def get_available_models(self) -> Dict[str, List[str]]:
-    """Get available models from Ollama"""
-    import requests
-    try:
-        response = requests.get(f"{self.ollama_base_url}/api/tags", timeout=5)
-        if response.status_code == 200:
-            ollama_models = response.json().get("models", [])
-            
-            # Separate chat and embedding models
-            chat_models = []
-            embedding_models = []
-            
-            embedding_keywords = [
-                "embed", "bge", "nomic", "mxbai", "e5", "minilm", 
-                "multilingual", "instructor", "sentence"
-            ]
-            
-            for model in ollama_models:
-                model_name = model.get("name", "")
-                is_embedding = any(keyword in model_name.lower() 
-                                 for keyword in embedding_keywords)
-                
-                if is_embedding:
-                    embedding_models.append(model_name)
-                else:
-                    chat_models.append(model_name)
-            
-            return {
-                "chat_models": chat_models,
-                "embedding_models": embedding_models
-            }
-    except:
-        pass
     
-    # Return empty lists if can't connect
-    return {"chat_models": [], "embedding_models": []}
-
-def is_model_available(self, model_name: str) -> bool:
-    """Check if a specific model is available"""
-    models = self.get_available_models()
-    all_models = models["chat_models"] + models["embedding_models"]
-    return model_name in all_models
+    def get_available_models(self) -> Dict[str, List[str]]:
+        """Get available models from Ollama"""
+        import requests
+        try:
+            response = requests.get(f"{self.ollama_base_url}/api/tags", timeout=5)
+            if response.status_code == 200:
+                ollama_models = response.json().get("models", [])
+                
+                # Separate chat and embedding models
+                chat_models = []
+                embedding_models = []
+                
+                embedding_keywords = [
+                    "embed", "bge", "nomic", "mxbai", "e5", "minilm", 
+                    "multilingual", "instructor", "sentence"
+                ]
+                
+                for model in ollama_models:
+                    model_name = model.get("name", "")
+                    is_embedding = any(keyword in model_name.lower() 
+                                     for keyword in embedding_keywords)
+                    
+                    if is_embedding:
+                        embedding_models.append(model_name)
+                    else:
+                        chat_models.append(model_name)
+                
+                return {
+                    "chat_models": chat_models,
+                    "embedding_models": embedding_models
+                }
+        except:
+            pass
+        
+        # Return empty lists if can't connect
+        return {"chat_models": [], "embedding_models": []}
+    
+    def is_model_available(self, model_name: str) -> bool:
+        """Check if a specific model is available"""
+        models = self.get_available_models()
+        all_models = models["chat_models"] + models["embedding_models"]
+        return model_name in all_models
     
     # Property accessors for common settings
     @property

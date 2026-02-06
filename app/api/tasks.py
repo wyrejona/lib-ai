@@ -89,11 +89,11 @@ async def stream_ingestion():
     """Stream ingestion logs in real-time"""
     ingest_script = config.project_root / "ingest.py"
     
-    if not ingest_script.exists():
-        yield "data: ❌ Error: ingest.py not found\n\n"
-        return
-    
     async def event_generator():
+        if not ingest_script.exists():
+            yield "data: ❌ Error: ingest.py not found\n\n"
+            return
+        
         # Run the ingestion process
         process = await asyncio.create_subprocess_exec(
             "python3", "-u", str(ingest_script),  # -u for unbuffered
@@ -129,7 +129,20 @@ async def stream_ingestion():
         }
     )
 
-@router.get("/tasks/{task_id}")
+@router.get("tasks/active")
+async def get_active_tasks():
+    """Get active tasks"""
+    active_tasks = {}
+    for task_id, task in tasks_db.items():
+        if task.get("status") in ["running", "pending"]:
+            active_tasks[task_id] = task
+    
+    return {
+        "tasks": active_tasks,
+        "count": len(active_tasks)
+    }
+
+@router.get("/{task_id}")
 async def get_task_status(task_id: str):
     """Get task status"""
     task = tasks_db.get(task_id)
@@ -138,7 +151,7 @@ async def get_task_status(task_id: str):
     
     return task
 
-@router.get("/tasks")
+@router.get("/")
 async def list_tasks():
     """List all tasks"""
     return {

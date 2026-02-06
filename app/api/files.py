@@ -10,7 +10,7 @@ from app.utils import format_file_size
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
-@router.get("/files")
+@router.get("/")
 async def list_files():
     """List uploaded PDF files"""
     files = []
@@ -45,7 +45,7 @@ async def upload_files(files: List[UploadFile] = File(...)):
     
     return {"uploaded": uploaded, "count": len(uploaded)}
 
-@router.delete("/files/{filename}")
+@router.delete("/{filename}")
 async def delete_file(filename: str):
     """Delete a file"""
     path = config.pdfs_dir / filename

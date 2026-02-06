@@ -343,7 +343,7 @@ class DashboardManager {
             this.showLoading('Loading configuration...');
             
             // Load current configuration
-            const configResponse = await fetch('/config', {
+            const configResponse = await fetch('/api/system/config', {
                 headers: { 'Accept': 'application/json' }
             });
             
@@ -879,7 +879,7 @@ class DashboardManager {
 
     async updateSystemResources() {
         try {
-            const response = await fetch('/system/status', {
+            const response = await fetch('/api/system/status', {
                 headers: { 'Accept': 'application/json' }
             });
             
@@ -921,7 +921,7 @@ class DashboardManager {
 
     async checkActiveTasks() {
         try {
-            const response = await fetch('/tasks/active', {
+            const response = await fetch('/api/tasks/active', {
                 headers: { 'Accept': 'application/json' }
             });
             
@@ -988,7 +988,7 @@ class DashboardManager {
         try {
             this.showLoading('Loading detailed metrics...');
             
-            const response = await fetch('/system/status', {
+            const response = await fetch('/api/system/status', {
                 headers: { 'Accept': 'application/json' }
             });
             
@@ -1040,7 +1040,7 @@ class DashboardManager {
         try {
             this.showLoading('Loading active tasks...');
             
-            const response = await fetch('/tasks/active', {
+            const response = await fetch('/api/tasks/active', {
                 headers: { 'Accept': 'application/json' }
             });
             
