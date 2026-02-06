@@ -1,0 +1,276 @@
+from fastapi import APIRouter, HTTPException, BackgroundTasks
+import psutil
+import requests
+import subprocess
+import asyncio
+import logging
+from typing import Dict, Any
+from app.config import config
+from app.core.llm_client import SimpleLLMClient
+
+logger = logging.getLogger(__name__)
+router = APIRouter()
+llm_client = SimpleLLMClient()
+
+@router.get("/status")
+async def system_status():
+    """Get system status"""
+    try:
+        # System resources
+        mem = psutil.virtual_memory()
+        disk = psutil.disk_usage('/')
+        
+        # Ollama status
+        ollama_ok = llm_client.check_available()
+        models = llm_client.list_models() if ollama_ok else []
+        
+        # Get vector store status
+        from app.core.vector_store import SimpleVectorStore
+        vector_store = SimpleVectorStore()
+        vector_store.load()
+        
+        return {
+            "system": {
+                "memory_percent": mem.percent,
+                "memory_available_gb": round(mem.available / 1024**3, 2),
+                "disk_percent": disk.percent,
+                "disk_free_gb": round(disk.free / 1024**3, 2),
+                "cpu_percent": psutil.cpu_percent(interval=0.5)
+            },
+            "ollama": {
+                "connected": ollama_ok,
+                "models_count": len(models),
+                "current_model": config.chat_model,
+                "embedding_model": config.embedding_model
+            },
+            "vector_store": {
+                "loaded": vector_store.loaded,
+                "chunks_count": len(vector_store.chunks) if vector_store.loaded else 0
+            },
+            "app": {
+                "name": config.app_name,
+                "version": config.app_version
+            }
+        }
+    except Exception as e:
+        logger.error(f"System status error: {e}")
+        raise HTTPException(500, str(e))
+
+@router.get("/config")
+async def get_config():
+    """Get current configuration"""
+    try:
+        models = config.get_available_models()
+        
+        return {
+            "current": {
+                "chat_model": config.chat_model,
+                "embedding_model": config.embedding_model,
+                "ollama_url": config.ollama_base_url
+            },
+            "available_models": models,
+            "paths": {
+                "pdfs_dir": str(config.pdfs_dir),
+                "data_dir": str(config.data_dir),
+                "vector_store": str(config.vector_store_path)
+            }
+        }
+    except Exception as e:
+        logger.error(f"Config error: {e}")
+        raise HTTPException(500, str(e))
+
+@router.put("/config/model")
+async def update_model(data: dict):
+    """Update model configuration"""
+    try:
+        model_type = data.get("type")  # "chat" or "embedding"
+        model_name = data.get("model")
+        
+        if not model_type or not model_name:
+            raise HTTPException(400, "Model type and name required")
+        
+        if model_type not in ["chat", "embedding"]:
+            raise HTTPException(400, "Model type must be 'chat' or 'embedding'")
+        
+        # Check if Ollama is available
+        if not llm_client.check_available():
+            raise HTTPException(500, "Ollama not available")
+        
+        # Check if model exists
+        models = llm_client.list_models()
+        if model_name not in models:
+            raise HTTPException(400, f"Model {model_name} not available. Please install it first.")
+        
+        # Update config
+        if model_type == "chat":
+            config.set('ollama', 'chat_model', model_name)
+            llm_client.model = model_name  # Update current instance
+        else:
+            config.set('ollama', 'embedding_model', model_name)
+        
+        return {
+            "success": True,
+            "message": f"{model_type.capitalize()} model updated to {model_name}",
+            "model": model_name,
+            "type": model_type
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Update model error: {e}")
+        raise HTTPException(500, str(e))
+
+@router.get("/models")
+async def list_models():
+    """List all available models"""
+    try:
+        if not llm_client.check_available():
+            raise HTTPException(500, "Ollama not available")
+        
+        all_models = llm_client.list_models()
+        
+        # Categorize models
+        chat_models = []
+        embedding_models = []
+        
+        embedding_keywords = [
+            "embed", "bge", "nomic", "mxbai", "e5", "minilm", 
+            "multilingual", "instructor", "sentence"
+        ]
+        
+        for model in all_models:
+            is_embedding = any(keyword in model.lower() for keyword in embedding_keywords)
+            if is_embedding:
+                embedding_models.append(model)
+            else:
+                chat_models.append(model)
+        
+        return {
+            "chat_models": chat_models,
+            "embedding_models": embedding_models,
+            "all_models": all_models,
+            "current_chat": config.chat_model,
+            "current_embedding": config.embedding_model
+        }
+    except Exception as e:
+        logger.error(f"List models error: {e}")
+        raise HTTPException(500, str(e))
+
+async def install_model_task(model_name: str, progress_callback=None):
+    """Background task to install a model"""
+    try:
+        logger.info(f"Starting installation of {model_name}")
+        
+        # Run ollama pull command
+        process = await asyncio.create_subprocess_exec(
+            "ollama", "pull", model_name,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        
+        # Stream output
+        while True:
+            line = await process.stdout.readline()
+            if not line:
+                break
+            
+            output = line.decode().strip()
+            logger.info(f"Ollama: {output}")
+            
+            # Optional: send progress updates
+            if progress_callback:
+                await progress_callback(output)
+        
+        await process.wait()
+        
+        if process.returncode == 0:
+            logger.info(f"Successfully installed {model_name}")
+            return True
+        else:
+            error = await process.stderr.read()
+            logger.error(f"Failed to install {model_name}: {error.decode()}")
+            return False
+            
+    except Exception as e:
+        logger.error(f"Model installation error: {e}")
+        return False
+
+@router.post("/models/install")
+async def install_model(data: dict, background_tasks: BackgroundTasks):
+    """Install a new model"""
+    try:
+        model_name = data.get("model")
+        if not model_name:
+            raise HTTPException(400, "Model name required")
+        
+        # Check if Ollama is available
+        if not llm_client.check_available():
+            raise HTTPException(500, "Ollama not available")
+        
+        # Check if already installed
+        existing_models = llm_client.list_models()
+        if model_name in existing_models:
+            return {
+                "success": True,
+                "message": f"Model {model_name} is already installed",
+                "already_installed": True
+            }
+        
+        # Start installation in background
+        async def install_and_notify():
+            success = await install_model_task(model_name)
+            # You could update a status database or send websocket notifications here
+        
+        # Run in background
+        asyncio.create_task(install_and_notify())
+        
+        return {
+            "success": True,
+            "message": f"Started installation of {model_name}",
+            "model": model_name,
+            "install_id": f"install_{model_name}"
+        }
+        
+    except Exception as e:
+        logger.error(f"Install model error: {e}")
+        raise HTTPException(500, str(e))
+
+@router.delete("/models/{model_name}")
+async def delete_model(model_name: str):
+    """Delete a model"""
+    try:
+        if not llm_client.check_available():
+            raise HTTPException(500, "Ollama not available")
+        
+        # Check if model exists
+        existing_models = llm_client.list_models()
+        if model_name not in existing_models:
+            raise HTTPException(404, f"Model {model_name} not found")
+        
+        # Don't allow deleting currently used models
+        if model_name == config.chat_model:
+            raise HTTPException(400, "Cannot delete currently active chat model")
+        if model_name == config.embedding_model:
+            raise HTTPException(400, "Cannot delete currently active embedding model")
+        
+        # Run ollama delete command
+        process = subprocess.run(
+            ["ollama", "delete", model_name],
+            capture_output=True,
+            text=True
+        )
+        
+        if process.returncode == 0:
+            return {
+                "success": True,
+                "message": f"Model {model_name} deleted successfully"
+            }
+        else:
+            raise HTTPException(500, f"Failed to delete model: {process.stderr}")
+            
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Delete model error: {e}")
+        raise HTTPException(500, str(e))

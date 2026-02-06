@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Files - Library Support AI</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/files.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>Library Support AI</h1>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="/files" class="nav-link active">
+                    <i class="fas fa-folder"></i> Manage Files
+                </a>
+                <a href="/chat" class="nav-link">
+                    <i class="fas fa-comments"></i> Chat
+                </a>
+                <a href="/models" class="nav-link">
+                    <i class="fas fa-cog"></i> Models
+                </a>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Vector Store: {{ vector_status }}</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Dashboard Cards -->
+            <div class="dashboard-cards">
+                <div class="card card-1">
+                    <div class="card-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Total Files</h3>
+                        <p>{{ total_files }}</p>
+                    </div>
+                </div>
+                
+                <div class="card card-2">
+                    <div class="card-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Total Size</h3>
+                        <p>{{ format_file_size(total_size) }}</p>
+                    </div>
+                </div>
+                
+                <div class="card card-3">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Processing Status</h3>
+                        <p>{{ vector_status }}</p>
+                    </div>
+                </div>
+                
+                <div class="card card-4">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Last Updated</h3>
+                        <p>{{ files[0].modified.strftime('%H:%M') if files else 'N/A' }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Upload Section -->
+            <div class="upload-section">
+                <h2><i class="fas fa-cloud-upload-alt"></i> Upload PDF Files</h2>
+                <div class="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & Drop or Click to Upload PDF Files</p>
+                    <small>Supports multiple PDF files up to 100MB each</small>
+                </div>
+                
+                <div class="upload-progress" id="uploadProgress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">Uploading: 0%</p>
+                </div>
+                
+                <div class="upload-actions">
+                    <button class="btn btn-success" onclick="processPDFs()">
+                        <i class="fas fa-sync-alt"></i> Process All Documents
+                    </button>
+                    {% if files %}
+                    <button class="btn btn-danger" onclick="clearAllFiles()">
+                        <i class="fas fa-trash-alt"></i> Clear All Files
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- File List Section -->
+            <div class="file-list-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-list"></i> Uploaded Files</h2>
+                    <div class="action-buttons">
+                        <input type="file" id="fileInput" multiple accept=".pdf" style="display:none">
+                        <button class="btn btn-primary" id="addFilesBtn">
+                            <i class="fas fa-plus"></i> Add More Files
+                        </button>
+                    </div>
+                </div>
+                
+                {% if files %}
+                <div class="file-table-container">
+                    <table class="file-table">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Size</th>
+                                <th>Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr>
+                                <td>
+                                    <div class="file-info">
+                                        <div class="file-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div class="file-details">
+                                            <div class="file-name" title="{{ file.name }}">{{ file.name }}</div>
+                                            <div class="file-meta">PDF Document</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ file.formatted_size }}</td>
+                                <td>{{ file.modified.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>
+                                    <div class="file-actions">
+                                        <button class="btn-icon-small btn-download" data-filename="{{ file.name }}" title="Download">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn-icon-small btn-preview" data-filename="{{ file.name }}" title="Preview">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon-small btn-delete" data-filename="{{ file.name }}" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>No Files Uploaded</h3>
+                    <p>Upload your first PDF document to get started</p>
+                    <button class="btn btn-primary" id="uploadFirstBtn">
+                        <i class="fas fa-upload"></i> Upload Your First PDF
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Preview Modal -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">PDF Preview</h3>
+                <button class="btn-icon-small" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfViewer" class="modal-pdf" src=""></iframe>
+            </div>
+            <div class="modal-actions">
+                <a id="downloadBtn" class="btn btn-download" download>
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+                <button class="btn btn-secondary" id="closeModalBtn2">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="/static/js/files.js"></script>
+</body>
+</html>

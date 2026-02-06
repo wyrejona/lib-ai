@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Management - {{ app_name }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .nav a {
+            padding: 12px 25px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .nav a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .current-model {
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .current-model h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+        
+        .model-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        
+        .model-item {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .model-item:last-child {
+            border-bottom: none;
+        }
+        
+        .model-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .model-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 0.9em;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 0.85em;
+        }
+        
+        .install-section {
+            margin-top: 25px;
+        }
+        
+        .install-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .install-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-connected {
+            background: #28a745;
+        }
+        
+        .status-disconnected {
+            background: #dc3545;
+        }
+        
+        .progress-container {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ app_name }} - Model Management</h1>
+            <p>Install, configure, and manage AI models</p>
+        </div>
+        
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/chat">Chat</a>
+            <a href="/files">Files</a>
+            <a href="/models">Models</a>
+        </div>
+        
+        <div id="status-alert" class="alert"></div>
+        
+        <div class="dashboard">
+            <!-- Ollama Status Card -->
+            <div class="card">
+                <h2>Ollama Status</h2>
+                <div id="ollama-status">
+                    <div class="loading">Checking Ollama connection...</div>
+                </div>
+            </div>
+            
+            <!-- Current Models Card -->
+            <div class="card">
+                <h2>Current Models</h2>
+                <div id="current-models">
+                    <div class="loading">Loading current models...</div>
+                </div>
+            </div>
+            
+            <!-- Chat Models Card -->
+            <div class="card">
+                <h2>Chat Models</h2>
+                <div class="current-model">
+                    <h3>Current Chat Model</h3>
+                    <div id="current-chat-model">Loading...</div>
+                </div>
+                <div class="model-list" id="chat-models-list">
+                    <div class="loading">Loading chat models...</div>
+                </div>
+                <div class="install-section">
+                    <h4>Install New Chat Model</h4>
+                    <div class="install-form">
+                        <input type="text" id="new-chat-model" class="install-input" 
+                               placeholder="e.g., llama2:7b, mistral:7b">
+                        <button onclick="installModel('chat')" class="btn btn-primary">
+                            Install
+                        </button>
+                    </div>
+                    <div id="chat-progress" class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">Starting installation...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Embedding Models Card -->
+            <div class="card">
+                <h2>Embedding Models</h2>
+                <div class="current-model">
+                    <h3>Current Embedding Model</h3>
+                    <div id="current-embedding-model">Loading...</div>
+                </div>
+                <div class="model-list" id="embedding-models-list">
+                    <div class="loading">Loading embedding models...</div>
+                </div>
+                <div class="install-section">
+                    <h4>Install New Embedding Model</h4>
+                    <div class="install-form">
+                        <input type="text" id="new-embedding-model" class="install-input" 
+                               placeholder="e.g., nomic-embed-text:latest">
+                        <button onclick="installModel('embedding')" class="btn btn-primary">
+                            Install
+                        </button>
+                    </div>
+                    <div id="embedding-progress" class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">Starting installation...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let currentModels = {};
+        let installationInProgress = false;
+        
+        // Show alert message
+        function showAlert(message, type = 'success') {
+            const alert = document.getElementById('status-alert');
+            alert.textContent = message;
+            alert.className = `alert alert-${type}`;
+            alert.style.display = 'block';
+            
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Update progress bar
+        function updateProgress(type, percent, message) {
+            const container = document.getElementById(`${type}-progress`);
+            const fill = container.querySelector('.progress-fill');
+            const text = container.querySelector('.progress-text');
+            
+            container.style.display = 'block';
+            fill.style.width = `${percent}%`;
+            text.textContent = message;
+            
+            if (percent >= 100) {
+                setTimeout(() => {
+                    container.style.display = 'none';
+                    fill.style.width = '0%';
+                }, 2000);
+            }
+        }
+        
+        // Load system status
+        async function loadStatus() {
+            try {
+                const response = await fetch('/api/system/status');
+                const data = await response.json();
+                
+                const statusDiv = document.getElementById('ollama-status');
+                if (data.ollama.connected) {
+                    statusDiv.innerHTML = `
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <span class="status-indicator status-connected"></span>
+                            <span style="font-weight: 500; color: #28a745;">Connected</span>
+                        </div>
+                        <div style="color: #666;">
+                            <p><strong>Models Available:</strong> ${data.ollama.models_count}</p>
+                            <p><strong>Current Chat Model:</strong> ${data.ollama.current_model}</p>
+                            <p><strong>Current Embedding Model:</strong> ${data.ollama.embedding_model}</p>
+                        </div>
+                    `;
+                } else {
+                    statusDiv.innerHTML = `
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <span class="status-indicator status-disconnected"></span>
+                            <span style="font-weight: 500; color: #dc3545;">Disconnected</span>
+                        </div>
+                        <div style="color: #666;">
+                            <p>Ollama is not running or not accessible.</p>
+                            <p>Please make sure Ollama is installed and running on your system.</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading status:', error);
+            }
+        }
+        
+        // Load current models
+        async function loadCurrentModels() {
+            try {
+                const response = await fetch('/api/config');
+                const data = await response.json();
+                
+                const currentDiv = document.getElementById('current-models');
+                currentDiv.innerHTML = `
+                    <div style="color: #666;">
+                        <p><strong>Chat Model:</strong> ${data.current.chat_model}</p>
+                        <p><strong>Embedding Model:</strong> ${data.current.embedding_model}</p>
+                        <p><strong>Ollama URL:</strong> ${data.current.ollama_url}</p>
+                    </div>
+                `;
+                
+                // Update individual displays
+                document.getElementById('current-chat-model').textContent = data.current.chat_model;
+                document.getElementById('current-embedding-model').textContent = data.current.embedding_model;
+            } catch (error) {
+                console.error('Error loading current models:', error);
+            }
+        }
+        
+        // Load available models
+        async function loadAvailableModels() {
+            try {
+                const response = await fetch('/api/system/models');
+                const data = await response.json();
+                
+                currentModels = data;
+                
+                // Update chat models list
+                const chatList = document.getElementById('chat-models-list');
+                chatList.innerHTML = '';
+                
+                data.chat_models.forEach(model => {
+                    const isCurrent = model === data.current_chat;
+                    const item = document.createElement('div');
+                    item.className = 'model-item';
+                    
+                    item.innerHTML = `
+                        <span class="model-name">${model} ${isCurrent ? '(Active)' : ''}</span>
+                        <div class="model-actions">
+                            ${!isCurrent ? `
+                                <button onclick="switchModel('chat', '${model}')" 
+                                        class="btn btn-primary btn-small">
+                                    Switch
+                                </button>
+                                <button onclick="deleteModel('${model}')" 
+                                        class="btn btn-danger btn-small">
+                                    Delete
+                                </button>
+                            ` : `
+                                <span style="color: #28a745; font-weight: 500;">Active</span>
+                            `}
+                        </div>
+                    `;
+                    
+                    chatList.appendChild(item);
+                });
+                
+                // Update embedding models list
+                const embeddingList = document.getElementById('embedding-models-list');
+                embeddingList.innerHTML = '';
+                
+                data.embedding_models.forEach(model => {
+                    const isCurrent = model === data.current_embedding;
+                    const item = document.createElement('div');
+                    item.className = 'model-item';
+                    
+                    item.innerHTML = `
+                        <span class="model-name">${model} ${isCurrent ? '(Active)' : ''}</span>
+                        <div class="model-actions">
+                            ${!isCurrent ? `
+                                <button onclick="switchModel('embedding', '${model}')" 
+                                        class="btn btn-primary btn-small">
+                                    Switch
+                                </button>
+                                <button onclick="deleteModel('${model}')" 
+                                        class="btn btn-danger btn-small">
+                                    Delete
+                                </button>
+                            ` : `
+                                <span style="color: #28a745; font-weight: 500;">Active</span>
+                            `}
+                        </div>
+                    `;
+                    
+                    embeddingList.appendChild(item);
+                });
+                
+            } catch (error) {
+                console.error('Error loading available models:', error);
+            }
+        }
+        
+        // Switch to a different model
+        async function switchModel(type, modelName) {
+            if (!confirm(`Switch ${type} model to ${modelName}?`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/system/config/model', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: type,
+                        model: modelName
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(result.message);
+                    // Reload all data
+                    loadStatus();
+                    loadCurrentModels();
+                    loadAvailableModels();
+                } else {
+                    showAlert(result.error || 'Failed to switch model', 'error');
+                }
+            } catch (error) {
+                showAlert('Error switching model: ' + error.message, 'error');
+            }
+        }
+        
+        // Install a new model
+        async function installModel(type) {
+            if (installationInProgress) {
+                showAlert('Another installation is in progress', 'error');
+                return;
+            }
+            
+            const inputId = type === 'chat' ? 'new-chat-model' : 'new-embedding-model';
+            const modelName = document.getElementById(inputId).value.trim();
+            
+            if (!modelName) {
+                showAlert('Please enter a model name', 'error');
+                return;
+            }
+            
+            // Check if already installed
+            const modelList = type === 'chat' ? 
+                currentModels.chat_models : currentModels.embedding_models;
+            
+            if (modelList && modelList.includes(modelName)) {
+                showAlert(`Model ${modelName} is already installed`, 'error');
+                return;
+            }
+            
+            if (!confirm(`Install ${modelName}? This may take several minutes.`)) {
+                return;
+            }
+            
+            installationInProgress = true;
+            updateProgress(type, 10, 'Starting installation...');
+            
+            try {
+                const response = await fetch('/api/system/models/install', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: modelName
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(result.message);
+                    
+                    if (!result.already_installed) {
+                        // Simulate progress updates (in real app, use websockets)
+                        simulateProgress(type, modelName);
+                    } else {
+                        installationInProgress = false;
+                        updateProgress(type, 100, 'Already installed');
+                        loadAvailableModels();
+                    }
+                    
+                    // Clear input
+                    document.getElementById(inputId).value = '';
+                } else {
+                    showAlert(result.error || 'Failed to install model', 'error');
+                    installationInProgress = false;
+                    updateProgress(type, 0, 'Installation failed');
+                }
+            } catch (error) {
+                showAlert('Error installing model: ' + error.message, 'error');
+                installationInProgress = false;
+                updateProgress(type, 0, 'Installation failed');
+            }
+        }
+        
+        // Simulate installation progress (replace with real progress updates)
+        function simulateProgress(type, modelName) {
+            let progress = 10;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                
+                if (progress < 50) {
+                    updateProgress(type, progress, 'Downloading model...');
+                } else if (progress < 80) {
+                    updateProgress(type, progress, 'Installing model...');
+                } else if (progress < 95) {
+                    updateProgress(type, progress, 'Finalizing...');
+                } else {
+                    updateProgress(type, 100, 'Installation complete!');
+                    clearInterval(interval);
+                    
+                    // Reload models after a delay
+                    setTimeout(() => {
+                        installationInProgress = false;
+                        loadStatus();
+                        loadAvailableModels();
+                    }, 2000);
+                }
+            }, 1000);
+        }
+        
+        // Delete a model
+        async function deleteModel(modelName) {
+            if (!confirm(`Are you sure you want to delete ${modelName}? This action cannot be undone.`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/system/models/${encodeURIComponent(modelName)}`, {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    showAlert(result.message);
+                    loadStatus();
+                    loadAvailableModels();
+                } else {
+                    const error = await response.json();
+                    showAlert(error.detail || 'Failed to delete model', 'error');
+                }
+            } catch (error) {
+                showAlert('Error deleting model: ' + error.message, 'error');
+            }
+        }
+        
+        // Initialize page
+        async function init() {
+            await Promise.all([
+                loadStatus(),
+                loadCurrentModels(),
+                loadAvailableModels()
+            ]);
+            
+            // Auto-refresh every 30 seconds
+            setInterval(() => {
+                loadStatus();
+                loadAvailableModels();
+            }, 30000);
+        }
+        
+        // Start on page load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
