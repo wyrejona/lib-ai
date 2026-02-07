@@ -1,0 +1,979 @@
+{
+  "circulation": [
+    "library  circulation",
+    "circulation  desk",
+    "relationship  between  opac,  shelves,  and circulation"
+  ],
+  "library": [
+    "library  circulation",
+    "library  shelves  and classification  system",
+    "plos (public library of science)",
+    "how do i join the library? library mainly serves the university of embu community i.e.",
+    "how do i extend loan period of a library material? present the material and your id to library",
+    "what should i do when i find the library records do not match with the actual book? in",
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons",
+    "how do i recommend the library to purchase new books and journals? once logged into",
+    "how do i know which journals the library has subscribed to? log in to your myloft",
+    "what happens to my account if i happen to lose a library item? check the library shelves",
+    "is it possible to stop fines from accruing in my account when i lose a library item"
+  ],
+  "desk": [
+    "circulation  desk"
+  ],
+  "access": [
+    "opac (online  public  access  catalogue)",
+    "doaj (directory of open access journals)",
+    "doab (directory of open access books)",
+    "access includes: journals, databases, e -books, past exam papers",
+    "access past papers:",
+    "access turnitin:",
+    "what is what is open access?",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "public": [
+    "opac (online  public  access  catalogue)",
+    "plos (public library of science)"
+  ],
+  "online": [
+    "opac (online  public  access  catalogue)",
+    "online availability:",
+    "online chat:  ask a librarian for quick questions"
+  ],
+  "catalogue": [
+    "opac (online  public  access  catalogue)"
+  ],
+  "opac": [
+    "opac (online  public  access  catalogue)",
+    "relationship  between  opac,  shelves,  and circulation"
+  ],
+  "system": [
+    "library  shelves  and classification  system",
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "classification": [
+    "library  shelves  and classification  system"
+  ],
+  "shelves": [
+    "library  shelves  and classification  system",
+    "relationship  between  opac,  shelves,  and circulation",
+    "what happens to my account if i happen to lose a library item? check the library shelves",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in"
+  ],
+  "between": [
+    "relationship  between  opac,  shelves,  and circulation"
+  ],
+  "relationship": [
+    "relationship  between  opac,  shelves,  and circulation"
+  ],
+  "check": [
+    "check due date stamp inside book cover for return date",
+    "originality check:",
+    "check your work:",
+    "how do i know the status of books i have borrowed and the date for returning? check",
+    "what happens to my account if i happen to lose a library item? check the library shelves"
+  ],
+  "cover": [
+    "check due date stamp inside book cover for return date"
+  ],
+  "inside": [
+    "check due date stamp inside book cover for return date"
+  ],
+  "due": [
+    "check due date stamp inside book cover for return date",
+    "new due date calculated from renewal day (not original due date)"
+  ],
+  "stamp": [
+    "check due date stamp inside book cover for return date"
+  ],
+  "book": [
+    "check due date stamp inside book cover for return date",
+    "how to stop fines while searching for lost book?",
+    "what should i do when i find the library records do not match with the actual book? in",
+    "why is it that a book is indicated as available in the database, but cannot be traced on"
+  ],
+  "return": [
+    "check due date stamp inside book cover for return date"
+  ],
+  "date": [
+    "check due date stamp inside book cover for return date",
+    "new due date calculated from renewal day (not original due date)",
+    "how do i know the status of books i have borrowed and the date for returning? check"
+  ],
+  "new": [
+    "new due date calculated from renewal day (not original due date)",
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "calculated": [
+    "new due date calculated from renewal day (not original due date)"
+  ],
+  "not": [
+    "new due date calculated from renewal day (not original due date)",
+    "if not found after 1 month:",
+    "what should i do when i find the library records do not match with the actual book? in"
+  ],
+  "renewal": [
+    "new due date calculated from renewal day (not original due date)"
+  ],
+  "original": [
+    "new due date calculated from renewal day (not original due date)"
+  ],
+  "day": [
+    "new due date calculated from renewal day (not original due date)"
+  ],
+  "after": [
+    "if not found after 1 month:"
+  ],
+  "month": [
+    "if not found after 1 month:"
+  ],
+  "found": [
+    "if not found after 1 month:",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in"
+  ],
+  "shelf": [
+    "find shelf by alphabetical/numerical order"
+  ],
+  "alphabetical": [
+    "find shelf by alphabetical/numerical order"
+  ],
+  "order": [
+    "find shelf by alphabetical/numerical order"
+  ],
+  "numerical": [
+    "find shelf by alphabetical/numerical order"
+  ],
+  "find": [
+    "find shelf by alphabetical/numerical order",
+    "what should i do when i find the library records do not match with the actual book? in"
+  ],
+  "open": [
+    "doaj (directory of open access journals)",
+    "doab (directory of open access books)",
+    "what is what is open access?",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in"
+  ],
+  "directory": [
+    "doaj (directory of open access journals)",
+    "doab (directory of open access books)"
+  ],
+  "journals": [
+    "doaj (directory of open access journals)",
+    "access includes: journals, databases, e -books, past exam papers",
+    "how do i recommend the library to purchase new books and journals? once logged into",
+    "how do i know which journals the library has subscribed to? log in to your myloft"
+  ],
+  "doaj": [
+    "doaj (directory of open access journals)"
+  ],
+  "core": [
+    "core"
+  ],
+  "academic": [
+    "base (bielefeld academic search engine)",
+    "maintain academic integrity in all work"
+  ],
+  "engine": [
+    "base (bielefeld academic search engine)"
+  ],
+  "base": [
+    "base (bielefeld academic search engine)"
+  ],
+  "bielefeld": [
+    "base (bielefeld academic search engine)"
+  ],
+  "search": [
+    "base (bielefeld academic search engine)"
+  ],
+  "arxiv": [
+    "arxiv"
+  ],
+  "pmc": [
+    "pubmed central (pmc)",
+    "europe pmc"
+  ],
+  "pubmed": [
+    "pubmed central (pmc)"
+  ],
+  "central": [
+    "pubmed central (pmc)"
+  ],
+  "doab": [
+    "doab (directory of open access books)"
+  ],
+  "books": [
+    "doab (directory of open access books)",
+    "access includes: journals, databases, e -books, past exam papers",
+    "how do i know the status of books i have borrowed and the date for returning? check",
+    "how  do i borrow/renew  my books?",
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons",
+    "how do i recommend the library to purchase new books and journals? once logged into",
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited",
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "plos": [
+    "plos (public library of science)"
+  ],
+  "science": [
+    "plos (public library of science)"
+  ],
+  "eric": [
+    "eric"
+  ],
+  "biorxiv": [
+    "biorxiv"
+  ],
+  "medrxiv": [
+    "medrxiv"
+  ],
+  "ssrn": [
+    "ssrn"
+  ],
+  "zenodo": [
+    "zenodo"
+  ],
+  "paperity": [
+    "paperity"
+  ],
+  "europe": [
+    "europe pmc"
+  ],
+  "opendoar": [
+    "opendoar"
+  ],
+  "includes": [
+    "access includes: journals, databases, e -books, past exam papers"
+  ],
+  "papers": [
+    "access includes: journals, databases, e -books, past exam papers",
+    "access past papers:",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "databases": [
+    "access includes: journals, databases, e -books, past exam papers"
+  ],
+  "exam": [
+    "access includes: journals, databases, e -books, past exam papers",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "past": [
+    "access includes: journals, databases, e -books, past exam papers",
+    "access past papers:",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "myloft": [
+    "download myloft app:",
+    "how do i know which journals the library has subscribed to? log in to your myloft",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "download": [
+    "download myloft app:"
+  ],
+  "app": [
+    "download myloft app:",
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "process": [
+    "login process:"
+  ],
+  "login": [
+    "login process:"
+  ],
+  "reference": [
+    "why reference",
+    "reference list:",
+    "reference list matches:",
+    "reference  list examples"
+  ],
+  "direct": [
+    "direct plagiarism:",
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or"
+  ],
+  "plagiarism": [
+    "direct plagiarism:",
+    "self -plagiarism:",
+    "mosaic plagiarism:",
+    "accidental plagiarism:",
+    "use plagiarism checkers:",
+    "what is what is plagiarism?",
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or",
+    "self-plagiarism  – reusing  your own previously  submitted  work without",
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper",
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally.",
+    "what is what is plagiarism"
+  ],
+  "self": [
+    "self -plagiarism:",
+    "self-plagiarism  – reusing  your own previously  submitted  work without"
+  ],
+  "mosaic": [
+    "mosaic plagiarism:",
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "accidental": [
+    "accidental plagiarism:",
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "always": [
+    "always cite sources:"
+  ],
+  "cite": [
+    "always cite sources:",
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "sources": [
+    "always cite sources:",
+    "track your sources:",
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "correctly": [
+    "paraphrase correctly:",
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "paraphrase": [
+    "paraphrase correctly:"
+  ],
+  "marks": [
+    "use quotation marks:",
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or"
+  ],
+  "use": [
+    "use quotation marks:",
+    "use plagiarism checkers:",
+    "use citation tools:",
+    "can i use someone else's id card?",
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "quotation": [
+    "use quotation marks:",
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or"
+  ],
+  "track": [
+    "track your sources:"
+  ],
+  "your": [
+    "track your sources:",
+    "check your work:",
+    "how do i extend loan period of a library material? present the material and your id to library",
+    "how do i know which journals the library has subscribed to? log in to your myloft",
+    "what is overdue notice. what should i do? every item checked out under your account means that",
+    "self-plagiarism  – reusing  your own previously  submitted  work without",
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper",
+    "citing  - mentioning  the work of others  in your own work."
+  ],
+  "checkers": [
+    "use plagiarism checkers:"
+  ],
+  "originality": [
+    "originality check:"
+  ],
+  "similarity": [
+    "similarity reports:"
+  ],
+  "reports": [
+    "similarity reports:"
+  ],
+  "citation": [
+    "citation assistance:",
+    "use citation tools:",
+    "what is what is citation and referencing?",
+    "in-text citation  examples",
+    "what  is citation  and  referencing"
+  ],
+  "assistance": [
+    "citation assistance:"
+  ],
+  "grademark": [
+    "grademark features:"
+  ],
+  "features": [
+    "grademark features:"
+  ],
+  "integration": [
+    "integration:"
+  ],
+  "copy": [
+    "easy copy -paste:"
+  ],
+  "easy": [
+    "easy copy -paste:"
+  ],
+  "paste": [
+    "easy copy -paste:"
+  ],
+  "availability": [
+    "online availability:"
+  ],
+  "advancements": [
+    "technology advancements:"
+  ],
+  "technology": [
+    "technology advancements:"
+  ],
+  "pressure": [
+    "time pressure:"
+  ],
+  "time": [
+    "time pressure:"
+  ],
+  "language": [
+    "language difficulties:"
+  ],
+  "difficulties": [
+    "language difficulties:"
+  ],
+  "early": [
+    "start early:"
+  ],
+  "start": [
+    "start early:"
+  ],
+  "good": [
+    "take good notes:"
+  ],
+  "take": [
+    "take good notes:"
+  ],
+  "notes": [
+    "take good notes:"
+  ],
+  "understand": [
+    "understand paraphrasing:"
+  ],
+  "paraphrasing": [
+    "understand paraphrasing:",
+    "poor paraphrasing:"
+  ],
+  "tools": [
+    "use citation tools:"
+  ],
+  "work": [
+    "check your work:",
+    "maintain academic integrity in all work",
+    "self-plagiarism  – reusing  your own previously  submitted  work without",
+    "citing  - mentioning  the work of others  in your own work."
+  ],
+  "seek": [
+    "seek help:"
+  ],
+  "help": [
+    "seek help:",
+    "university resources are available to help"
+  ],
+  "list": [
+    "reference list:",
+    "reference list matches:",
+    "reference  list examples"
+  ],
+  "text": [
+    "in-text citations:",
+    "in-text citation  examples",
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or",
+    "turnitin  compares  the text with:"
+  ],
+  "citations": [
+    "in-text citations:",
+    "missing citations:",
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "title": [
+    "title formatting:"
+  ],
+  "formatting": [
+    "title formatting:"
+  ],
+  "turnitin": [
+    "access turnitin:",
+    "what is what is turnitin?",
+    "turnitin",
+    "turnitin  compares  the text with:"
+  ],
+  "document": [
+    "upload document:"
+  ],
+  "upload": [
+    "upload document:"
+  ],
+  "wait": [
+    "wait for processing:"
+  ],
+  "processing": [
+    "wait for processing:"
+  ],
+  "review": [
+    "review report:",
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "report": [
+    "review report:"
+  ],
+  "revise": [
+    "revise if needed:"
+  ],
+  "needed": [
+    "revise if needed:"
+  ],
+  "quotes": [
+    "properly cited quotes:"
+  ],
+  "properly": [
+    "properly cited quotes:"
+  ],
+  "cited": [
+    "properly cited quotes:"
+  ],
+  "common": [
+    "common phrases:"
+  ],
+  "phrases": [
+    "common phrases:",
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "missing": [
+    "missing citations:"
+  ],
+  "poor": [
+    "poor paraphrasing:"
+  ],
+  "matches": [
+    "reference list matches:",
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "all": [
+    "maintain academic integrity in all work",
+    "acquisition librarian reviews all suggestions"
+  ],
+  "maintain": [
+    "maintain academic integrity in all work"
+  ],
+  "integrity": [
+    "maintain academic integrity in all work"
+  ],
+  "available": [
+    "university resources are available to help",
+    "why is it that a book is indicated as available in the database, but cannot be traced on",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in"
+  ],
+  "university": [
+    "university resources are available to help",
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "resources": [
+    "university resources are available to help"
+  ],
+  "librarian": [
+    "acquisition librarian reviews all suggestions",
+    "online chat:  ask a librarian for quick questions"
+  ],
+  "suggestions": [
+    "acquisition librarian reviews all suggestions"
+  ],
+  "reviews": [
+    "acquisition librarian reviews all suggestions"
+  ],
+  "acquisition": [
+    "acquisition librarian reviews all suggestions"
+  ],
+  "card": [
+    "can i use someone else's id card?",
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "else": [
+    "can i use someone else's id card?"
+  ],
+  "someone": [
+    "can i use someone else's id card?"
+  ],
+  "period": [
+    "how do i extend my loan period?",
+    "how do i extend loan period of a library material? present the material and your id to library"
+  ],
+  "extend": [
+    "how do i extend my loan period?",
+    "how do i extend loan period of a library material? present the material and your id to library"
+  ],
+  "loan": [
+    "how do i extend my loan period?",
+    "how do i extend loan period of a library material? present the material and your id to library"
+  ],
+  "resource": [
+    "what if an e -resource isn't working?"
+  ],
+  "isn": [
+    "what if an e -resource isn't working?"
+  ],
+  "working": [
+    "what if an e -resource isn't working?"
+  ],
+  "stop": [
+    "how to stop fines while searching for lost book?",
+    "is it possible to stop fines from accruing in my account when i lose a library item"
+  ],
+  "searching": [
+    "how to stop fines while searching for lost book?"
+  ],
+  "fines": [
+    "how to stop fines while searching for lost book?",
+    "how comes there are fines in my account? there are two reasons as to why fines appear in",
+    "is it possible to stop fines from accruing in my account when i lose a library item",
+    "i received an alert notice that an item on my account is now overdue and accruing fines."
+  ],
+  "lost": [
+    "how to stop fines while searching for lost book?"
+  ],
+  "while": [
+    "how to stop fines while searching for lost book?"
+  ],
+  "ask": [
+    "online chat:  ask a librarian for quick questions"
+  ],
+  "questions": [
+    "online chat:  ask a librarian for quick questions"
+  ],
+  "quick": [
+    "online chat:  ask a librarian for quick questions",
+    "quick  apa  rule  reminder"
+  ],
+  "chat": [
+    "online chat:  ask a librarian for quick questions"
+  ],
+  "sunday": [
+    "sunday:  13:45 – 18:00"
+  ],
+  "referencing": [
+    "what is what is citation and referencing?",
+    "what  is citation  and  referencing"
+  ],
+  "examples": [
+    "in-text citation  examples",
+    "reference  list examples"
+  ],
+  "reminder": [
+    "quick  apa  rule  reminder"
+  ],
+  "apa": [
+    "quick  apa  rule  reminder"
+  ],
+  "rule": [
+    "quick  apa  rule  reminder"
+  ],
+  "community": [
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "mainly": [
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "embu": [
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "serves": [
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "join": [
+    "how do i join the library? library mainly serves the university of embu community i.e."
+  ],
+  "prohibited": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "borrow": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other",
+    "how  do i borrow/renew  my books?",
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "using": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "items": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other",
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "patron": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other",
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "another": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "identity": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "other": [
+    "can i borrow items using another patron’s identity card? it is prohibited to use other"
+  ],
+  "status": [
+    "how do i know the status of books i have borrowed and the date for returning? check"
+  ],
+  "borrowed": [
+    "how do i know the status of books i have borrowed and the date for returning? check",
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "returning": [
+    "how do i know the status of books i have borrowed and the date for returning? check"
+  ],
+  "know": [
+    "how do i know the status of books i have borrowed and the date for returning? check",
+    "how do i know which journals the library has subscribed to? log in to your myloft"
+  ],
+  "renew": [
+    "how  do i borrow/renew  my books?"
+  ],
+  "privileges": [
+    "what  are the borrowing  rules  and privileges ?"
+  ],
+  "rules": [
+    "what  are the borrowing  rules  and privileges ?"
+  ],
+  "borrowing": [
+    "what  are the borrowing  rules  and privileges ?"
+  ],
+  "present": [
+    "how do i extend loan period of a library material? present the material and your id to library"
+  ],
+  "material": [
+    "how do i extend loan period of a library material? present the material and your id to library"
+  ],
+  "records": [
+    "what should i do when i find the library records do not match with the actual book? in"
+  ],
+  "actual": [
+    "what should i do when i find the library records do not match with the actual book? in"
+  ],
+  "match": [
+    "what should i do when i find the library records do not match with the actual book? in"
+  ],
+  "should": [
+    "what should i do when i find the library records do not match with the actual book? in",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "traced": [
+    "why is it that a book is indicated as available in the database, but cannot be traced on"
+  ],
+  "cannot": [
+    "why is it that a book is indicated as available in the database, but cannot be traced on",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in",
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "indicated": [
+    "why is it that a book is indicated as available in the database, but cannot be traced on"
+  ],
+  "database": [
+    "why is it that a book is indicated as available in the database, but cannot be traced on"
+  ],
+  "accounts": [
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "patrons": [
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "continue": [
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons"
+  ],
+  "expired": [
+    "can a patron  with expired  library  items  continue  to borrow  books?  accounts  of patrons",
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "logged": [
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "recommend": [
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "into": [
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "once": [
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "purchase": [
+    "how do i recommend the library to purchase new books and journals? once logged into"
+  ],
+  "log": [
+    "how do i know which journals the library has subscribed to? log in to your myloft"
+  ],
+  "subscribed": [
+    "how do i know which journals the library has subscribed to? log in to your myloft"
+  ],
+  "there": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in"
+  ],
+  "reasons": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in"
+  ],
+  "two": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in"
+  ],
+  "account": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in",
+    "what happens to my account if i happen to lose a library item? check the library shelves",
+    "is it possible to stop fines from accruing in my account when i lose a library item",
+    "i received an alert notice that an item on my account is now overdue and accruing fines.",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "appear": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in"
+  ],
+  "comes": [
+    "how comes there are fines in my account? there are two reasons as to why fines appear in"
+  ],
+  "item": [
+    "what happens to my account if i happen to lose a library item? check the library shelves",
+    "is it possible to stop fines from accruing in my account when i lose a library item",
+    "i received an alert notice that an item on my account is now overdue and accruing fines.",
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in",
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "lose": [
+    "what happens to my account if i happen to lose a library item? check the library shelves",
+    "is it possible to stop fines from accruing in my account when i lose a library item"
+  ],
+  "happens": [
+    "what happens to my account if i happen to lose a library item? check the library shelves"
+  ],
+  "happen": [
+    "what happens to my account if i happen to lose a library item? check the library shelves"
+  ],
+  "accruing": [
+    "is it possible to stop fines from accruing in my account when i lose a library item",
+    "i received an alert notice that an item on my account is now overdue and accruing fines."
+  ],
+  "possible": [
+    "is it possible to stop fines from accruing in my account when i lose a library item"
+  ],
+  "overdue": [
+    "i received an alert notice that an item on my account is now overdue and accruing fines.",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "notice": [
+    "i received an alert notice that an item on my account is now overdue and accruing fines.",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "now": [
+    "i received an alert notice that an item on my account is now overdue and accruing fines."
+  ],
+  "received": [
+    "i received an alert notice that an item on my account is now overdue and accruing fines."
+  ],
+  "alert": [
+    "i received an alert notice that an item on my account is now overdue and accruing fines."
+  ],
+  "listed": [
+    "what should i do if the item listed as ‘available’, cannot be found on the open shelves? in"
+  ],
+  "you": [
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "only": [
+    "how  do i access  past  exam  papers?  you can only access  past papers  in myloft  app."
+  ],
+  "limited": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "note": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "extending": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "renewing": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "deadline": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "refers": [
+    "what is note that renewing item/s refers to extending the deadline of the borrowed books in a limited"
+  ],
+  "automatically": [
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "means": [
+    "what is with expired books are automatically locked out by the system. this means that they cannot",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "locked": [
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "out": [
+    "what is with expired books are automatically locked out by the system. this means that they cannot",
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "they": [
+    "what is with expired books are automatically locked out by the system. this means that they cannot"
+  ],
+  "checked": [
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "every": [
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "under": [
+    "what is overdue notice. what should i do? every item checked out under your account means that"
+  ],
+  "without": [
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or",
+    "self-plagiarism  – reusing  your own previously  submitted  work without",
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "word": [
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or"
+  ],
+  "copying": [
+    "direct  plagiarism  – copying  text word-for-word without  quotation  marks  or"
+  ],
+  "submitted": [
+    "self-plagiarism  – reusing  your own previously  submitted  work without"
+  ],
+  "previously": [
+    "self-plagiarism  – reusing  your own previously  submitted  work without"
+  ],
+  "reusing": [
+    "self-plagiarism  – reusing  your own previously  submitted  work without"
+  ],
+  "own": [
+    "self-plagiarism  – reusing  your own previously  submitted  work without",
+    "citing  - mentioning  the work of others  in your own work."
+  ],
+  "mixing": [
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "words": [
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "proper": [
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "copied": [
+    "mosaic  plagiarism  – mixing  your words  with copied  phrases  without  proper"
+  ],
+  "even": [
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "unintentionally": [
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "failing": [
+    "accidental  plagiarism  – failing  to cite sources  correctly,  even unintentionally."
+  ],
+  "compares": [
+    "turnitin  compares  the text with:"
+  ],
+  "correct": [
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "instructors": [
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "students": [
+    "instructors  and students  can review  matches  and correct  citations."
+  ],
+  "mentioning": [
+    "citing  - mentioning  the work of others  in your own work."
+  ],
+  "others": [
+    "citing  - mentioning  the work of others  in your own work."
+  ],
+  "citing": [
+    "citing  - mentioning  the work of others  in your own work."
+  ]
+}

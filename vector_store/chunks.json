@@ -1,0 +1,4206 @@
+{
+  "chunks": [
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  1/26 E-Resources What are e-resources  - E-Resources (Electronic Resources)  are information materials that are created, stored, accessed, and used digitally , usually via the internet or a library network.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_0",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Libraries provide them to support teaching, learning, research, and reference  without relying on physical copies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_1",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "E-Resources include digital materials such as: • E-journals  –These are digital versions of scholarly or professional journals that publish:  Research articles , Reviews , Case studies .",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_2",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "o Key Features:  Peer -reviewed , Updated regularly (monthly, quarterly, etc.) , Searchable and downloadable (PDF/HTML) o Examples of Major E -Journal Databases:  ScienceDirect  – Elsevier journals (science, technology, medicine) , JSTOR  – Archival academic journals (humanities, social sciences) , SpringerLink  – Journals in science, engineering, medicine , IEEE Xplore  – Engineering, computing, and technology journals ,Taylor & Francis Online o • E-books  - are digital versions of books that can be read online or downloaded.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_3",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "o Key Features: Accessible anytime, anywhere ,Search within text ,No physical wear or loss o Examples of Major E -Book Databases:  EBSCO eBooks , ProQuest Ebook Central ,Springer eBooks , Elsevier eBook Collections , Cambridge Core (Books) o • Online databases  – These are are organized digital collections of information  that libraries subscribe to or provide access to, allowing users to search, retrieve, and use scholarly and professional content online .",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_4",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "o They store large amounts of structured, searchable information  such as:  Journal articles , E- books , Research reports , Theses & dissertations , Newspapers , Statistical data , • Digital theses & dissertations  – These are  digital University  Publication s of student thesis and projects that are available through the  Univers ity digital repository – i.e Dspace – (https://repository.embuni.ac.ke) • Reports, newspapers, and reference tools  - They are accessed through library subscriptions , institutional logins, or open access platforms.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_5",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "What are Open Access Databases ? - Open Access (OA) databases  are online platforms that provide free, unrestricted access  to research articles, books, data, and other scholarly materials.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_6",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Unlike subscription - based databases, anyone can read, download, and share the content without a library login or payment .",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_7",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Key features:  Free to access  for all users , Often include peer-reviewed  content , Support wider sharing of knowledge , Help researchers and students without subscription access , https://library.embuni.ac.ke/eresources/#gsc.tab=0  2/26 15 major Open Access databases , suitable for library instruction, exams, or training materials .",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_8",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Database Name  Description  Subject Area  Link DOAJ (Directory of Open Access Journals)  Index of peer -reviewed open access journals  Multidisciplinary  https://doaj.org CORE  Aggregates open access research",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_9",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "worldwide  Multidisciplinary  https://core.ac.uk BASE (Bielefeld",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "outputs from repositories",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_10",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Engine)  Search engine for academic open access documents  Multidisciplinary  https://www.base -search.net OpenDOAR  Directory of open access repositories  Multidisciplinary  https://v2.sherpa.ac.uk/opendoar arXiv  Preprint repository for early research papers  Physics, Math, Computer Science  https://arxiv.org bioRxiv  Preprint server for biological sciences  Biology  https://www.biorxiv.org medRxiv  Preprint server for health and medical sciences  Medicine & Health  https://www.medrxiv.org SSRN  Open repository for scholarly research papers  Social Sciences, Humanities  https://www.ssrn.com PubMed Central (PMC)  Free full -text archive of biomedical literature  Medicine, Life Sciences  https://www.ncbi.nlm.nih.gov/pmc Europe PMC  Biomedical research articles and abstracts  Life Sciences, Medicine  https://europepmc.org DOAB (Directory of Open Access Books)  Directory of peer -reviewed open access books  Multidisciplinary  https://www.doabooks.org",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Academic Search",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_11",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "information database  Education  https://eric.ed.gov PLOS  Publisher of peer -reviewed open access journals  Science & Medicine  https://www.plos.org Paperity  Aggregator of open access journals and articles  Multidisciplinary  http://paperity.org Zenodo  Repository for research papers, data, and software  Multidisciplinary  https://ze All the E-resources  categorized  Alphabetically  subscribed by University of Embu",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "ERIC  Education research and",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_12",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  3/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "DATABASE  DESCRIPTION",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_13",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Access and download Free peer -viewed open -access chemistry Journals arranged alphabetically. https://library.embuni.ac.ke/eresources/#gsc.tab=0  4/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_14",
+        "page": 4,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Women’s Health It is a quarterly peer -reviewed and evidence -based journal for all midwives and nurses who wish to keep up -to-date with developments in Africa, in matters relating to midwifery and women’s health.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Midwifery and",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_15",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The journal provides clinical and professional articles and aims to advance skills, knowledge transfer and academic discussions in all aspects relating to midwifery practice and women’s health matters in Africa.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Midwifery and",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_16",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Online (AJOL)  AJOL is the world’s largest online collection of African -published, peer-reviewed scholarly journals.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "African  Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_17",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It provides free online hosting for over 500 peer -reviewed journals from 31 African countries, using open -source software.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "African  Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_18",
+        "page": 4,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Subjects covered: health, agriculture, education, climate change, and African studies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "African  Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_19",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "AGRIS is one of the most comprehensive databases in food and agricultural scientific literature, providing free access to over 13 million bibliographic records in 110 different languages",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "AGRIS",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_20",
+        "page": 4,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "of Physics  journals  AIP Citation offers online access to a robust collection of close to 1 million articles from leading Physical Sciences publications including journals, conference proceedings, standards, and magazines published by AIP Publishing and AIPP’s publishing partners.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "American Institute",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_21",
+        "page": 4,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Journal of Virology (JVI) explores the nature of the viruses reporting important new discoveries and pointing to new directions in research of animals, archaea,  bacteria,  fungi,  plants,  and protozoa.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Virology",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_22",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Society  APS publications  serve  the international  physics  community  with peer-reviewed research journals, news, and commentary about the latest research published in the Physical Review journals, https://library.embuni.ac.ke/eresources/#gsc.tab=0  5/26 news about and for members, information about physics and its place in the world, and blogs covering science policy, as well as fun and educational science news.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "American Physical",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_23",
+        "page": 5,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "of America (ASA)  The Society has grown steadily in membership and stature since its organization in 1929.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Acoustical Society",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_24",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "A variety of fields related to sound are represented: Physics, Measurement Technologies, and Instrumentation, Nearly All Engineering Disciplines, including, • Electric al • Mechanical • Civil • Aeronautical Robotics and Computer Sciences, Oceanography Ocean Engineering, Underwater Propagation Biology,  Physiology,  Psychology,  Architecture  (e.g.,  Concert  Hall Design),  Speech  and Hearing,  Music Noise and Noise Control, Noise Effects,  Animal Bioacoustics, Structural Acoustics and Vibration",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Acoustical Society",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_25",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Get access to quarterly reviews of World  Archaeology whose archive goes back to 1927 .",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Antiquity  Open",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_26",
+        "page": 5,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Annual Reviews is a nonprofit publisher dedicated to synthesizing and integrating knowledge for the progress of science and the benefit of society.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Annual  Reviews",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_27",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subject Strengths: All subjects B",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Annual  Reviews",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_28",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "BioOne provides a unique aggregation of high -impact bioscience research journals featuring topics on global warming, stem cell research, ecological and biodiversity conservation.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "BioOne  Complete",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_29",
+        "page": 6,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subject Strengths biological, ecological, and environmental sciences. https://library.embuni.ac.ke/eresources/#gsc.tab=0  6/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "BioOne  Complete",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_30",
+        "page": 6,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Open  Access Publisher of High Impact peer -review journals in all",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_31",
+        "page": 6,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Bookboon  e-books Bookboon is global eBook publisher which offers a wide range of over 900 textbooks for students and 600 eBooks for business professionals in 7 languages.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "subjects and BioMedicine",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_32",
+        "page": 6,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "They have free full -text e -books in Accounting, Economics & Finance, Engineering, IT & Programming, Languages, Marketing & Law, Natural Sciences, Statistics & Math ematics, Strategy & Management",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "subjects and BioMedicine",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_33",
+        "page": 6,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "BIR Publications is the publishing arm of the British Institute of Radiology (BIR), publishing books and journals covering all aspects of radiology, radiation oncology, medical physics and the underpinning sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Radiology Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_34",
+        "page": 6,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "BUKU Covers e -books in technical and vocational training. (TVETS) including carpentry,Primary Agriculture, Primary Health Civil Engineering  and Building  Construction  ,Drawing  Office Practice, electrical Infrastructure Construction, Engineering and Related Design, Finance, Economics and Accounting, Hospitality Education and Development, Mechatronics, Office Administration, Process Instrumentation Process Plant Operations, Safety in Society, Tourism, Hairdressing etc.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Radiology Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_35",
+        "page": 6,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Online  They have full text of over 380 Cambridge University Press Online Journals in Political Science, Linguistics, Social Science, Humanities, Law, Mathematics, Science, Medicine https://library.embuni.ac.ke/eresources/#gsc.tab=0  7/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cambridge Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_36",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Press journals) Full text of 20 online peer -reviewed journals in a broad range of scientific disciplines with back files dating back to 1996 in most cases.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "NRC Research",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_37",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subjects covered are: botany, cell biology, Chemistry, civil engineering, earth science, fisheries and aquatic scien ces, forestry, microbiology, physics, sport science, and zoology",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "NRC Research",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_38",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The Cochrane Library is a collection of online searchable databases containing high -quality, independent evidence to inform healthcare decision -making.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cochrane  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_39",
+        "page": 7,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Cochrane Reviews represent the highest level of evidence on which to base clinical treatment decisions.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cochrane  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_40",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "In addition to Cochrane Reviews, The Cochrane Library provides other sources of reliable information, from other systematic reviews abstracts, technology assessments, economic evaluations and individual clinical trials all the current evidence in one singl e environment.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cochrane  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_41",
+        "page": 7,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Core CORE aggregates all open access research outputs from repositories and journals worldwide and makes them available to the public.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cochrane  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_42",
+        "page": 7,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Thus, facilitating free unrestricted access to research for all.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Cochrane  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_43",
+        "page": 7,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "DOAB has more than 750 free full -text e -books, all of which are in Open Access and meet academic standards covering all subjects and many languages.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access Books",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_44",
+        "page": 8,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  8/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access Books",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_45",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "(DOAJ) It is a community -curated online directory that indexes and provides access to high quality, open access, peer -reviewed journals.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_46",
+        "page": 8,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Subjects covered: science, technology, medicine, social science, and humanities",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_47",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Press  Duke University Press Yearly publishes about 140 new books, more than 55 journals, and multiple digital collections.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Duke  University",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_48",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subject covered: Business management, Education, Economic and finance, Geography, Innovation, Research methods, Social and sociology, Teaching  methods,  Urban  &amp;  regional, Development  studies,  Environment,  and mathematics.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Duke  University",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_49",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Ebook central provides over 120,000 ebooks in all subject areas for academic pursuits. The database provides tools to enhance discovery, sharing and management.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "E Ebrary  Pro Quest",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_50",
+        "page": 8,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "This collection provides access to eight comprehensive",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Databases",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_51",
+        "page": 8,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "● Academic  Search  Premier  ● Business  Source  Premier  ● ERIC  ● MasterFILE Premier ● Newspaper Source ● Health Source: Nursing/Academic Edition ● Health Source: Consumer Edition ●",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "EBSCOhost  databases  covering  a variety  of disciplines:",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_52",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "University  Press  Publish books and journals in the humanities and social sciences. Subject strengths Archaeology, Architecture, Botany, Film, Media & Cultural Studies, History, Islamic Studies, Language & Linguistics, Law, Literary Studies, Philosophy, Politics, Religious Studies, Science & Social Science",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Edinburgh",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_53",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Online  Edward Elgar publishes 400 book and journal titles annually and have successfully created a prestigious list of over 7,000 titles.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Edward  Elgar",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_54",
+        "page": 9,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  9/26 Subject Strengths: Business Management, Economics and Finance, Geography, Law, Public Policy & Politics, Social Policy &",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Edward  Elgar",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_55",
+        "page": 9,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "E-kitabu E-kitabu is a platform that is used to deliver core textbooks. Currently, it contains selected core text for Nursing and Kiswahili",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sociology",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_56",
+        "page": 9,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "List of all  A-Z articles in open access journals which are published by Elsevier have undergone peer review that is permanently free for everyone to read and download in different subjects",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "access  journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_57",
+        "page": 9,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Have access to Bibliographic records of education literature, plus a growing collection of full text resources",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Science",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_58",
+        "page": 9,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Britannica  Developed specifically to provide comprehensive and global coverage of the world around us.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Encyclopedia",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_59",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It contains thousands of timely, relevant, and essential articles drawn from the Encyclopædia Britannica itself, as well as from the Britannica Concise Encyclopedia , the Britannica Encyclopedia of World Religions , and Compton’s by Britannica.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Encyclopedia",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_60",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Written by international experts and scholars, the articles in this collection reflect the standards that have been the hallmark of the leading English -language encyclopedia for over 240 years.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Encyclopedia",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_61",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Euclid  Prime  Project Euclid hosts over 1.8 million pages of open -access content. Subject covered: Applied mathematics, statistics, theoretical https://library.embuni.ac.ke/eresources/#gsc.tab=0  10/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Encyclopedia",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_62",
+        "page": 10,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Adult and paediatric respiratory medicine, including cell biology, epidemiology, immunology, oncology, pathophysiology, imaging, occupational medicine, intensive care,  sleep  medicine,  and thoracic  surgery.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_63",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "This portal focuses primarily on academic material. It has a keyword search tool and also a list of broad subject categories.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Free Book  Center",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_64",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "One of the principal categories is Medicine which is divided into a lengthy list of sub-categories. Each entry notes the title, language format and many contain a one sentence summary plus the link to the PDF.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Free Book  Center",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_65",
+        "page": 10,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Free full -text textbooks on medical literature. Have unrestricted access to scientific knowledge. Free- Ebooks.NET  Discover all -new, rising authors.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Doctors",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_66",
+        "page": 10,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Independent writers offer both entertaining fiction/romance for your enjoyment and non -fiction to help you find info from self -help to biz growth.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Doctors",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_67",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Launched in 2007 to celebrate 200 years of the Geological Society of London, the Lyell Collection is an online collection comprising of the Society’s journal titles, Special Publications and key book series – plus journals published on behalf of other societies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Complete",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_68",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Cutting edge science sits alongside important historical ma terial, all captured and presented to the highest electronic standards and benefiting from the extensive functionality of HighWire Press’ platform",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Complete",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_69",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Society  Covers the geosciences e -resources. It shares the courtyard with the Royal Academy of Arts, the Royal Astronomical Society, the https://library.embuni.ac.ke/eresources/#gsc.tab=0  11/26 Society of  Antiquaries of London, the Royal Society of Chemistry and the Linnean Society of London.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Geological",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_70",
+        "page": 11,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Read Full text books online free. You can also save links/ Citation of books in your personal google account.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Google  Books",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_71",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Hindawi publishes peer -reviewed, Open Access journals across many areas of science, technology, and medicine, as well as several areas  of social  science.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Hindawi",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_72",
+        "page": 11,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Hindawi’s  journals  are indexed  in the leading abstracting and indexing databases, including the Web of Science, Scopus, PubMed, INSPEC, Mathematical Reviews, and Chemical  Abstracts.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Hindawi",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_73",
+        "page": 11,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "HeinOnline’s International Core package provides access to 300+ years of information on political development and the complete history of the creation of government and legal systems around the world.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "HeinOnline",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_74",
+        "page": 11,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Among the many databases included, HeinOnline’s journal collection features more than 2,800 periodicals relating to a variety of subject areas, with all coverage dating from inception to the most currently published issues in most cases.Subject Strength: Law HST – The",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "HeinOnline",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_75",
+        "page": 11,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "(TBLSC) Subject Strength: agriculture & environment, biochemistry, cancer, cell biology, clinical medicine, disease  disorders & treatment, methods, immunology, metabolism & nutrition, microbiology, neuroscience, omics &  systems biology, pharmaceutical sciences, reproduction & development",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Collection",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_76",
+        "page": 11,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Monetary  Fund  Access to information and perspective on macroeconomics, globalization, development, trade, and aid, technical assistance, https://library.embuni.ac.ke/eresources/#gsc.tab=0  12/26 (IMF) demographics, emerging markets, policy advice, poverty reduction, and so much more.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "I International",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_77",
+        "page": 12,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "IEEE IEEE/IET Electronic Library Electrical Engineering, Telecommunications, Computer Science; Architecture, Imaging Science& Photographic",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "I International",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_78",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The IMF is viewed as one of the world’s most authoritative sources for economic information, analysis and harmonized statistics.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "IMF eLibrary",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_79",
+        "page": 12,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "IMF eLibrary  provides  comprehensive  data and original  analysis, with coverage of almost every economy in the world and a special focus on developing and emerging economies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "IMF eLibrary",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_80",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "They have more than 15,000 titles and one million data series; archival material to 1948.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "IMF eLibrary",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_81",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "(INFORMS) INFORMS (Institute for Operations Research and the Management Sciences) publishes 14 scholarly journals, including the flagship journals Management Science and Operations Research.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sciences",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_82",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "They publish journals on these subjects: Operations Research, Management Science, Analytics, Operations Management, Informatio n Systems, Decision Analysis, Research Theory, Marketing Research and Science, Computing and Information Technologies, Research Theory, Strategic Management, Mathematical  Theory,  Supply  Chain  Management,  Science",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sciences",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_83",
+        "page": 12,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  13/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Research  and Education",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_84",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Read, download full text  free open access eBooks and on: Physical Sciences, Engineering and Technology (1281) Life Sciences (362) Health Sciences (835) Social Sciences and Humanities (44) IWA(The",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "InTechOpen",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_85",
+        "page": 13,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "IWA Publishing publishes 17 peer -reviewed journals, plus supporting 4 more in association with Elsevier.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Publishing",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_86",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subjects covered:  Agriculture, Land, and water management, Water Science and Technology, Hydrology Research",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Publishing",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_87",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "IOPscience is an online service for journal content published by IOP Publishing. IOPscience embraces innovative technologies to make it easier for researchers to access scientific, technical and medical content.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "IOPscience",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_88",
+        "page": 13,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "IOP publishes more than 70 of the world’s mo st prestigious journals in physics and related sciences",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "IOPscience",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_89",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "JoVE publishes peer -reviewed scientific video article protocols to accelerate biological, medical, chemical, physical research.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "J JoVE",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_90",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Watch it now. https://library.embuni.ac.ke/eresources/#gsc.tab=0  14/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "J JoVE",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_91",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "JSTOR is a growing digital library of academic journals, books, and primary source objects. It helps students, scholars, and other individuals discover, use, and build upon a wide range of content through a powerful research and teaching platform.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "JSTOR",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_92",
+        "page": 14,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "Subject areas include: Business, Economics, History, Political Science, Language & Literature, Art & Art History, Music, Mathematics & Statistics, Education, Area Studies, Life Sciences, and Ecology & Botany K KICD The Kenya Institute of Curriculum Development (KICD) was established by the Government of Kenya on the 14th of January 2013 under an Act of Parliament - It also evaluates vets and approves the curricular and curriculum support materials for basic and tertiary education, as well as offering curriculum based consultancy services in basic and tertiary",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "JSTOR",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_93",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "LAW  AFRICA  LAW  e-books African law ebooks are electronic books (ebooks) that cover various legal topics pertaining to the African continent, text case law for East Africa.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "education and trainin",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_94",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "These ebooks can encompass a wide range of subjects, including constitutional law, commercial law, human  rights  law, and more.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "education and trainin",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_95",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "They  are authored by legal scholars, practitioners, and organizations with expertise in African law.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "education and trainin",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_96",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "A database which provides access to selected full text case law for East Africa (including Kenya, Uganda and Tanzania).",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "LAW  AFRICA  LAW  reports",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_97",
+        "page": 14,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  15/26 L",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Request",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_98",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "An award -winning academic publisher that produces approximately 75 books a year and 25 journals, specializing in literature, modern languages, history, and visual culture.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Liverpool  University  Press",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_99",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Our journal collection highlights the breadth and scope of journals that complement each other in history, literature, language, cultural studies, religious studies, and planning.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Liverpool  University  Press",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_100",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Lexis library delivers thousands of trusted legal, tax and regulatory sources, such as: Butterworths, Halsbury’s  Laws,  Tolley’s,  Harvey  on Industrial Relations and Employment Law and Civil Court Practice.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Lexis  Nexis  Legal  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_101",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Plus, Wide -ranging Primary sources material including all England Law Reports, Encyclopedia of forms and Precedents,  Atkins Court Forms among others.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Lexis  Nexis  Legal  Library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_102",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Publishers (MSP) They publish more than 17,000 high -quality pages per year. Subject coverage: Mathematics, Mechanics &",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Mathematical Sciences",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_103",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "MDPI (Multidisciplinary Digital Publishing Institute)  MDPI (Multidisciplinary Digital Publishing Institute) is an academic open -access publisher which publishes 150 diverse peer -reviewed, scientific, open access, electronic journals is all subjects.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "engineering",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_104",
+        "page": 16,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "MDPI publishing activities are supported by more than 9,900 active scientists and academic editors on their journals’ international editorial boards, including several Nobelists.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "engineering",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_105",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "More than 187,500 individual authors https://library.embuni.ac.ke/eresources/#gsc.tab=0  16/26 have already published with MDPI.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "engineering",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_106",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "MDPI.com receives more than 4.2 million monthly web page views. Memorial University Libraries – Free Free E -journals on all research subject areas from",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "engineering",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_107",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "eJournals  It brings you leading scientific and medical research from across the globe. It publishes over 60 journals that are open access or offer open access options.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Nature Publishing Group",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_108",
+        "page": 16,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "These include Nature Communications, Scientific Reports, Frontiers, Scientific Data, and Horticult ure Research.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Nature Publishing Group",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_109",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subjects include: Chemistry, Clinical Practice & Research, Earth & Environment, Life sciences, and Physical sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Nature Publishing Group",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_110",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "NCBI bookshelf provides free online access to books and documents in Life Science and Healthcare. O",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Biotechnology Information",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_111",
+        "page": 16,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "OECD is the world’s largest think -tank, renowned for its authoritative, internationally comparable statistics, analysis, and outlooks in Economics, Public Policy, Social Sciences and Environmental issues.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "OECD  iLibrary",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_112",
+        "page": 17,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  17/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "OECD  iLibrary",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_113",
+        "page": 17,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Open access for  Africa is a search engine that filters your search to prioritize results from open access journals and databases in Nursing and Medicine.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Access  for Africa",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_114",
+        "page": 17,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "It offers an orientation on how to optimize online searching and provides links to free access journals and databases.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Access  for Africa",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_115",
+        "page": 17,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Resources featured in this guide include journals with full -text access, free medical textbooks, free databases, best search strategies and information about partnering institutions in Africa.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Access  for Africa",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_116",
+        "page": 17,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Is a bundle  of 175 journals  in the Humanities  and Social Sciences, published by university presses and small academic publishers.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "OpenEdition  Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_117",
+        "page": 17,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Is a bundle of 175 journals published by university presses and small academic publishers. Subject  coverage:  Humanities  and Social  Sciences Optical  Society  of America  (OSA) They contain 15 Optics and photonics journals published by OSA, conference papers, and selected OSA meeting content, including Advances in Optics and Photonics (AOP), new in 2009.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_118",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The Optical Society of America brings together optics and photonics scientis ts, engineers, educators, technicians and business leaders.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_119",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "OUP:  Oxford  Journals OUP offers access to 324 prestigious and authoritative journals published in collaboration with some of the world’s most influential and scholarly professional societies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_120",
+        "page": 18,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "The 2017 Oxford Journals Collection includes cited journals in the fields of https://library.embuni.ac.ke/eresources/#gsc.tab=0  18/26 Medicine, Life Sciences, Humanities, Law, Mathematics and Physical Sciences, and Social Sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_121",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Oxfam  policy  and practice  Free access to 5000 publications including policy papers, research reports, technical briefs, case studies, books and journal articles.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_122",
+        "page": 18,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Insight into our current policy, programme and research areas. Blogs and podcasts by and for development and humanitarian professionals.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_123",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Links to online courses, webinars and other learning materials.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Open  Book  Publishers",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_124",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Oxford Handbooks Online is an outstanding collection of the best Handbooks areas across 17 different subject areas.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Oxford  Handbooks  Online",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_125",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "One of the most prestigious and successful strands of Oxford’s scholarly publishing, the Handbook series contains in -depth, high-level articles by scholars at the top of their field.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Oxford  Handbooks  Online",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_126",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Palgrave Macmillan, one of the largest publishers of cutting -edge academic resources, publishing across all formats in the Humanities, Social Sciences and Business.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Palgrave  Macmillan  eJournals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_127",
+        "page": 19,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Site license access is also available across over 60 peer -reviewed journals. Subjects cover ed by this database are: business and management, economics, education, information systems and technology, political science and international  studies,  social  and cultural  studies, urban  design  and architecture https://library.embuni.ac.ke/eresources/#gsc.tab=0  19/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Palgrave  Macmillan  eJournals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_128",
+        "page": 19,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Perlego is a digital library that offers readers unlimited access to over 1 million academic, professional  and non-fiction  eBooks.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Perlego",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_129",
+        "page": 19,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Perlego offers ebooks  from local and international publishers and allows users to read both online and offline on most smartphones, tablets or laptop devices.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Perlego",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_130",
+        "page": 19,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Publishes over 120 peer -reviewed books each year and 7 journals in a wide range of print and digital editions for researchers, students, professionals, practitioners, politicians, policymakers and the informed general reader as well as for libraries and other institutions globally.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Policy  Press",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_131",
+        "page": 19,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "Subject  strength:  area & ethics  studies,  art & pacific studies, art & architecture, creative writing, education, film theater & performance arts, history, language  & linguistics,  library  science  & publishing, literature,  medicine  & health,  music,  philosophy, religion, science technology & mathematics, social sciences, studies by time period and women’s studies gender & sexuality.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Project  Muse  Books",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_132",
+        "page": 19,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It is a library of over 60,000 free eBooks. Choose among free epub and Kindle eBooks, download them or read them online.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Project  Gutenberg",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_133",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "You will find the world’s great literature here, with a focus on older works. Thousands of volunteers digitized and diligently proofread the eBooks, for enjoyment and education.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Project  Gutenberg",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_134",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Public  Library  of Science  (PLOS) Is a non -profit offering public access to titles in science and medicine.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Project  Gutenberg",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_135",
+        "page": 20,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Since 2003 they have published a variety of journals, including PLOS https://library.embuni.ac.ke/eresources/#gsc.tab=0  20/26 Biology and PLOS Medicine, which rival existing elite titles such as Science and Nature.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Project  Gutenberg",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_136",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "its a vertical open access information retrieval system for psychological resources, coordinated by the research support organization Leibniz Institute for Psychology Information (ZPID).",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "PubPsych",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_137",
+        "page": 20,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "The search interface is available in English, Spanish, French, and Ge rman. PubPsych includes over 800.000",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "PubPsych",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_138",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "R Reseach4Life (AGORA HINARI,  AGORA, OARE,  ARDI)  Research4Life  has four main  programs  – HINARI, AGORA, OARE, ARDI – that provide research for free or at low cost to institutions in the developing world.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "datasets",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_139",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Their central goal is achieving universal access to scientific, technical and medical research information and to foster a strong and independent research culture in the developing world – one that is fully integrated into the international research community with sustainable economic development and enhanced quality of life.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "datasets",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_140",
+        "page": 20,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "is a web search engine for students and researchers that aims to make academic information easily accessible to everyone.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_141",
+        "page": 21,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "RefSeek searches more than five billion documents, including web pages, books, encyclopedias, journals, and newspapers.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_142",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Royal Society – Royal Society Journals Online  Contain ten leading international journals from the Royal Society, the UK’s national academy of science.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_143",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Titles cover biological and Mathematics, engineering and other physical sciences, Multidisciplinary and interdisciplinary science and https://library.embuni.ac.ke/eresources/#gsc.tab=0  21/26 include Philosophical Transactions of the Royal Society, the world’s first science journal.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_144",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Royal Society of Chemistry – RSC Journals Archive  The Royal  Society  of Chemistry  is the world’s leading chemistry community, a not -for-profit organization with 170 years of history and a scientific publisher of high -impact journals and books.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_145",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Subject Strengths Biology, Biophysics, Chemical Science, Materials, Medicinal Drug Discovery, and Phy sics",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "RefSeek",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_146",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Has a portfolio of over 900 journals. Subject Strengths: Humanities, Social Sciences, Scientific, Technical and Medical",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "S Sage  Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_147",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Methods  SAGE Research Methods links over 175,000 pages of SAGE’s renowned book, journal and reference content with truly advanced search and discovery tools.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sage  Research",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_148",
+        "page": 21,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "It is a research methods tool created to help researchers, faculty, and students with their research projects.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sage  Research",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_149",
+        "page": 21,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "SAGE contains content from over 720 books, dictionaries, encyclopedias, and handbooks",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Sage  Research",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_150",
+        "page": 21,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "ScienceDirect links books and journals to nurture deeper insights. Subject strengths, Physical Sciences, Chemistry, Computer Science, Mathematics, Engineering, Agriculture, Biological  Science,  Medicine,  Arts and Humanities,  Business Management and Accounting, Decision Science, Economics, Psychology, and Social Science.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Science  Direct",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_151",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  22/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Science  Direct",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_152",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Scientific reports contains free open access journals on biological sciences, Earth and Environmental Sciences, Health Sciences, Agriculture, Forestry, water resources and Physical Sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Reports",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_153",
+        "page": 22,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "One can also submit their manuscript for quick review and",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Reports",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_154",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "A freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Scholar",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_155",
+        "page": 22,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Research  Access to Open  Access E -Resources, E -books in Biomedical & Life Sciences, Business & Economics, Chemistry & Materials Science, Computer Science & Communications",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Scientific",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_156",
+        "page": 22,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Journals  SIAM  fosters  the development  of applied  mathematical  and computational methodologies needed in these various application areas.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Mathematics",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_157",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Applied mathematics in partnership with computational science is essential in solving many real -world problems.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Mathematics",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_158",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Through publications, research, and community, the mission of SIAM is to build cooperation between mathematics and the worlds of science and technology.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Mathematics",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_159",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "eJournals  Springer is one of the leading international scientific publishing companies. Springer’s e -journals cover a wide range of subjects within science, technology, medicine, the humanities, behavioral sciences, social sciences, and law.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Springer",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_160",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Springer  Nature  advances  discovery  by publishing  robust  and insightful research, supporting the development of new areas of knowledge, making ideas and information accessible around the world, and leading the way on open access.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Springer  Nature",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_161",
+        "page": 23,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  23/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Springer  Nature",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_162",
+        "page": 23,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Peer review articles in all subject areas in science, technology, medicine, the humanities, and social sciences",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Springer  Open",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_163",
+        "page": 23,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Swahili Forum provides a unique platform for research articles on Swahili language, literature as well as on Swahili -speaking cultures and societies in Eastern Africa and the diaspora.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Swahili  Forum",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_164",
+        "page": 23,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "As a peer-reviewed open -access journal, Swahili Forum has an unequalled status in international Swahili Studies.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Swahili  Forum",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_165",
+        "page": 23,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Reviews of current re search literature and occasional interviews with outstanding Swahili -speaking authors and intellectuals add to the articles on offer.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Swahili  Forum",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_166",
+        "page": 23,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Offers instant access to the world’s premier Humanities, Social Sciences, Behavioural Sciences, Built Environment, STM and",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "eBooks",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_167",
+        "page": 23,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Taylor  & Francis Journals  Information Science, Interdisciplinary Studies, Language & Literature, Law, Mathematics & Statistics, Medicine, Dentistry, Nursing &  Allied Health, Museum, Heritage Studies & Visual  Arts, Physical Sciences, Reference & Information Science, Social Sciences, Social Work, Sports, Leisure, Travel & Tourism and",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Law content",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_168",
+        "page": 23,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Free access to three journals published by The Company of Biologists: Development, Journal of Cell Science, and Journal of Experimental Biology.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_169",
+        "page": 24,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Development; Journal of Cell Science; Journal  of Experimental  Biology https://library.embuni.ac.ke/eresources/#gsc.tab=0  24/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_170",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Court Cases  Have access to Prof. Rick Abel’s collection containing the research notes and files taken during his research during his visit to Kenya in the 1960s",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "U UCLA  African",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_171",
+        "page": 24,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Library  The UNESCO  Digital  Library  is the repository  of UNESCO’s institutional memory and a source of high -quality information on UNESCO activities (in education, natural sciences, social and human sciences, culture, and communication and information), with more than 350,000 documents dating back to 1945.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "UNESCO Digital",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_172",
+        "page": 24,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "It includes th e collections of the UNESCO Library and several documentation centres in UNESCO’s Field Offices and Institutes, as well as the UNESCO Archives.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "UNESCO Digital",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_173",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The essential purpose of the UNESCO Digital Library is to share knowledge and to transmit it to future generatio ns.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "UNESCO Digital",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_174",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Access to 33 Journals of the University of California PressSubject strength: research, health, art & humanities",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "California  Press",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_175",
+        "page": 24,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Chicago  Press  The University of Chicago Press publishes nearly fifty scholarly journals, many on behalf of some of the world’s most prestigious societies, and several that were the first scholarly publications in their respective fields.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "University of",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_176",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The journals present original re search in the social sciences, humanities, education, and biological and physical  sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "University of",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_177",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "https://library.embuni.ac.ke/eresources/#gsc.tab=0  25/26 W",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Universal  content",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_178",
+        "page": 25,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Wiley Online Library is a leading international resource for scholarly content providing access to millions of articles across a wide range of journals.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Library Full",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_179",
+        "page": 25,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "This package provides access to over 1,370 journals across all major academic disciplines i.e. Computer Science, Physics and Astronomy, Chemistry, Engineering, Life, Earth and Environmental Sciences, Mathematics & Statistics, Medicine & Nursing, Polymers and Materials Science, Business, Humanities, Social sciences",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Library Full",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_180",
+        "page": 25,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Wiley Open Access journals are supported by a network of authoritative journals and societies as well as internationally renowned editorial board members.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access  journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_181",
+        "page": 25,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "All research articles published in Wiley Open Access journals are immediately freely available to read, download and share.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access  journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_182",
+        "page": 25,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Wiley Open Access publishes a number of online journals across biological, chemical and health sciences.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Access  journals",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_183",
+        "page": 25,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "The World Bank e -library is a value -added, subscription -based portal dedicated to all World Bank publications, research, and knowledge  since  the 1990s.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_184",
+        "page": 25,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It is specifically  designed  to meet  the unique  needs  of researchers  and librarians. It is used  by the world’s top academic institutions, government agencies, central banks, national libraries, think tanks, NGOs, and IGOs.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_185",
+        "page": 25,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "contains approximately 15,000 books, chapters, reports, journals, working papers, and case studies. Content in the e -library is carefull y curated to meet the highest academic and editorial standards.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_186",
+        "page": 25,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Users of e -library are assured full and immediate access to all academic research and scholarship published by the World Bank – the majority made available through Creative Commons",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "library",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_187",
+        "page": 25,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Development  The most detailed collection of data on Africa, containing over 1,600 indicators, covering 53  African countries and spanning the https://library.embuni.ac.ke/eresources/#gsc.tab=0  26/26",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "World  Bank  Africa",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_188",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "period 1961 to 2008. Data include social, economic, financial, natural resources, infrastructure, governance, partnership, and environmental indicators.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Indicators",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_189",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The primary World Bank collection of development indicators, compiled from officially -recognized international sources.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Indicators",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_190",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It presents the most current and accurate global development data available and includes national, regional and global estimates",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Indicators",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_191",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Focuses on financial flows, trends in external debt, and other major financial indicators for developing countries.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Finance",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_192",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Includes over 200 time series indicators from 1970 to 2009, for most reporting countries.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Finance",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_193",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Repository  Through the OKR, The World Bank collects, disseminates, and permanently preserves its intellectual output in digital form with the aim of encouraging innovation and allow anyone in the world to use Bank knowledge to help improve the lives of those living in poverty.",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Knowledge",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_194",
+        "page": 26,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "NB: For more information and enquiries concerning E -Resources not present in this guide, contact librarian directly on - https://tawk.to/chat/650ae1d0b1aaa13b7a77e5fc/1hap8472n",
+      "metadata": {
+        "source": "E-Resources – University of Embu Library.pdf",
+        "section": "Knowledge",
+        "chunk_id": "E-Resources – University of Embu Library.pdf_195",
+        "page": 26,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Library  circulation  refers  to the process  of managing  the lending  and returning  of library materials  to users.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "1. Library  Circulation",
+        "chunk_id": "Library Circulation.pdf_0",
+        "page": 1,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "It ensures  that library  resources  are properly  issued,  tracked,  and returned on time.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "1. Library  Circulation",
+        "chunk_id": "Library Circulation.pdf_1",
+        "page": 1,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Issuing  (borrowing)  library  materials • Receiving  returned  items • Renewing  borrowed  materials • Reserving (holding)  items  for users • Managing  overdue  items  and fines • Updating  borrower  records Circulation  services  help the library  control  the movement  of materials  and ensure  fair access for all users.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Key Circulation  Activities:",
+        "chunk_id": "Library Circulation.pdf_2",
+        "page": 1,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "The circulation  desk is the main service  point where  users interact  with library  staff for borrowing -related  services.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "2. Circulation  Desk",
+        "chunk_id": "Library Circulation.pdf_3",
+        "page": 1,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Book borrowing  and returns • Membership  registration  and verification • Renewals  and reservations • Overdue  fine inquiries  and payments • User guidance  on locating  materials • Reporting  lost or damaged  items The circulation  desk acts as the link between  users and library  collections.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Services  Offered  at the Circulation  Desk:",
+        "chunk_id": "Library Circulation.pdf_4",
+        "page": 1,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "OPAC  is an electronic  catalogue  that allows  users to search  the library’s  holdings  online.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "3. OPAC (Online  Public  Access  Catalogue)",
+        "chunk_id": "Library Circulation.pdf_5",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Search  books  by title, author,  subject,  or keyword • Check  availability  status  (on shelf or on loan) • View call numbers  and location • Reserve  or renew  items  (where  enabled) OPAC  helps users locate  materials  quickly  and independently  without  assistance.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "What  Users  Can Do Using  OPAC:",
+        "chunk_id": "Library Circulation.pdf_6",
+        "page": 1,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "Library  materials  are arranged  on shelves  according  to the Library  of Congress  (LC) Classification  Scheme,  which  organizes  books  by subject.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "4. Library  Shelves  and Classification  System",
+        "chunk_id": "Library Circulation.pdf_7",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Library  of Congress  (LC) Classification  Scheme: • Uses letters  and numbers  (e.g.,  QA76.73,  HD30.2) • Groups  related  subjects  together • Makes  it easier  to locate  materials  on the shelves Below is a  floor -by-floor listing of University of Embu Library based on the Library of Congress  (LC)  Classification  Scheme .",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "4. Library  Shelves  and Classification  System",
+        "chunk_id": "Library Circulation.pdf_8",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Ground  Floor:  LC Classes  A – L Class - Subject  Area A - General  Works B - Philosophy,  Psychology,  Religion C - Auxiliary  Sciences  of History D - World  History E - History  of the Americas  (United  States) F- History  of the Americas  (Local  & Latin America) G - Geography,  Anthropology,  Recreation H - Social  Sciences L - Education",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "4. Library  Shelves  and Classification  System",
+        "chunk_id": "Library Circulation.pdf_9",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Class - Subject  Area J - Political  Science K - Law Second  Floor:  LC Classes  Q – Z Class - Subject  Area Q Q - Science",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "First  Floor",
+        "chunk_id": "Library Circulation.pdf_10",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Z Bibliography,  Library  Science,  Information  Resources",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "V Naval  Science",
+        "chunk_id": "Library Circulation.pdf_11",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Each book is assigned  a call number • Books  are arranged  alphabetically  and numerically  on shelves • Users  use the OPAC  call number  to find the exact  shelf location",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Shelving  Process:",
+        "chunk_id": "Library Circulation.pdf_12",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• OPAC  helps users identify  and locate  materials • Shelves  organize  materials  using the LC Classification  Scheme • Circulation  Desk manages  borrowing  and returns Together,  they ensure  efficient  access,  organization,  and use of library  resources.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "5. Relationship  Between  OPAC,  Shelves,  and Circulation",
+        "chunk_id": "Library Circulation.pdf_13",
+        "page": 3,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "How many books can I bo rrow from the library • Undergraduate students  - can borrow up  to 3 books  for 14 days , 5/= fine per day is charged for overdue item  after the 14th day.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Borrowing Matrix",
+        "chunk_id": "Library Circulation.pdf_14",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "Only one renewal is allowed • Postgraduate students  - can borrow up  to 6 books  for 30 days, 5/= fine per day is charged for overdue items  after the 14th day.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Borrowing Matrix",
+        "chunk_id": "Library Circulation.pdf_15",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "Only one renewal is allowed • Non-academic staff - can borrow up  to 3 books  for 30 days, 5/= fine per day is charged for overdue item after the 14th day.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Borrowing Matrix",
+        "chunk_id": "Library Circulation.pdf_16",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "Only one renewal is allowed • Academic staff  - can borrow up  to 6 books  for 90 days, 5/= fine per day is charged for overdue item after the 14th day.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Borrowing Matrix",
+        "chunk_id": "Library Circulation.pdf_17",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "Only one renewal is allowed • Part-time lectures  - can borrow up  to 6 books  for 30 days, 5/= fine per day is charged for overdue items  after the 14th day.",
+      "metadata": {
+        "source": "Library Circulation.pdf",
+        "section": "Borrowing Matrix",
+        "chunk_id": "Library Circulation.pdf_18",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Maximum books: 3 • Loan period: 14 days • Renewals allowed: 1 time only • Overdue fine: Ksh 5 per book per day (starts immediately after due date)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "UNDERGRADUATE STUDENTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_0",
+        "page": 1,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Maximum books: 6 • Loan period: 30 days • Renewals allowed: 1 time only • Overdue fine: Ksh 5 per book per day (starts immediately after due date) NON -ACADEMIC STAFF: • Maximum books: 3 • Loan period: 30 days • Renewals allowed: 1 time only • Overdue fine: Ksh 5 per book per day (starts immediately after due date)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "POSTGRADUATE STUDENTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_1",
+        "page": 1,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Maximum books: 6 • Loan period: 90 days • Renewals allowed: 1 time only • Overdue fine: Ksh 5 per book per day (starts immediately after due date) PART -TIME LECTURERS: • Maximum books: 6 • Loan period: 30 days • Renewals allowed: 1 time only • Overdue fine: Ksh 5 per book per day (starts immediately after due date)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ACADEMIC STAFF:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_2",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Online borrowing matrix:  https://library.embuni.ac.ke/borrowing -matrix/ • Same fine rate applies to all categories: Ksh 5 per book per day • Maximum 1 renewal per item for all users",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "IMPORTANT:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_3",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "RENEWAL RESTRICTIONS - CANNOT RENEW IF: • Item is overdue and accruing fines • Item is on hold for another user • Item has been recalled • Maximum renewal limit reached (1 renewal only)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. New due date calculated from renewal day (not original due date)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_4",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Each book can be renewed only once • Renewal period varies by user category (1 week, 2 weeks, or 1 month) • Cannot renew multiple books at once - each item separately",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "RENEWAL NOTES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_5",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Fine rate: Ksh 5 per item per day • Fines start accruing immediately after due date • Daily accumulation until item returned • Two reasons for fines: Overdue items only",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "OVERDUE FINES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_6",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Accounts with overdue items are automatically locked • Cannot borrow new items while overdue items exist • To unlock account: Return all overdue items AND pay all accrued fines",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ACCOUNT RESTRICTIONS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_7",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "o Pay for replacement of lost item o Pay Ksh 500 processing fee",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "o Item declared lost",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_8",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Report loss IMMEDIATELY to librarian • Fines stop accruing from report date • Contact librarian for details on this process",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "TO STOP FINES ON LOST ITEMS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_9",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Book borrowing and returns • University ID verification and registration • Renewals and reservations • Overdue fine payments and inquiries • Lost or damaged item reporting • Borrower record updates and corrections COMMON PROBLEMS & SOLUTIONS:",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SERVICES PROVIDED:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_10",
+        "page": 4,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "• Solution:  Check reading tables near shelves • Reason:  Another user may be consulting it • Alternative:  May be recently returned (awaiting reshelving) • Action:  Ask circulation desk for help locating",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "PROBLEM 1:  \"Book shows available in system but not on shelf\"",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_11",
+        "page": 4,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Solution:  Bring library card to circulation desk • Action:  Staff will verify and correct records • Prevention:  Always check that borrowed items match your account",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "PROBLEM 2:  \"Library records don't match actual book\"",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_12",
+        "page": 4,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Solution:  Check account regularly online • Action:  Inform librarian immediately of discrepancies • Note:  You are responsible for all items checked under your account",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "PROBLEM 3:  \"Received overdue notice for returned item\"",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_13",
+        "page": 4,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• First check:  Reading tables near shelves • Second check:  Recently returned items area • Final step:  Consult circulation desk staff",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "PROBLEM 4:  \"Item listed as available cannot be found\"",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_14",
+        "page": 4,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• University of Embu students (current) • University of Embu staff (current) • University of Embu alumni",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WHO CAN JOIN:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_15",
+        "page": 4,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "• Must present valid University of Embu ID card • Using another person's ID is PROHIBITED • Only card owner can borrow items • ID required for all circulation transactions",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ID REQUIREMENTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_16",
+        "page": 4,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Library serves University community only • No public or external membership available • Alumni must have valid alumni identification",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "MEMBERSHIP NOTES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_17",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "LIBRARY OF CONGRESS CLASSIFICATION - BY FLOOR: GROUND FLOOR (CLASSES A -L): • A: General Works • B: Philosophy, Psychology, Religion • C: Auxiliary Sciences of History • D: World History • E: History of Americas (United States) • F: History of Americas (Local & Latin America) • G: Geography, Anthropology, Recreation • H: Social Sciences • L: Education",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 6: LIBRARY ORGANIZATION & LOCATION",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_18",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• J: Political Science • K: Law SECOND FLOOR (CLASSES Q -Z): • Q: Science • R: Medicine • S: Agriculture • T: Technology • U: Military Science • V: Naval Science • Z: Bibliography, Library Science",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "FIRST FLOOR:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_19",
+        "page": 5,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "WHAT ARE E -RESOURCES? Electronic resources are digital information materials accessed via internet or library network.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 7: E -RESOURCES OVERVIEW",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_20",
+        "page": 6,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Types include: • E-journals:  Digital scholarly journals (research articles, reviews, case studies) • E-books:  Digital books readable online or downloadable • Online databases:  Organized collections of journal articles, e -books, reports,",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 7: E -RESOURCES OVERVIEW",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_21",
+        "page": 6,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "• Digital theses & dissertations:  In University repository (https://repository.embuni.ac.ke ) • Reports, newspapers, reference tools",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "theses",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_22",
+        "page": 6,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Library subscriptions (University login required) • Open Access platforms (free for everyone) • MyLOFT app for mobile access • Library website:  https://library.embuni.ac.ke/eresources/",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ACCESS METHODS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_23",
+        "page": 6,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "• Accessible anytime, anywhere with internet • Searchable text within documents • No physical wear or loss • Regularly updated content • Peer-reviewed quality content",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "KEY FEATURES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_24",
+        "page": 6,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "MAJOR E -JOURNAL DATABASES: • ScienceDirect:  Elsevier journals (science, technology, medicine) • JSTOR:  Archival academic journals (humanities, social sciences) • SpringerLink:  Science, engineering, medicine journals • IEEE Xplore:  Engineering, computing, technology journals • Taylor & Francis Online:  Multidisciplinary journals MAJOR E -BOOK DATABASES: • EBSCO eBooks:  Comprehensive academic e -books • ProQuest Ebook Central:  120,000+ e -books in all subjects • Springer eBooks:  Science and technical e -books • Elsevier eBook Collections:  Medical and scientific e -books • Cambridge Core:  Academic books and journals",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 8: SUBSCRIBED E -RESOURCES (BY CATEGORY)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_25",
+        "page": 7,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "• Journal articles, e -books, research reports • Theses & dissertations, newspapers • Statistical data, multimedia content",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ONLINE DATABASES INCLUDE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_26",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "WHAT IS OPEN ACCESS? Free, unrestricted access to research articles, books, and data without login or payment.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 9: OPEN ACCESS DATABASES (FREE ACCESS)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_27",
+        "page": 7,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://doaj.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. DOAJ (Directory of Open Access Journals)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_28",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://core.ac.uk",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. CORE",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_29",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://www.base -search.net",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. BASE (Bielefeld Academic Search Engine)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_30",
+        "page": 7,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Physics, Math, Computer Science o Link: https://arxiv.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. arXiv",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_31",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Medicine, Life Sciences o Link: https://www.ncbi.nlm.nih.gov/pmc",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. PubMed Central (PMC)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_32",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://www.doabooks.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "6. DOAB (Directory of Open Access Books)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_33",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Science & Medicine o Link: https://www.plos.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "7. PLOS (Public Library of Science)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_34",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Medicine & Health o Link: https://www.medrxiv.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "10. medRxiv",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_35",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Social Sciences, Humanities o Link: https://www.ssrn.com",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "11. SSRN",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_36",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://zenodo.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "12. Zenodo",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_37",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: http://paperity.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "13. Paperity",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_38",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Life Sciences, Medicine o Link: https://europepmc.org",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "14. Europe PMC",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_39",
+        "page": 8,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Subject: Multidisciplinary o Link: https://v2.sherpa.ac.uk/opendoar",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "15. OpenDOAR",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_40",
+        "page": 9,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "SCIENCE & TECHNOLOGY: • IEEE/IET Electronic Library:  Electrical engineering, telecommunications,",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "SECTION 10: KEY SUBSCRIBED DATABASES (SELECTED)",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_41",
+        "page": 9,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• American Physical Society:  Physics research journals • IOPscience:  70+ physics and related science journals • ScienceDirect:  Comprehensive science and technology journals • Springer Nature:  Science, technology, medicine journals MEDICINE & HEALTH: • Cochrane Library:  Evidence -based healthcare research • PubMed/NCBI:  Biomedical literature and books • BioMed Central Journals:  Open access biomedical journals • World Health Organization resources • Medical and nursing databases via EBSCO BUSINESS & SOCIAL SCIENCES: • EBSCO Business Source Premier:  Business research • JSTOR:  Social sciences and humanities • Taylor & Francis Journals:  Social sciences • Sage Journals:  900+ social science journals • OECD iLibrary:  Economics and public policy LAW & LEGAL STUDIES: • HeinOnline:  300+ years of legal documents • Lexis Nexis Legal Library:  Case law and legal resources • LAW AFRICA:  East African law e -books and case law",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "computer science",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_42",
+        "page": 9,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "• EBSCO Academic Search Premier:  General academic database • ProQuest Central:  Comprehensive multidisciplinary • Wiley Online Library:  1,370+ journals across all disciplines • Cambridge Journals Online:  380+ academic journals • Oxford Journals:  324 prestigious academic journals",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "MULTIDISCIPLINARY:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_43",
+        "page": 10,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "o Android:  https://play.google.com/store/apps/details?id=com.eclat.myloft o iOS: https://apps.apple.com/in/app/myloft/id1247428589",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. DOWNLOAD MYLOFT APP:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_44",
+        "page": 10,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "o Select institute: \"University of Embu, Kenya\" o Click \"Continue\" o Enter registered email and password o Click \"Sign in\"",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "o Open MyLOFT app or WebApp",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_45",
+        "page": 10,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Tap \"E -resources\" o Select \"Exam Past papers\" o Search for paper code (e.g., LIS 215) E-RESOURCES INCLUDED IN MYLOFT: • All subscribed journals and databases • Research databases • Electronic books • Past exam papers (MyLOFT exclusive) • Digital library collections",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "o Click Menu",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_46",
+        "page": 10,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "• University of Embu uses APA 7th Edition • Other styles: MLA, Oxford, Harvard, Chicago (less common) • Plagiarism = failure to acknowledge sources • Academic penalties for plagiarism",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "REFERENCING STYLE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_47",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Citation:  A brief acknowledgment within the text showing where information was",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WHAT IS CITATION AND REFERENCING?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_48",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Referencing:  A full bibliographic description of the source, listed at the end of",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "taken from",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_49",
+        "page": 11,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Two elements:  1) Citation in body text, 2) Reference list at end WHY REFERENCE? • Shows how your argument relates to existing research • Properly credits originators of ideas, theories, and findings • Demonstrates your ability to find and use sources • Avoids plagiarism (academic dishonesty)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "the document",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_50",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• University of Embu uses APA 7th Edition • Other styles: MLA, Oxford, Harvard, Chicago (less common) • Plagiarism = failure to acknowledge sources = academic penalties",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "REFERENCING STYLE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_51",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Plagiarism is presenting others' ideas, works, or statements as your own without proper acknowledgment.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WHAT IS PLAGIARISM?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_52",
+        "page": 11,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "It is academic dishonesty with serious consequences.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WHAT IS PLAGIARISM?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_53",
+        "page": 11,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Copying text word -for-word without quotation marks or citation • Example: Copying a paragraph from a website without citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. DIRECT PLAGIARISM:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_54",
+        "page": 12,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Reusing your own previously submitted work without permission • Example: Submitting the same paper for two different courses",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. SELF -PLAGIARISM:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_55",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Mixing your words with copied phrases without proper citation • Example: Changing a few words but keeping the original structure",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. MOSAIC PLAGIARISM:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_56",
+        "page": 12,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Failing to cite sources correctly, even unintentionally • Example: Forgetting quotation marks or citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. ACCIDENTAL PLAGIARISM:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_57",
+        "page": 12,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Copying paragraphs from books/websites without citation • Submitting a friend's essay as your own • Reusing parts of previous assignments without indication • Using someone's ideas or diagrams without credit • Poor paraphrasing (changing only a few words)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "COMMON EXAMPLES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_58",
+        "page": 12,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Use proper citation style (APA 7th Edition at University of Embu) • Cite all borrowed ideas, not just direct quotes • Include reference list at end of document",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. ALWAYS CITE SOURCES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_59",
+        "page": 12,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "• Restate ideas in your own words completely • Don't just change a few words • Still cite the original source",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. PARAPHRASE CORRECTLY:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_60",
+        "page": 12,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• For direct quotes, use quotation marks • Include page numbers for quotes • Keep quotes brief and relevant",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. USE QUOTATION MARKS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_61",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Keep detailed records of all sources used • Note page numbers for important information • Organize references as you research",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. TRACK YOUR SOURCES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_62",
+        "page": 13,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• University uses Turnitin software • Check your work before submission • Review similarity reports ANTI -PLAGIARISM SOFTWARE - TURNITIN",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. USE PLAGIARISM CHECKERS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_63",
+        "page": 13,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Turnitin is anti -plagiarism software used worldwide to detect and prevent plagiarism by",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WHAT IS TURNITIN?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_64",
+        "page": 13,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Academic papers and journals • Books and publications • Websites and online content • Previously submitted student papers",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "comparing texts with:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_65",
+        "page": 13,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "• Detects similarity between submitted work and existing sources • Compares with billions of web pages and academic papers • Identifies matching text segments",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. ORIGINALITY CHECK:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_66",
+        "page": 13,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Shows percentage similarity score • Highlights matched text with color coding • Links to original sources • Distinguishes between proper citation and potential plagiarism",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. SIMILARITY REPORTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_67",
+        "page": 14,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Helps identify missing citations • Suggests proper referencing formats • Flags potential citation errors",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. CITATION ASSISTANCE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_68",
+        "page": 14,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Instructors can annotate papers online • Provide feedback directly on submissions • Use rubrics for consistent grading • Quick comment libraries for common issues",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. GRADEMARK FEATURES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_69",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Works with learning management systems • Compatible with Moodle, Canvas, Blackboard • Seamless assignment submission",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. INTEGRATION:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_70",
+        "page": 14,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "STEP 1: SUBMISSION • Students submit assignments via Turnitin portal • Upload documents in accepted formats (PDF, DOC, DOCX) STEP 2: COMPARISON • System compares text with: o Internet sources (billions of web pages) o Academic databases (journals, books, papers) o Student paper repository (previous submissions) STEP 3: REPORT GENERATION • Creates similarity report with percentage score • Highlights matching text segments • Identifies source of matches STEP 4: REVIEW • Students can view reports (if enabled by instructor) • Revise work based on similarity feedback • Resubmit if allowed STEP 5: INSTRUCTOR REVIEW • Instructors review similarity reports • Determine if matches constitute plagiarism • Provide grades and feedback",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "HOW TURNITIN WORKS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_71",
+        "page": 15,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Improves citation and referencing skills • Reduces accidental plagiarism • Provides opportunity to revise before final submission • Develops academic writing skills • Ensures academic integrity",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "FOR STUDENTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_72",
+        "page": 15,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Saves time in plagiarism detection • Provides evidence for academic integrity cases • Consistent feedback mechanisms • Integration with grading systems • Promotes fair assessment TEMPTATIONS TO PLAGIARIZE & SOLUTIONS:",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "FOR INSTRUCTORS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_73",
+        "page": 15,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Cause:  Word processors make copying easy • Solution:  Develop note -taking habits, paraphrase immediately",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. EASY COPY -PASTE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_74",
+        "page": 15,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Cause:  Easy access to e -books, journals, websites • Solution:  Use sources ethically with proper citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. ONLINE AVAILABILITY:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_75",
+        "page": 16,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Cause:  Scanners, copiers, digital tools • Solution:  Use technology for legitimate research, not copying",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. TECHNOLOGY ADVANCEMENTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_76",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Cause:  Last-minute assignments • Solution:  Start early, plan research schedule",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. TIME PRESSURE:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_77",
+        "page": 16,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "• Cause:  Non-native English speakers • Solution:  Use writing centers, peer review",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. LANGUAGE DIFFICULTIES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_78",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Begin research well before deadlines • Allow time for proper citation • Avoid last -minute pressure",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. START EARLY:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_79",
+        "page": 16,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Clearly distinguish between quotes and paraphrases • Record source details immediately • Use quotation marks for direct quotes in notes",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. TAKE GOOD NOTES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_80",
+        "page": 16,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Read source, then write without looking at it • Change sentence structure, not just words • Compare with original to ensure transformation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. UNDERSTAND PARAPHRASING:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_81",
+        "page": 16,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Mendeley: Free reference manager and PDF organizer • Zotero: Collect, organize, cite, and share research • EndNote: Advanced reference management",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. USE CITATION TOOLS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_82",
+        "page": 16,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Review Turnitin similarity report • Address highlighted matches • Verify all citations are complete",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. CHECK YOUR WORK:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_83",
+        "page": 17,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Consult library staff for citation help • Use writing centers • Ask instructors for clarification APA 7TH EDITION QUICK GUIDE: IN-TEXT CITATION EXAMPLES:",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "6. SEEK HELP:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_84",
+        "page": 17,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• (Achieng & Otieno, 2020) • Achieng and Otieno (2020) found...",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "TWO AUTHORS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_85",
+        "page": 17,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• (Mwangi et al., 2022) - first citation • (Mwangi et al., 2022) - subsequent citations • Mwangi et al.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "THREE OR MORE AUTHORS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_86",
+        "page": 17,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• (Kumar, 2021, p. 45) • \"Exact quoted text\" (Kumar, 2021, p. 45)",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "DIRECT QUOTES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_87",
+        "page": 17,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Kumar, Ranjit. (2021). *Research methodology: A step -by-step guide for beginners*. SAGE.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Download",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_88",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Creswell, John W., & Creswell, J. David. (2018). *Research design: Qualitative, quantitative, and mixed methods approaches*.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Download",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_89",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Tenopir, Carol. (2020). Academic reading patterns in the digital age. *Journal of Academic Librarianship*, 46(4), 102 –110.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Download",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_90",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "University of Embu Library. (2023). *Library services guide*. https://library.embuni.ac.ke/services/",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Download",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_91",
+        "page": 18,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "o Alphabetical by author's last name o Hanging indent (first line flush left, others indented) o Double -spaced o \"References\" centered at top",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. REFERENCE LIST:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_92",
+        "page": 18,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "o Author(s) and year in parentheses o Page numbers for direct quotes o \"et al.\" for 3+ authors after first citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. IN-TEXT CITATIONS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_93",
+        "page": 18,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "o Book titles: Italicized o Article titles: Sentence case, not italicized o Journal titles: Italicized, title case",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. TITLE FORMATTING:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_94",
+        "page": 19,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Log into university learning management system • Navigate to course assignment • Click \"Submit\" or \"Upload\" button",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. ACCESS TURNITIN:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_95",
+        "page": 19,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Acceptable formats: PDF, DOC, DOCX, RTF • File size limits: Typically 100MB maximum • Naming convention: LastName_FirstName_Assignment.pdf",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. UPLOAD DOCUMENT:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_96",
+        "page": 19,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "• Processing time: Usually 5 -15 minutes • Similarity report generation • Email notification when ready",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. WAIT FOR PROCESSING:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_97",
+        "page": 19,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Check similarity percentage • Review highlighted matches • Identify citation issues",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. REVIEW REPORT:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_98",
+        "page": 19,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Address high similarity areas • Add missing citations • Improve paraphrasing • Resubmit if allowed",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. REVISE IF NEEDED:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_99",
+        "page": 19,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "GREEN (0 -24%):  Usually acceptable with proper citation YELLOW (25 -49%):  Review carefully, may need revision ORANGE (50 -74%):  Significant issues, likely needs revision RED (75 -100%):  Major plagiarism concerns NOTE:  Low percentage doesn't guarantee no plagiarism NOTE:  High percentage doesn't always mean plagiarism (properly cited quotes) COMMON MATCHES & SOLUTIONS:",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "INTERPRETING SIMILARITY REPORTS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_100",
+        "page": 20,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Appearance:  Matches with quotation marks and citation • Action:  No change needed if properly formatted",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "1. PROPERLY CITED QUOTES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_101",
+        "page": 20,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Appearance:  Short matches of common phrases • Action:  Usually acceptable, no revision needed",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "2. COMMON PHRASES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_102",
+        "page": 20,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Appearance:  Matches without citation • Action:  Add proper citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "3. MISSING CITATIONS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_103",
+        "page": 20,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Appearance:  Close matches with slightly changed wording • Action:  Improve paraphrasing, add citation",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "4. POOR PARAPHRASING:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_104",
+        "page": 20,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Appearance:  Reference section matches • Action:  Usually excluded from similarity score",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "5. REFERENCE LIST MATCHES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_105",
+        "page": 20,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Plagiarism is academic misconduct • Penalties range from failing assignment to expulsion • All work must be original or properly cited • Students responsible for understanding plagiarism",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "UNIVERSITY OF EMBU POLICY:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_106",
+        "page": 20,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "MINOR OFFENSES (First time, small portions): • Warning and education • Revision opportunity • Grade reduction MODERATE OFFENSES (Significant portions): • Failing grade for assignment • Required plagiarism tutorial • Academic probation MAJOR OFFENSES (Entire work, repeated): • Failing course • Suspension • Expulsion from university • Notation on academic record",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "PENALTIES FOR PLAGIARISM:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_107",
+        "page": 21,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "1. \"Failure to acknowledge sources of information appropriately amounts to plagiarism\"",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "KEY REMINDERS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_108",
+        "page": 21,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Citation guides and examples • APA 7th edition manuals • Referencing workshops • One-on-one consultations",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "LIBRARY RESOURCES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_109",
+        "page": 22,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Writing centers • Peer tutoring • Online writing resources • Grammar and style guides",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "WRITING SUPPORT:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_110",
+        "page": 22,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Turnitin help desk • IT support for submission issues • Software tutorials • Online guides and FAQs",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "TECHNICAL SUPPORT:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_111",
+        "page": 22,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Mendeley:  Free PDF manager, reference manager, academic network • Zotero:  Collect, organize, cite, and share research sources",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "REFERENCE MANAGEMENT TOOLS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_112",
+        "page": 22,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Purchase suggestions in your account • Direct feedback at circulation desk • Online suggestions via library website • Ask a Librarian chat service",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "FEEDBACK CHANNELS:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_113",
+        "page": 23,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "A: Library serves University of Embu students, staff, and alumni only.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: How do I join the library?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_114",
+        "page": 23,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "A: Check the date due stamp inside the front cover of each borrowed book.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: How do I check my due dates?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_115",
+        "page": 23,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "A: Take the book and your ID to the circulation desk BEFORE the due date. E-RESOURCES:",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: How do I extend my loan period?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_116",
+        "page": 23,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "A: Log into MyLOFT account or visit  https://library.embuni.ac.ke/eresources/",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: How to access e -resources?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_117",
+        "page": 23,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "A: Only in MyLOFT app → E -resources → Exam Past papers.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: Where are past exam papers?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_118",
+        "page": 23,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "A: Check account regularly, inform librarian immediately.",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "Q: Received overdue notice for returned book?",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_119",
+        "page": 24,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Main Library Website:  https://library.embuni.ac.ke • Borrowing Matrix:  https://library.embuni.ac.ke/borrowing -matrix/ • E-Resources Portal:  https://library.embuni.ac.ke/eresources/ • University Repository:  https://repository.embuni.ac.ke • Ask a Librarian:  https://tawk.to/chat/650ae1d0b1aaa13b7a77e5fc/1hap8472n • MyLOFT Android:  https://play.google.com/store/apps/details?id=com.eclat.myloft • MyLOFT iOS:  https://apps.apple.com/in/app/myloft/id1247428589",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "ONLINE RESOURCES:",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_120",
+        "page": 24,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "E-RESOURCES ENQUIRIES: For e -resources not listed or access problems, contact librarian directly: • Ask a Librarian:  https://tawk.to/chat/650ae1d0b1aaa13b7a77e5fc/1hap8472n • Email: Use University email system • In-person: Visit reference desk during opening hours",
+      "metadata": {
+        "source": "Comprehensive University of Embu Library Guide.pdf",
+        "section": "7. Sunday:  13:45 – 18:00",
+        "chunk_id": "Comprehensive University of Embu Library Guide.pdf_121",
+        "page": 25,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Kumar,  Ranjit. (2021). Research  methodology:  A step-by-step guide  for beginners . SAGE",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_0",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Author,  A. A., & Author,  B. B. (Year). Title of book. Publisher.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Format:",
+        "chunk_id": "Guide to Referencing using APA.pdf_1",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Creswell,  John W., & Creswell,  J. David. (2018). Research  design:  Qualitative,  quantitative, and mixed  methods  approaches .",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_2",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Authors  (Book) Format: Author,  A. A., Author,  B. B., Author,  C. C., & Author,  D. D. (Year). Title of book.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "A Book with More  Than  Three",
+        "chunk_id": "Guide to Referencing using APA.pdf_3",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Saunders,  Mark N. K., Lewis,  Philip,  Thornhill, Adrian,  & Bristow,  Alexandra. (2019). Research  methods  for business  students .",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_4",
+        "page": 2,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "Author,  A. A. (Year). Title  of article. Journal  Title, Volume(Issue),  pages.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Format:",
+        "chunk_id": "Guide to Referencing using APA.pdf_5",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Tenopir,  Carol. (2020). Academic  reading  patterns  in the digital  age. Journal  of Academic Librarianship , 46(4), 102 –110.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_6",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Journal  article  with two author s",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_7",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Author,  A. A., & Author,  B. B. (Year). Title of article. Journal  Title, Volume(Issue),  pages.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Format:",
+        "chunk_id": "Guide to Referencing using APA.pdf_8",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Achieng,  Lucy A., & Otieno,  Mark O. (2020). Use of electronic  resources  by university students  in Kenya.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_9",
+        "page": 2,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "African  Journal  of Library,  Archives  and Information  Science , 30(2),  85–",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_10",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Author,  A. A., Author,  B. B., & Author,  C. C. (Year). Title of article. Journal  Title, Volume(Issue), pages.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Format:",
+        "chunk_id": "Guide to Referencing using APA.pdf_11",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Mwangi,  Peter  N., Wanjiru,  Anne K., & Kamau,  David  M. (2022). Adoption  of digital  library services  in public  universities.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_12",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Library  Management , 43(6–7), 410–423.",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "Example:",
+        "chunk_id": "Guide to Referencing using APA.pdf_13",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• All authors  are listed  in the reference  list (up to 20 authors  in APA 7) • Use et al. in in-text citations  for 3 or more  authors • Journal  titles and  book  titles  are italicized • Use sentence  case for article  and book titles • References  are listed alphabetically",
+      "metadata": {
+        "source": "Guide to Referencing using APA.pdf",
+        "section": "3. Quick  APA  Rule  Reminder",
+        "chunk_id": "Guide to Referencing using APA.pdf_14",
+        "page": 3,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "stamp on the date Due form, which is inserted on the inside of the cover of the book.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "3. How do I know the status of books I have borrowed and the date for returning? Check",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_0",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Take the item(book, DVD, CD etc)  to the circulation desk. The item will be issued to you upon presenting a student’s ID.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Borrowing  and Renewing  items",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_1",
+        "page": 1,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "The item is overdue  and accruing  finesThe  item is on hold for someone  else,A recall has been made on that particular item or,you have reached the maximum renewing limit (twice).",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Renewals  will not be accepted  if:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_2",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "Note that renewing item/s refers to extending the deadline of the borrowed books in a limited period  of time.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Renewals  will not be accepted  if:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_3",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "However,  it can only be transacted  before  the due date. Each  book  can only be renewed twice, one at a time and each time can only be extended by a specified period of time e.g.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Renewals  will not be accepted  if:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_4",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "one week, two weeks or one month depending on user category. Then you will be 2/3  required to renew one more time and for the last time.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Renewals  will not be accepted  if:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_5",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "Also, note that the new deadline is calculated from the day the book was renewed.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Renewals  will not be accepted  if:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_6",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "click on the link to find the borrowing  matrix  https://library.embuni.ac.ke/borrowing -matrix/",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "5. What  are the borrowing  rules  and privileges ?",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_7",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "such a case, please bring your library card to the circulation desk. Always check your records to see that your details and those of items borrowed tally.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "7. What should I do when I find the library records do not match with the actual book? In",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_8",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "the shelves? Our library is open -shelf and some readers leave books around, which results in this situation.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "8. Why is it that a book is indicated as available in the database, but cannot be traced on",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_9",
+        "page": 2,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "Please ask for clarification at the circulation desk.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "8. Why is it that a book is indicated as available in the database, but cannot be traced on",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_10",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "with expired books are automatically locked out by the system. This means that they cannot continue to borrow books until they return the overdue items and further pay the accrued fines.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "9. Can a patron  with expired  library  items  continue  to borrow  books?  Accounts  of patrons",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_11",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "your account, click on purchase suggestions where you can leave your suggestions and comments. The acquisition librarian will act on them.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "0. How do I recommend the library to purchase new books and journals? Once logged into",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_12",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Account. You will see a list of all the e -resources databases Prof. George Magoha Library has subscribed to.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "1. How do I know which journals the library has subscribed to? Log In to your MyLOFT",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_13",
+        "page": 2,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "your account: When Items are overdue, fines start accruing 5/ - per an Item per day.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "2. How comes there are fines in my account? There are two reasons as to why fines appear in",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_14",
+        "page": 2,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "in case it has been returned then inform the Librarian at the issue desk. If unsuccessful, the Library will assist in making a series of checks to ensure that the book is found.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "3. What happens to my account if I happen to lose a Library Item? Check the Library shelves",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_15",
+        "page": 2,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "If still not found after one month it will be listed as lost and you will be r equired to make a replacement for the lost item including a processing fee of Ksh.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "3. What happens to my account if I happen to lose a Library Item? Check the Library shelves",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_16",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "meanwhile as I look for it? Yes. But for this to be effected, you need to report immediately the item is lost.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "4. Is it possible to stop fines from accruing in my account when I lose a library item",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_17",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Contact the Librarian for more details. 3/3  5. I returned a Library Information Material some time ago but I have just received an overdue notice.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "4. Is it possible to stop fines from accruing in my account when I lose a library item",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_18",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "What should I do? Every item checked out under your account means that you are liable and subsequently responsible for the item/s checked out under your account.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "4. Is it possible to stop fines from accruing in my account when I lose a library item",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_19",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Therefore, you are required to take care of them. Make sure you return the same properly. However, check your ac count regularly and inform the Librarian immediately of any inconsistency.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "4. Is it possible to stop fines from accruing in my account when I lose a library item",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_20",
+        "page": 3,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "What do I do? If you still have the item in your possession, kindly return it! You will be charged  a fine if you don’t.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "6. I received an alert notice that an item on my account is now overdue and accruing fines.",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_21",
+        "page": 3,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "most cases, another user may be consulting it; check the reading tables next to the first shelves of every  floor of the library.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "7. What should I do if the item listed as ‘available’, cannot be found on the open shelves? In",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_22",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "It may recently  have  been  returned  to the Library  and is waiting  for re-shelving.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "7. What should I do if the item listed as ‘available’, cannot be found on the open shelves? In",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_23",
+        "page": 3,
+        "content_type": "borrowing"
+      }
+    },
+    {
+      "text": "https://play.google.com/store/apps/details?id=com.eclat.myloft&hl=en  (for Android users) https://apps.apple.com/in/app/myloft/id1247428589  (for iOS users)",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "Download  the MyLOFT App  for your  mobile:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_24",
+        "page": 3,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "Open the mobile app/the WebApp. A page  will appear  asking  you to select  your institute. Click on the textbox on the screen and select your institute, i.e.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "How to log in:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_25",
+        "page": 3,
+        "content_type": "hours"
+      }
+    },
+    {
+      "text": "University of Embu, Kenya by scrolling the list given or typing the name. Click on“Continue”. A login  page  will appear  with text boxes  for email  and password.",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "How to log in:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_26",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Type in your registered email ID and password for your MyLOFT account and click on “Sign in”. Click on the Menu and Tap on E-resources Click  on Exam  Past  papers  and search  for your preferred  paper,  ie LIS 215 Have  a question  that’s  not listed?",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "How to log in:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_27",
+        "page": 3,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "AskAlibrarian  - https://tawk.to/chat/650ae1d0b1aaa13b7a77e5fc/1hap8472n",
+      "metadata": {
+        "source": "The Frequently Asked Questions – University of Embu Library.pdf",
+        "section": "How to log in:",
+        "chunk_id": "The Frequently Asked Questions – University of Embu Library.pdf_28",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Plagiarism  is defined  as the act of presenting  other  people’s  ideas,  works,  or statements  as their own from an academic  perspective.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "What is Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_0",
+        "page": 1,
+        "content_type": "fines"
+      }
+    },
+    {
+      "text": "It happens with  students,  researchers, and  other scholars  when  they present  research  reports,  assignments,  and papers  as their own when it is not the case.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "What is Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_1",
+        "page": 1,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "It is considered  academic  dishonesty  and can have serious  consequences  in education and research.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "What is Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_2",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Copying  a paragraph  from a book or website  and not citing  it. • Submitting  a friend’s  essay  as your own.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Examples",
+        "chunk_id": "What is Plagiarism.pdf_3",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Reusing  parts  of your previous  assignment  without  indicating  it. • Using  someone  else’s  ideas  or diagrams  without  credit.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Examples",
+        "chunk_id": "What is Plagiarism.pdf_4",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Always  cite sources  (APA,  MLA, etc.) • Paraphrase  in your own words,  not just change  a few words • Use quotation  marks  for direct  quotes • Keep track  of all sources  used during  research • Use anti-plagiarism  software (e.g.,  Turnitin)  to check  your work What  is Anti-Plagiarism  Software?",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "How to Avoid Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_5",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Anti-plagiarism software is a tool that detects and prevents plagiarism by comparing  submitted  texts with:Academic  papers,  Books  and journals,  Websites,",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "How to Avoid Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_6",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Its purpose  is to ensure  academic  integrity  and promote  originality  in research  and assignments.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Student  submissions",
+        "chunk_id": "What is Plagiarism.pdf_7",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Turnitin  is a widely  used anti-plagiarism  software  in universities  worldwide. The University uses this software -",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "2. Turnitin",
+        "chunk_id": "What is Plagiarism.pdf_8",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Originality  Check : Detects  similarity  between  submitted  work and existing",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Key Features:",
+        "chunk_id": "What is Plagiarism.pdf_9",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Similarity  Reports : Shows  matched  text and highlights  possible  plagiarism • Citation  Assistance : Suggests  proper  referencing  to avoid  plagiarism • GradeMark : Allows  instructors  to annotate,  comment,  and provide  feedback",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "sources",
+        "chunk_id": "What is Plagiarism.pdf_10",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Integration : Works  with learning  management  systems  like Moodle,  Canvas,",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "directly online",
+        "chunk_id": "What is Plagiarism.pdf_11",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Promotes  academic  honesty • Helps  students improve  citation  skills • Reduces  risk of accidental  plagiarism • Provides  quick  feedback  for instructors",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Benefits  of Turnitin",
+        "chunk_id": "What is Plagiarism.pdf_12",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "There  is great temptation  to copy-paste  other  people’s  works  due to:- • Availability  of easy to use word processing  software  e.g Microsoft  word • Access  to the internet  and availability  to electronic  information  i.e google  resources, e-books, and e -journals.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Temptation  to Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_13",
+        "page": 3,
+        "content_type": "eresources"
+      }
+    },
+    {
+      "text": "• Improved  technology,  scanners,  copiers,  and digital  cameras.",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Temptation  to Plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_14",
+        "page": 3,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• Always  cite sources  properly  using  APA, MLA, or your university’s  required",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "Tips for avoiding  plagiarism",
+        "chunk_id": "What is Plagiarism.pdf_15",
+        "page": 3,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Paraphrase  instead  of copying  text directly • Use the similarity  report  to revise  your work  before  final submission • Check  small  matches  in common  phrases  – not all matches  indicate  plagiarism “Failure  to acknowledge  sources  of information  appropriately  amounts  to plagiarism”",
+      "metadata": {
+        "source": "What is Plagiarism.pdf",
+        "section": "style",
+        "chunk_id": "What is Plagiarism.pdf_16",
+        "page": 3,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Referencing  - Acknowledging  and Supporting  your ideas during  Research What  is Citation  and  Referencing?",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "",
+        "chunk_id": "What is Referencing.pdf_0",
+        "page": 1,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Citation  - A citation  is a brief acknowledgment  within  the text showing  where information was taken from.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "",
+        "chunk_id": "What is Referencing.pdf_1",
+        "page": 1,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "• Referencing  - A reference  is a full bibliographic  description  of the source, listed  at the end of the document in a reference list.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "",
+        "chunk_id": "What is Referencing.pdf_2",
+        "page": 1,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Academic  writing  relies  on more  than just the ideas  and experiences  of one author. It also uses the ideas  and research  of other  sources  such as books,  journal  articles,  websites,  etc.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "",
+        "chunk_id": "What is Referencing.pdf_3",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "These  other  sources  may be used to support  the author’s  ideas,  or the author  may be discussing, analyzing, or critiquing other sources.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "",
+        "chunk_id": "What is Referencing.pdf_4",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Referencing  is used to tell the reader  where  ideas from other  sources  have been used in an assignment.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "1. Citing  - Mentioning  the work of others  in your own work.",
+        "chunk_id": "What is Referencing.pdf_5",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The reference  list is a list of all the sources  used (and cited)  in an assignment. It is usually alphabetized  according  to the names  of the authors.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "1. Citing  - Mentioning  the work of others  in your own work.",
+        "chunk_id": "What is Referencing.pdf_6",
+        "page": 1,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Each entry  in the reference  list contains  detailed  information  about  one source. There  are many  reasons  why it is important",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "1. Citing  - Mentioning  the work of others  in your own work.",
+        "chunk_id": "What is Referencing.pdf_7",
+        "page": 1,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• It shows  the reader  how your argument  relates  to the entire  perspective  on a",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "to reference sources correctly:",
+        "chunk_id": "What is Referencing.pdf_8",
+        "page": 1,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "• It properly  credits  the originators  of ideas,  theories,  and research  findings • It shows  the reader  that you can find and use sources  to create  a solid argument.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "situation or issue",
+        "chunk_id": "What is Referencing.pdf_9",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "e.g The more involved  or consulted  people  are, the greater  will be their commitment in its implementation  and sustenance  of the projects.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "situation or issue",
+        "chunk_id": "What is Referencing.pdf_10",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "(Mulwa,  2002). In this example,  “(Mulwa, 2002)” tells the  reader that this information has come from a source  written  by Mulwa,  which  was published  in 2002.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "situation or issue",
+        "chunk_id": "What is Referencing.pdf_11",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "This is a signpost, pointing  the reader to the reference list.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "situation or issue",
+        "chunk_id": "What is Referencing.pdf_12",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Referencing  is a formal  system:  there  are rules and standards  to follow  when formatting citations  and references.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  styles",
+        "chunk_id": "What is Referencing.pdf_13",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    },
+    {
+      "text": "Many students  find referencing  quite intimidating  at first. Like any skill, it takes  time and patience  to learn.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  styles",
+        "chunk_id": "What is Referencing.pdf_14",
+        "page": 2,
+        "content_type": "membership"
+      }
+    },
+    {
+      "text": "The examples  above  use APA style,  a format  created  by the American  Psychological Association. It is the most common  referencing  style used at the University  of Embu.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  styles",
+        "chunk_id": "What is Referencing.pdf_15",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "Other  styles  include  MLA style,  Oxford  style,  Harvard  style,  and Chicago  style.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  styles",
+        "chunk_id": "What is Referencing.pdf_16",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "The following  are the recommended  software  and tools that help with creating  or managing references.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  tools",
+        "chunk_id": "What is Referencing.pdf_17",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "• Mendeley  - is a reference  manager  and academic  social  network. It is also a free pdf manager,  take your own fully searchable  library  in seconds,  cite as you write,  and read and annotate  your PDFs on any device • Zotero  - Zotero  helps  to collect,  organize,  cite, and share  research sources.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  tools",
+        "chunk_id": "What is Referencing.pdf_18",
+        "page": 2,
+        "content_type": "referencing"
+      }
+    },
+    {
+      "text": "You can add PDFs,  images,  audio  and video  files, snapshots  of web pages, and really  anything  else.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  tools",
+        "chunk_id": "What is Referencing.pdf_19",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "Zotero automatically  indexes  the full-text content  of your library, enabling  you to find exactly  what you’re  looking  for with just a few keystrokes.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  tools",
+        "chunk_id": "What is Referencing.pdf_20",
+        "page": 2,
+        "content_type": "general"
+      }
+    },
+    {
+      "text": "N/B Failure  to properly  acknowledge  sources  is called  plagiarism,  and it can carry significant academic penalties.",
+      "metadata": {
+        "source": "What is Referencing.pdf",
+        "section": "Referencing  tools",
+        "chunk_id": "What is Referencing.pdf_21",
+        "page": 2,
+        "content_type": "academic_integrity"
+      }
+    }
+  ],
+  "count": 420,
+  "version": "2.1"
+}

@@ -1,0 +1,651 @@
+"""
+STRICT RAG system with comprehensive direct answers including definitions and contact info
+"""
+import re
+import logging
+from typing import List, Dict, Any
+import numpy as np
+
+logger = logging.getLogger(__name__)
+
+# LIBRARY CONTACT INFORMATION
+LIBRARY_CONTACTS = {
+    "ask_librarian": "https://tawk.to/chat/650ae1d0b1aaa13b7a77e5fc/1hap8472n",
+    "library_website": "https://library.embuni.ac.ke",
+    "eresources_portal": "https://library.embuni.ac.ke/eresources/",
+    "borrowing_matrix": "https://library.embuni.ac.ke/borrowing-matrix/",
+    "university_repository": "https://repository.embuni.ac.ke",
+    "myloft_android": "https://play.google.com/store/apps/details?id=com.eclat.myloft",
+    "myloft_ios": "https://apps.apple.com/in/app/myloft/id1247428589"
+}
+
+# COMPREHENSIVE DIRECT ANSWER DATABASE WITH DEFINITIONS
+DIRECT_ANSWERS = {
+    # ============ DEFINITIONS ============
+    'what is plagiarism': "Plagiarism is presenting others' ideas, works, or statements as your own without proper acknowledgment. It's academic dishonesty with serious consequences.\n\nTypes:\n1. Direct plagiarism - Copying text word-for-word without quotation marks or citation\n2. Self-plagiarism - Reusing your own previously submitted work without permission\n3. Mosaic plagiarism - Mixing your words with copied phrases without proper citation\n4. Accidental plagiarism - Failing to cite sources correctly, even unintentionally\n\n💡 Need more help? Contact a librarian: {ask_librarian}",
+    
+    'what is referencing': "Referencing is acknowledging and supporting your ideas during research.\n\nTwo elements:\n1. Citation: A brief acknowledgment within the text showing where information was taken from\n2. Reference: A full bibliographic description of the source, listed at the end of the document\n\nWhy reference?\n• Shows how your argument relates to existing research\n• Properly credits originators of ideas\n• Demonstrates your ability to find and use sources\n• Avoids plagiarism (academic dishonesty)\n\n💡 Need APA examples? Contact a librarian: {ask_librarian}",
+    
+    'what is citation': "Citation is a brief acknowledgment within the text showing where information was taken from. Example: (Kumar, 2021) or Kumar (2021) states...\n\nA citation points to the full reference in the reference list at the end of the document.\n\n💡 For citation help: Contact a librarian: {ask_librarian}",
+    
+    'what is turnitin': "Turnitin is anti-plagiarism software used by University of Embu to detect and prevent plagiarism.\n\nKey Features:\n1. Originality Check: Compares texts with academic papers, books, websites, previous submissions\n2. Similarity Reports: Shows percentage similarity with color-coded matches\n3. Citation Assistance: Helps identify missing citations\n4. GradeMark: Allows instructors to provide online feedback\n5. Integration: Works with learning management systems like Moodle\n\n💡 Turnitin issues? Contact a librarian: {ask_librarian}",
+    
+    'what is apa': "APA (American Psychological Association) 7th Edition is the referencing style used by University of Embu.\n\nKey APA rules:\n• In-text: (Author, Year) or Author (Year)\n• Reference list: Alphabetical by author's last name\n• Book titles: Italicized\n• Article titles: Sentence case, not italicized\n• Journal titles: Italicized, title case\n• Use 'et al.' for 3+ authors in citations\n\n💡 APA examples: Contact a librarian: {ask_librarian}",
+    
+    'what is opac': "OPAC (Online Public Access Catalogue) is an electronic catalogue that allows users to search the library's holdings online.\n\nWhat you can do with OPAC:\n• Search books by title, author, subject, or keyword\n• Check availability status (on shelf or on loan)\n• View call numbers and location\n• Reserve or renew items (where enabled)\n• Find materials quickly without assistance\n\n💡 OPAC help: Contact a librarian: {ask_librarian}",
+    
+    'what is library circulation': "Library circulation refers to the process of managing the lending and returning of library materials to users.\n\nKey circulation activities:\n• Issuing (borrowing) library materials\n• Receiving returned items\n• Renewing borrowed materials\n• Reserving (holding) items for users\n• Managing overdue items and fines\n• Updating borrower records\n\nEnsures fair access and proper tracking of library resources.\n\n💡 Circulation questions? Contact a librarian: {ask_librarian}",
+    
+    'what is e-resource': "E-resources (electronic resources) are digital information materials accessed via internet or library network.\n\nTypes include:\n• E-journals: Digital scholarly journals (research articles, reviews)\n• E-books: Digital books readable online or downloadable\n• Online databases: Organized collections of journal articles, e-books, reports, theses\n• Digital theses & dissertations: In University repository\n• Reports, newspapers, reference tools\n\nFeatures: Accessible anytime, anywhere with internet; Searchable text; No physical wear.\n\n💡 E-resource access: {eresources_portal} or contact librarian: {ask_librarian}",
+    
+    'what is myloft': "MyLOFT is a mobile app for accessing University of Embu's electronic resources.\n\nFeatures:\n• Access to all subscribed e-resources databases\n• Journals, databases, e-books\n• Past exam papers (MyLOFT exclusive)\n• Research databases\n• Digital library collections\n\nDownload:\n• Android: {myloft_android}\n• iOS: {myloft_ios}\n\n💡 MyLOFT issues? Contact a librarian: {ask_librarian}",
+    
+    'what is library classification': "Library classification is how books are organized on shelves. University of Embu uses Library of Congress (LC) Classification Scheme.\n\nOrganization by floor:\n• Ground Floor (A-L): General works, Philosophy, History, Social Sciences, Education\n• First Floor (J-K): Political Science, Law\n• Second Floor (Q-Z): Science, Medicine, Agriculture, Technology, Military Science\n\nEach book has a call number (e.g., QA76.73) for easy location.\n\n💡 Can't find a book? Contact a librarian: {ask_librarian}",
+    
+    'what is academic integrity': "Academic integrity means honest and responsible scholarship.\n\nUniversity of Embu Policy:\n• Plagiarism is academic misconduct\n• All work must be original or properly cited\n• Students must understand and avoid plagiarism\n• Penalties range from failing assignment to expulsion\n\nIt's fundamental to university education and research credibility.\n\n💡 Academic integrity questions? Contact a librarian: {ask_librarian}",
+    
+    'what is similarity report': "A similarity report is generated by Turnitin showing how much of a submitted work matches existing sources.\n\nInterpretation:\n• Green (0-24%): Usually acceptable with proper citation\n• Yellow (25-49%): Review carefully, may need revision\n• Orange (50-74%): Significant issues, likely needs revision\n• Red (75-100%): Major plagiarism concerns\n\nNote: Low percentage doesn't guarantee no plagiarism; high percentage doesn't always mean plagiarism (properly cited quotes).\n\n💡 Report interpretation? Contact a librarian: {ask_librarian}",
+    
+    'what is reference list': "A reference list is a complete list of all sources cited in a document, placed at the end.\n\nAPA 7th Edition rules:\n• Alphabetical by author's last name\n• Hanging indent (first line flush left, others indented)\n• Double-spaced\n• Title 'References' centered at top\n• Includes full bibliographic details for each source\n\n💡 Reference list help? Contact a librarian: {ask_librarian}",
+    
+    'what is in-text citation': "In-text citation is a brief acknowledgment within the body of your work.\n\nAPA examples:\n• One author: (Kumar, 2021) or Kumar (2021) states...\n• Two authors: (Achieng & Otieno, 2020)\n• Three or more: (Mwangi et al., 2022)\n• Direct quotes: (Kumar, 2021, p. 45)\n• Page numbers required for direct quotes\n\n💡 Citation help? Contact a librarian: {ask_librarian}",
+    
+    'what is circulation desk': "The circulation desk is the main service point where users interact with library staff for borrowing-related services.\n\nServices offered:\n• Book borrowing and returns\n• Membership registration and verification\n• Renewals and reservations\n• Overdue fine inquiries and payments\n• User guidance on locating materials\n• Reporting lost or damaged items\n\nActs as the link between users and library collections.\n\n💡 Visit circulation desk or contact librarian: {ask_librarian}",
+    
+    'what is open access': "Open Access means free, unrestricted access to research articles, books, and data without login or payment.\n\nTop Open Access databases:\n1. DOAJ (Directory of Open Access Journals)\n2. CORE (Multidisciplinary)\n3. BASE (Bielefeld Academic Search Engine)\n4. arXiv (Physics, Math, Computer Science)\n5. PubMed Central (Medicine, Life Sciences)\n\n💡 Open Access resources? Contact a librarian: {ask_librarian}",
+    
+    # ============ BORROWING RULES ============
+    'how many books can undergraduate students borrow': "Undergraduate students can borrow up to 3 books for 14 days, with 1 renewal allowed. Overdue fine: Ksh 5 per book per day.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Borrowing questions? Contact a librarian: {ask_librarian}",
+    
+    'how many books can postgraduate students borrow': "Postgraduate students can borrow up to 6 books for 30 days, with 1 renewal allowed. Overdue fine: Ksh 5 per book per day.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Borrowing questions? Contact a librarian: {ask_librarian}",
+    
+    'how many books can academic staff borrow': "Academic staff can borrow up to 6 books for 90 days, with 1 renewal allowed. Overdue fine: Ksh 5 per book per day.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Borrowing questions? Contact a librarian: {ask_librarian}",
+    
+    'how many books can non-academic staff borrow': "Non-academic staff can borrow up to 3 books for 30 days, with 1 renewal allowed. Overdue fine: Ksh 5 per book per day.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Borrowing questions? Contact a librarian: {ask_librarian}",
+    
+    'how many books can part-time lecturers borrow': "Part-time lecturers can borrow up to 6 books for 30 days, with 1 renewal allowed. Overdue fine: Ksh 5 per book per day.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Borrowing questions? Contact a librarian: {ask_librarian}",
+    
+    'undergraduate borrowing': "3 books maximum, 14-day loan period, 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete info: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    'postgraduate borrowing': "6 books maximum, 30-day loan period, 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete info: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    'academic staff borrowing': "6 books maximum, 90-day loan period, 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete info: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    'non-academic staff borrowing': "3 books maximum, 30-day loan period, 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete info: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    'part-time lecturers borrowing': "6 books maximum, 30-day loan period, 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete info: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    # Generic borrowing questions
+    'how many books can i borrow': "Borrowing limits depend on your category:\n• Undergraduate: 3 books for 14 days\n• Postgraduate: 6 books for 30 days\n• Academic staff: 6 books for 90 days\n• Non-academic staff: 3 books for 30 days\n• Part-time lecturers: 6 books for 30 days\nAll categories: 1 renewal allowed, Ksh 5 per day fine.\n\n📚 Complete borrowing matrix: {borrowing_matrix}\n💡 Specify your category or contact librarian: {ask_librarian}",
+    
+    'borrowing limits': "• Undergraduate: 3 books, 14 days\n• Postgraduate: 6 books, 30 days\n• Academic staff: 6 books, 90 days\n• Non-academic staff: 3 books, 30 days\n• Part-time lecturers: 6 books, 30 days\n\n📚 Details: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    'loan period': "• Undergraduate: 14 days\n• Postgraduate: 30 days\n• Academic staff: 90 days\n• Non-academic staff: 30 days\n• Part-time lecturers: 30 days\n\n📚 Details: {borrowing_matrix}\n💡 Contact librarian: {ask_librarian}",
+    
+    # ============ FINES & OVERDUES ============
+    'what is the fine for overdue books': "Overdue fines: Ksh 5 per book per day, starting immediately after due date. All user categories have the same fine rate.\n\n💡 Fine inquiries? Contact circulation desk or librarian: {ask_librarian}",
+    
+    'overdue fines': "Ksh 5 per item per day. Fines start accruing immediately after due date. Daily accumulation until item returned.\n\n💡 Fine payment? Contact circulation desk or librarian: {ask_librarian}",
+    
+    'fines': "Fine rate: Ksh 5 per item per day. Starts immediately after due date. Two reasons for fines: Overdue items only.\n\n💡 Fine questions? Contact librarian: {ask_librarian}",
+    
+    'overdue': "Accounts with overdue items are automatically locked. Cannot borrow new items while overdue items exist. To unlock: Return all overdue items AND pay all accrued fines.\n\n💡 Account issues? Contact circulation desk or librarian: {ask_librarian}",
+    
+    # ============ LIBRARY HOURS ============
+    'what time does the library open': "Library hours:\n• Monday-Friday: 07:30–22:00\n• Saturday: 09:00–15:00\n• Sunday: 13:45–18:00\n\n💡 Hours changed? Contact librarian: {ask_librarian}",
+    
+    'library hours': "Opening hours:\n• Mon-Fri: 07:30–22:00\n• Saturday: 09:00–15:00\n• Sunday: 13:45–18:00\n\n💡 Special hours? Contact librarian: {ask_librarian}",
+    
+    'when does the library open': "Opens:\n• Mon-Fri: 07:30\n• Saturday: 09:00\n• Sunday: 13:45\n\n💡 Opening time queries? Contact librarian: {ask_librarian}",
+    
+    'library closing time': "Closes:\n• Mon-Fri: 22:00\n• Saturday: 15:00\n• Sunday: 18:00\n\n💡 Closing time queries? Contact librarian: {ask_librarian}",
+    
+    # ============ APA REFERENCING ============
+    'how do i reference using apa format': "University of Embu uses APA 7th Edition.\n\nIn-text citations:\n• One author: (Kumar, 2021)\n• Two authors: (Achieng & Otieno, 2020)\n• Three or more: (Mwangi et al., 2022)\n• Direct quotes: (Kumar, 2021, p. 45)\n\nReference list examples:\n• Book: Kumar, Ranjit. (2021). *Research methodology: A step-by-step guide for beginners*. SAGE.\n• Journal: Tenopir, Carol. (2020). Academic reading patterns in the digital age. *Journal of Academic Librarianship*, 46(4), 102–110.\n• Website: University of Embu Library. (2023). *Library services guide*. https://library.embuni.ac.ke/services/\n\n💡 APA help? Contact librarian: {ask_librarian}",
+    
+    'apa referencing': "APA 7th Edition is used at University of Embu. Formatting rules:\n1. Reference list: Alphabetical by author, hanging indent, double-spaced\n2. Book titles: Italicized\n3. Article titles: Sentence case, not italicized\n4. Journal titles: Italicized, title case\n5. Use 'et al.' for 3+ authors in citations\n\n💡 APA questions? Contact librarian: {ask_librarian}",
+    
+    'how to cite in apa': "APA citation examples:\n• (Author, Year) for in-text\n• Author, A. A. (Year). Title. Publisher. for references\n• Use 'et al.' for works with 3+ authors after first mention\n\n💡 Citation help? Contact librarian: {ask_librarian}",
+    
+    # ============ PLAGIARISM & TURNITIN ============
+    'plagiarism software': "Turnitin is the anti-plagiarism software used by University of Embu.\n\nKey features:\n1. Originality Check: Compares with billions of sources\n2. Similarity Reports: Shows percentage and highlights matches\n3. Citation Assistance: Suggests proper referencing\n4. GradeMark: Online feedback from instructors\n5. Integration: Works with Moodle, Canvas, Blackboard\n\n💡 Turnitin issues? Contact librarian: {ask_librarian}",
+    
+    'turnitin': "Turnitin is anti-plagiarism software that:\n1. Detects similarity between submitted work and existing sources\n2. Generates similarity reports with color coding\n3. Helps identify missing citations\n4. Provides evidence for academic integrity cases\n5. Used worldwide in universities\n\n💡 Turnitin help? Contact librarian: {ask_librarian}",
+    
+    'how does turnitin work': "Turnitin process:\n1. Submission: Students upload assignments\n2. Comparison: System checks against internet, academic papers, previous submissions\n3. Report: Generates similarity percentage\n4. Review: Students and instructors review matches\n5. Revision: Students can revise before final submission\n\n💡 Process questions? Contact librarian: {ask_librarian}",
+    
+    'anti-plagiarism software': "University of Embu uses Turnitin to ensure academic integrity. It compares texts with:\n• Academic papers and journals\n• Books and publications\n• Websites and online content\n• Previously submitted student papers\n\n💡 Software queries? Contact librarian: {ask_librarian}",
+    
+    'similarity report': "Turnitin similarity reports:\n• Green (0-24%): Usually acceptable with proper citation\n• Yellow (25-49%): Review carefully\n• Orange (50-74%): Significant issues\n• Red (75-100%): Major plagiarism concerns\nNote: Low percentage doesn't guarantee no plagiarism\n\n💡 Report interpretation? Contact librarian: {ask_librarian}",
+    
+    # ============ E-RESOURCES & MYLOFT ============
+    'how do i access e-resources': "Access e-resources via:\n1. MyLOFT app (download from Google Play or App Store)\n2. Library website: {eresources_portal}\n3. University login required for subscribed resources\n\nPast exam papers are ONLY available in MyLOFT app under E-resources → Exam Past papers.\n\n💡 Access problems? Contact librarian: {ask_librarian}",
+    
+    'past exam papers': "Past exam papers access:\n1. Download MyLOFT app\n2. Select 'University of Embu, Kenya'\n3. Login with registered email\n4. Tap E-resources → Exam Past papers\n5. Search by paper code (e.g., LIS 215)\n\n💡 Paper not found? Contact librarian: {ask_librarian}",
+    
+    'myloft': "MyLOFT app features:\n• Access all subscribed e-resources\n• Journals, databases, e-books\n• Past exam papers (exclusive to MyLOFT)\n• Research databases\n• Digital library collections\n\nDownload links:\n• Android: {myloft_android}\n• iOS: {myloft_ios}\n\n💡 App issues? Contact librarian: {ask_librarian}",
+    
+    'e-resources': "Electronic resources include:\n• E-journals: ScienceDirect, JSTOR, SpringerLink, IEEE Xplore\n• E-books: EBSCO, ProQuest, Springer, Elsevier\n• Online databases: Journal articles, research reports, theses\n• Digital theses: {university_repository}\n• Open Access databases: DOAJ, CORE, arXiv, PubMed Central\n\n💡 Resource access? {eresources_portal} or contact librarian: {ask_librarian}",
+    
+    # ============ MEMBERSHIP & ACCESS ============
+    'how do i join the library': "Library membership:\n• Available to: University of Embu students (current), staff (current), alumni\n• Requirements: Valid University of Embu ID card\n• Note: No public or external membership available\n• Alumni must have valid alumni identification\n\n💡 Membership questions? Contact circulation desk or librarian: {ask_librarian}",
+    
+    'library membership': "Who can join:\n• Current University of Embu students\n• Current University of Embu staff\n• University of Embu alumni\nID required for all transactions. Using another person's ID is prohibited.\n\n💡 Membership queries? Contact librarian: {ask_librarian}",
+    
+    'id card': "ID requirements:\n• Must present valid University of Embu ID card\n• Using another person's ID is PROHIBITED\n• Only card owner can borrow items\n• ID required for all circulation transactions\n\n💡 ID issues? Contact circulation desk or librarian: {ask_librarian}",
+    
+    # ============ PROCEDURES ============
+    'how do i borrow a book': "Borrowing process:\n1. Take item (book, DVD, CD) to circulation desk\n2. Present valid University of Embu ID card\n3. Staff will issue the item\n4. Check due date stamp inside book cover for return date\n\n💡 Borrowing problems? Contact circulation desk or librarian: {ask_librarian}",
+    
+    'how to renew books': "Renewal process:\n1. Present the book and your ID at circulation desk\n2. Must be done BEFORE due date\n3. New due date calculated from renewal day\n\nCannot renew if:\n• Item is overdue and accruing fines\n• Item is on hold for another user\n• Item has been recalled\n• Maximum renewal limit reached (1 renewal only)\n\n💡 Renewal issues? Contact circulation desk or librarian: {ask_librarian}",
+    
+    'lost a book': "Lost items procedure:\n1. Report loss IMMEDIATELY to librarian at circulation desk\n2. Library assists with searches for 1 month\n3. If not found after 1 month:\n   • Item declared lost\n   • Pay for replacement\n   • Pay Ksh 500 processing fee\n\nTo stop fines: Report loss immediately. Fines stop accruing from report date.\n\n💡 Lost item? Contact librarian immediately: {ask_librarian}",
+    
+    'book not on shelf': "If book shows available but not on shelf:\n1. Check reading tables near shelves\n2. May be recently returned (awaiting reshelving)\n3. Ask circulation desk for help locating\n4. Another user may be consulting it\n\n💡 Can't find a book? Contact circulation desk or librarian: {ask_librarian}",
+    
+    # ============ LIBRARY ORGANIZATION ============
+    'where are books located': "Library organization by floor:\n• Ground Floor (A-L): General works, Philosophy, History, Social Sciences, Education\n• First Floor: Political Science, Law\n• Second Floor (Q-Z): Science, Medicine, Agriculture, Technology, Military Science\n\n💡 Location help? Contact librarian: {ask_librarian}",
+    
+    'library floors': "Floor layout:\n• Ground: Classes A-L (General works to Education)\n• First: Classes J-K (Political Science, Law)\n• Second: Classes Q-Z (Science to Library Science)\n\n💡 Floor queries? Contact librarian: {ask_librarian}",
+    
+    'find books': "Finding books process:\n1. Search OPAC for book title/author\n2. Note call number (e.g., QA76.73)\n3. Go to appropriate floor by LC class\n4. Find shelf by alphabetical/numerical order\n\n💡 Finding help? Contact librarian: {ask_librarian}",
+    
+    'opac': "OPAC (Online Public Access Catalogue) lets you:\n• Search books by title, author, subject, keyword\n• Check availability status (on shelf or on loan)\n• View call numbers and location\n• Reserve or renew items (where enabled)\n\n💡 OPAC problems? Contact librarian: {ask_librarian}",
+    
+    # ============ CIRCULATION DESK ============
+    'circulation desk': "Circulation desk services:\n• Book borrowing and returns\n• University ID verification and registration\n• Renewals and reservations\n• Overdue fine payments and inquiries\n• Lost or damaged item reporting\n• Borrower record updates and corrections\n\n💡 Visit circulation desk or contact librarian: {ask_librarian}",
+    
+    # ============ REFERENCING TOOLS ============
+    'referencing tools': "Recommended reference management tools:\n• Mendeley: Free PDF manager, reference manager, academic network\n• Zotero: Collect, organize, cite, and share research sources\n• EndNote: Advanced reference management (paid)\n\n💡 Tool recommendations? Contact librarian: {ask_librarian}",
+    
+    # ============ ACADEMIC INTEGRITY ============
+    'academic integrity': "University of Embu Academic Integrity Policy:\n• Plagiarism is academic misconduct\n• Penalties range from failing assignment to expulsion\n• All work must be original or properly cited\n• Students responsible for understanding plagiarism\n\nPenalties:\n• Minor offenses: Warning, revision, grade reduction\n• Moderate offenses: Failing grade, academic probation\n• Major offenses: Course failure, suspension, expulsion\n\n💡 Policy questions? Contact librarian: {ask_librarian}",
+}
+
+def format_answer_with_links(answer: str) -> str:
+    """Format answer by replacing placeholders with actual links"""
+    for key, value in LIBRARY_CONTACTS.items():
+        placeholder = "{" + key + "}"
+        if placeholder in answer:
+            answer = answer.replace(placeholder, value)
+    return answer
+
+def get_specialized_answer(question: str) -> str:
+    """Handle specific question patterns with detailed answers"""
+    question_lower = question.lower()
+    
+    # ============ DEFINITION QUESTIONS ============
+    # Check for "what is" questions first
+    if question_lower.startswith('what is') or question_lower.startswith('define'):
+        # Extract the term after "what is" or "define"
+        term = question_lower.replace('what is', '').replace('define', '').strip()
+        
+        # Map common terms to definitions
+        definition_map = {
+            'plagiarism': 'what is plagiarism',
+            'referencing': 'what is referencing',
+            'citation': 'what is citation',
+            'turnitin': 'what is turnitin',
+            'apa': 'what is apa',
+            'opac': 'what is opac',
+            'library circulation': 'what is library circulation',
+            'e-resource': 'what is e-resource',
+            'electronic resource': 'what is e-resource',
+            'myloft': 'what is myloft',
+            'library classification': 'what is library classification',
+            'academic integrity': 'what is academic integrity',
+            'similarity report': 'what is similarity report',
+            'reference list': 'what is reference list',
+            'in-text citation': 'what is in-text citation',
+            'circulation desk': 'what is circulation desk',
+            'open access': 'what is open access',
+            'anti-plagiarism': 'what is turnitin',
+            'plagiarism software': 'what is turnitin',
+        }
+        
+        # Check for exact term match
+        for key, answer_key in definition_map.items():
+            if key in term:
+                answer = DIRECT_ANSWERS.get(answer_key, DIRECT_ANSWERS['what is plagiarism'])
+                return format_answer_with_links(answer)
+        
+        # Check for partial matches
+        if 'plagiarism' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is plagiarism'])
+        elif 'reference' in term or 'citation' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is referencing'])
+        elif 'turnitin' in term or 'anti-plagiarism' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is turnitin'])
+        elif 'apa' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is apa'])
+        elif 'opac' in term or 'catalogue' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is opac'])
+        elif 'e-resource' in term or 'electronic' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is e-resource'])
+        elif 'myloft' in term:
+            return format_answer_with_links(DIRECT_ANSWERS['what is myloft'])
+        elif 'circulation' in term:
+            if 'desk' in term:
+                return format_answer_with_links(DIRECT_ANSWERS['what is circulation desk'])
+            else:
+                return format_answer_with_links(DIRECT_ANSWERS['what is library circulation'])
+    
+    # ============ BORROWING CATEGORY DETECTION ============
+    if any(word in question_lower for word in ['borrow', 'loan', 'check out', 'take out']):
+        if 'undergraduate' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can undergraduate students borrow'])
+        elif 'postgraduate' in question_lower or 'graduate' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can postgraduate students borrow'])
+        elif 'academic staff' in question_lower or ('academic' in question_lower and 'staff' in question_lower):
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can academic staff borrow'])
+        elif 'non-academic' in question_lower or 'non academic' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can non-academic staff borrow'])
+        elif 'part-time' in question_lower or 'part time' in question_lower or 'lecturer' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can part-time lecturers borrow'])
+        elif 'student' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can undergraduate students borrow'])
+        elif 'staff' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can academic staff borrow'])
+    
+    # ============ TURNITIN/SOFTWARE QUESTIONS ============
+    software_keywords = ['software', 'tool', 'system', 'application', 'program', 'checker', 'detection', 'detect']
+    plagiarism_keywords = ['plagiarism', 'cheating', 'academic dishonesty', 'similarity', 'anti-plagiarism']
+    
+    has_software = any(word in question_lower for word in software_keywords)
+    has_plagiarism = any(word in question_lower for word in plagiarism_keywords)
+    has_turnitin = 'turnitin' in question_lower
+    
+    if (has_software and has_plagiarism) or has_turnitin:
+        if 'how' in question_lower and 'work' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how does turnitin work'])
+        elif 'similarity' in question_lower or 'report' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['similarity report'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['plagiarism software'])
+    
+    # ============ LIBRARY HOURS VARIATIONS ============
+    hour_keywords = ['open', 'close', 'hour', 'time', 'when', 'schedule']
+    library_keywords = ['library', 'opening', 'closing']
+    
+    if any(word in question_lower for word in hour_keywords) and any(word in question_lower for word in library_keywords):
+        if 'close' in question_lower or 'closing' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['library closing time'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['what time does the library open'])
+    
+    # ============ APA REFERENCING VARIATIONS ============
+    if any(word in question_lower for word in ['apa', 'reference', 'cite', 'citation']):
+        if 'how' in question_lower or 'format' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how do i reference using apa format'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['apa referencing'])
+    
+    # ============ E-RESOURCES VARIATIONS ============
+    if any(word in question_lower for word in ['e-resource', 'electronic resource', 'database', 'online resource']):
+        if 'past paper' in question_lower or 'exam' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['past exam papers'])
+        elif 'myloft' in question_lower or 'app' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['myloft'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['how do i access e-resources'])
+    
+    # ============ MEMBERSHIP VARIATIONS ============
+    if any(word in question_lower for word in ['join', 'membership', 'register', 'id card', 'student card']):
+        if 'id' in question_lower or 'card' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['id card'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['how do i join the library'])
+    
+    # ============ PROCEDURE QUESTIONS ============
+    if any(word in question_lower for word in ['how to', 'how do i', 'procedure', 'process', 'steps']):
+        if 'borrow' in question_lower or 'check out' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how do i borrow a book'])
+        elif 'renew' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how to renew books'])
+        elif 'lost' in question_lower or 'misplace' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['lost a book'])
+        elif 'find' in question_lower or 'locate' in question_lower or 'where is' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['find books'])
+    
+    # ============ LIBRARY ORGANIZATION ============
+    if any(word in question_lower for word in ['floor', 'shelf', 'location', 'where', 'find', 'opac', 'catalogue']):
+        if 'floor' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['library floors'])
+        elif 'opac' in question_lower or 'catalogue' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['opac'])
+        else:
+            return format_answer_with_links(DIRECT_ANSWERS['where are books located'])
+    
+    return None
+
+def get_direct_answer(question: str) -> str:
+    """Get direct answer from database with intelligent matching"""
+    question_lower = question.lower().strip()
+    
+    # First check specialized answers (handles complex patterns)
+    specialized = get_specialized_answer(question)
+    if specialized:
+        return specialized
+    
+    # Exact match
+    if question_lower in DIRECT_ANSWERS:
+        return format_answer_with_links(DIRECT_ANSWERS[question_lower])
+    
+    # Check for multi-word exact matches
+    for key in DIRECT_ANSWERS.keys():
+        if key in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS[key])
+    
+    # Simple keyword matching for common patterns
+    if 'borrow' in question_lower:
+        if 'how many' in question_lower or 'limit' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how many books can i borrow'])
+        elif 'how to' in question_lower or 'how do' in question_lower:
+            return format_answer_with_links(DIRECT_ANSWERS['how do i borrow a book'])
+    
+    if 'fine' in question_lower or 'overdue' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['what is the fine for overdue books'])
+    
+    if 'plagiarism' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['what is plagiarism'])
+    
+    if 'turnitin' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['turnitin'])
+    
+    if 'apa' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['apa referencing'])
+    
+    if 'hour' in question_lower or 'open' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['what time does the library open'])
+    
+    if 'e-resource' in question_lower or 'electronic' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['how do i access e-resources'])
+    
+    if 'past paper' in question_lower or 'exam paper' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['past exam papers'])
+    
+    if 'join' in question_lower or 'membership' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['how do i join the library'])
+    
+    if 'lost' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['lost a book'])
+    
+    if 'renew' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['how to renew books'])
+    
+    if 'circulation' in question_lower:
+        return format_answer_with_links(DIRECT_ANSWERS['circulation desk'])
+    
+    # Definition fallback
+    if question_lower.startswith('what is') or question_lower.startswith('define'):
+        return format_answer_with_links(DIRECT_ANSWERS['what is plagiarism'])
+    
+    return None
+
+def get_contact_suggestion(question: str = "") -> str:
+    """Get contact suggestion based on question topic"""
+    question_lower = question.lower()
+    
+    suggestions = {
+        "general": f"\n\n💡 **Need more help?**\nContact a librarian directly: {LIBRARY_CONTACTS['ask_librarian']}\nVisit library website: {LIBRARY_CONTACTS['library_website']}",
+        
+        "borrowing": f"\n\n💡 **Borrowing questions?**\nVisit circulation desk or contact librarian: {LIBRARY_CONTACTS['ask_librarian']}\nComplete borrowing matrix: {LIBRARY_CONTACTS['borrowing_matrix']}",
+        
+        "fines": f"\n\n💡 **Fine inquiries?**\nContact circulation desk or librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "plagiarism": f"\n\n💡 **Plagiarism/Turnitin help?**\nContact librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "referencing": f"\n\n💡 **APA/Referencing help?**\nContact librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "eresources": f"\n\n💡 **E-resource access?**\nVisit: {LIBRARY_CONTACTS['eresources_portal']}\nOr contact librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "myloft": f"\n\n💡 **MyLOFT issues?**\nDownload app: Android: {LIBRARY_CONTACTS['myloft_android']}, iOS: {LIBRARY_CONTACTS['myloft_ios']}\nContact librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "membership": f"\n\n💡 **Membership questions?**\nVisit circulation desk or contact librarian: {LIBRARY_CONTACTS['ask_librarian']}",
+        
+        "location": f"\n\n💡 **Finding books?**\nContact librarian for location help: {LIBRARY_CONTACTS['ask_librarian']}",
+    }
+    
+    # Determine topic from question
+    if any(word in question_lower for word in ['borrow', 'loan', 'renew', 'return']):
+        return suggestions["borrowing"]
+    elif any(word in question_lower for word in ['fine', 'overdue', 'penalty']):
+        return suggestions["fines"]
+    elif any(word in question_lower for word in ['plagiarism', 'turnitin', 'similarity', 'cheating']):
+        return suggestions["plagiarism"]
+    elif any(word in question_lower for word in ['apa', 'reference', 'cite', 'citation']):
+        return suggestions["referencing"]
+    elif any(word in question_lower for word in ['e-resource', 'electronic', 'database', 'online']):
+        return suggestions["eresources"]
+    elif 'myloft' in question_lower or 'app' in question_lower:
+        return suggestions["myloft"]
+    elif any(word in question_lower for word in ['join', 'member', 'id card', 'register']):
+        return suggestions["membership"]
+    elif any(word in question_lower for word in ['where', 'location', 'floor', 'shelf', 'find']):
+        return suggestions["location"]
+    else:
+        return suggestions["general"]
+
+class StrictRAGSystem:
+    """RAG system that ONLY uses provided context"""
+    
+    def __init__(self):
+        from app.core.vector_store import VectorStore
+        from app.core.llm_client import SimpleLLMClient
+        
+        self.vector_store = VectorStore()
+        self.llm_client = SimpleLLMClient()
+        
+        # Load vector store
+        self.vector_store.load()
+        logger.info(f"Strict RAG loaded with {len(self.vector_store.chunks)} chunks")
+    
+    def search_exact_chunks(self, question: str) -> List[Dict[str, Any]]:
+        """Search for chunks that exactly match the question"""
+        question_lower = question.lower()
+        
+        # Get keywords from question
+        keywords = []
+        for word in re.findall(r'\b\w+\b', question_lower):
+            if len(word) > 3 and word not in ['what', 'how', 'when', 'where', 'which', 'does', 'do', 'are', 'is', 'the', 'and', 'for', 'can', 'i', 'me', 'my', 'define']:
+                keywords.append(word)
+        
+        # If no good keywords, use the whole question
+        if not keywords:
+            keywords = [word for word in question_lower.split() if len(word) > 3]
+        
+        # Search for exact matches
+        exact_matches = []
+        for chunk in self.vector_store.chunks:
+            text = chunk.get('text', '').lower()
+            metadata = chunk.get('metadata', {})
+            
+            # Check for exact keyword matches
+            match_count = 0
+            for keyword in keywords:
+                if keyword in text:
+                    match_count += 1
+            
+            # Also check content type
+            content_type = metadata.get('content_type', '')
+            if 'borrow' in question_lower and content_type == 'borrowing':
+                match_count += 2
+            if 'plagiarism' in question_lower and content_type == 'academic_integrity':
+                match_count += 2
+            if 'apa' in question_lower and content_type == 'referencing':
+                match_count += 2
+            
+            if match_count >= 1:  # Lower threshold to get more results
+                chunk['match_score'] = match_count
+                exact_matches.append(chunk)
+        
+        # Sort by match score
+        exact_matches.sort(key=lambda x: x.get('match_score', 0), reverse=True)
+        return exact_matches[:15]  # Get more chunks
+    
+    def create_strict_context(self, chunks: List[Dict[str, Any]]) -> str:
+        """Create context with clear instructions"""
+        if not chunks:
+            return "NO_CONTEXT_AVAILABLE"
+        
+        context_parts = []
+        used_texts = set()
+        
+        for chunk in chunks:
+            text = chunk.get('text', '').strip()
+            source = chunk.get('metadata', {}).get('source', 'Document')
+            
+            # Deduplicate similar texts
+            text_hash = hash(text[:100])
+            if text_hash in used_texts:
+                continue
+            used_texts.add(text_hash)
+            
+            if text and len(text) > 30:
+                # Clean and format
+                text = re.sub(r'\s+', ' ', text)  # Remove extra whitespace
+                text = text[:800]  # Increased limit for more context
+                
+                context_parts.append(f"[FROM: {source}]\n{text}")
+        
+        return "\n\n" + "\n---\n".join(context_parts[:8])  # More context parts
+    
+    def generate_strict_answer(self, question: str, context: str) -> str:
+        """Generate answer with STRICT instructions"""
+        if context == "NO_CONTEXT_AVAILABLE":
+            # Provide helpful response with contact info
+            base_response = "Based on the documents, I don't have specific information about this."
+            contact_suggestion = get_contact_suggestion(question)
+            return base_response + contact_suggestion
+        
+        # VERY STRICT prompt
+        prompt = f"""You are a library assistant at University of Embu. Answer the question using ONLY the information provided below.
+
+IMPORTANT RULES:
+1. Use ONLY information from the context below
+2. Do NOT add any information not found in the context
+3. If the answer is not in the context, say: "Based on the documents, I don't have specific information about this."
+4. Be specific and accurate
+5. Include numbers, dates, amounts when available
+
+CONTEXT FROM LIBRARY DOCUMENTS:
+{context}
+
+QUESTION: {question}
+
+ANSWER (based only on context above):"""
+        
+        try:
+            answer = self.llm_client.generate_context_only_answer(question, context)
+            
+            # Clean up the answer
+            answer = answer.strip()
+            
+            # Check if answer is useful
+            if not answer or len(answer) < 20 or "don't have specific information" in answer.lower() or "not in the context" in answer.lower():
+                base_response = "Based on the documents, I don't have specific information about this."
+                contact_suggestion = get_contact_suggestion(question)
+                return base_response + contact_suggestion
+            
+            # Remove any "Answer:" prefixes
+            answer = re.sub(r'^(Answer|Based on|According to)[:\s]*', '', answer, flags=re.IGNORECASE)
+            
+            # Add contact suggestion for all answers
+            contact_suggestion = get_contact_suggestion(question)
+            answer += contact_suggestion
+            
+            return answer
+            
+        except Exception as e:
+            logger.error(f"Error generating answer: {e}")
+            base_response = "System error. Please try again."
+            contact_suggestion = get_contact_suggestion(question)
+            return base_response + contact_suggestion
+    
+    def get_strict_answer(self, question: str) -> str:
+        """Get strict context-only answer"""
+        if not question.strip():
+            return "Please enter a question about the University of Embu Library." + get_contact_suggestion()
+        
+        logger.info(f"Strict RAG processing: {question}")
+        
+        # Special handling for definition questions
+        question_lower = question.lower()
+        if question_lower.startswith('what is') or question_lower.startswith('define'):
+            # Force search for definition information
+            definition_chunks = []
+            for chunk in self.vector_store.chunks:
+                text = chunk.get('text', '').lower()
+                # Look for definition patterns
+                if 'is defined as' in text or 'means' in text or 'refers to' in text or 'definition' in text:
+                    definition_chunks.append(chunk)
+            
+            if definition_chunks:
+                context = self.create_strict_context(definition_chunks[:10])
+                return self.generate_strict_answer(question, context)
+        
+        # Special handling for borrowing questions
+        if 'borrow' in question_lower and ('how many' in question_lower or 'can i' in question_lower):
+            # Force search for borrowing information
+            borrowing_chunks = []
+            for chunk in self.vector_store.chunks:
+                text = chunk.get('text', '').lower()
+                if 'borrow' in text or 'loan' in text:
+                    borrowing_chunks.append(chunk)
+            
+            if borrowing_chunks:
+                context = self.create_strict_context(borrowing_chunks[:10])
+                return self.generate_strict_answer(question, context)
+        
+        # Normal search
+        relevant_chunks = self.search_exact_chunks(question)
+        logger.info(f"Found {len(relevant_chunks)} relevant chunks")
+        
+        # Create context
+        context = self.create_strict_context(relevant_chunks)
+        
+        # Generate answer
+        answer = self.generate_strict_answer(question, context)
+        
+        # Add sources if we have them
+        if relevant_chunks and "don't have specific information" not in answer.lower():
+            sources = set()
+            for chunk in relevant_chunks[:3]:
+                source = chunk.get('metadata', {}).get('source', '')
+                if source:
+                    # Clean source name
+                    source = source.replace('.pdf', '').replace('–', '-').replace(' University of Embu Library', '')
+                    sources.add(source)
+            
+            if sources:
+                # Insert sources before contact suggestion
+                if "💡" in answer:
+                    parts = answer.split("💡", 1)
+                    answer = parts[0] + f"\n\n📚 Source: {', '.join(sorted(sources))}" + "\n\n💡" + parts[1]
+                else:
+                    answer += f"\n\n📚 Source: {', '.join(sorted(sources))}"
+        
+        return answer
+
+# Global instance
+_strict_rag_instance = None
+
+def get_strict_response(question: str) -> str:
+    """Get strict response"""
+    global _strict_rag_instance
+    try:
+        # First try direct answers
+        direct = get_direct_answer(question)
+        if direct:
+            return direct
+        
+        # Then use RAG
+        if _strict_rag_instance is None:
+            _strict_rag_instance = StrictRAGSystem()
+        
+        return _strict_rag_instance.get_strict_answer(question)
+    except Exception as e:
+        logger.error(f"Error in get_strict_response: {e}")
+        base_response = "System error. Please try again."
+        contact_suggestion = get_contact_suggestion(question)
+        return base_response + contact_suggestion

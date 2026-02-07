@@ -1,119 +1,74 @@
 """
-Chat API endpoints
+Chat API using Strict RAG
 """
-from fastapi import APIRouter, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi import APIRouter
 import logging
-import traceback
+import time
 
-from app.config import config
-from app.core.vector_store import VectorStore, format_context
-from app.core.llm_client import OllamaClient
+from app.core.strict_rag import get_strict_response, get_direct_answer
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-# Initialize components
-vector_store = None
-llm_client = None
-
-def get_vector_store():
-    """Lazy load vector store"""
-    global vector_store
-    if vector_store is None:
-        vector_store = VectorStore()
-        vector_store.load()
-    return vector_store
-
-def get_llm_client():
-    """Lazy load LLM client"""
-    global llm_client
-    if llm_client is None:
-        llm_client = OllamaClient()
-    return llm_client
-
-@router.post("/")
-async def chat_api(request_data: dict):
-    """Chat API endpoint at /api/chat/"""
-    user_message = request_data.get("message") or request_data.get("query") or ""
-    if not user_message:
-        return {"response": "Please enter a question."}
-    
+@router.post("/query")
+async def strict_rag_query(request: dict):
+    """Strict RAG query - forces answers from context only"""
     try:
-        vector_store = get_vector_store()
-        llm_client = get_llm_client()
+        message = request.get("message", "").strip()
+        if not message:
+            return {"response": "Please enter a question.", "success": False}
         
-        # Check if vector store is loaded
-        if not vector_store or not vector_store.loaded:
-            return {
-                "response": "Library documents not loaded. Please upload and process PDF files first.",
-                "success": False
-            }
+        start_time = time.time()
         
-        # Search for relevant context
-        search_results = vector_store.search(user_message, k=config.search_default_k)
-        context = format_context(search_results)
+        # First try direct answer database
+        direct_answer = get_direct_answer(message)
+        if direct_answer:
+            response = direct_answer
+        else:
+            # Fall back to strict RAG
+            response = get_strict_response(message)
         
-        if not context or len(context.strip()) < 50:
-            return {
-                "response": "I cannot find relevant information in the library documents for your question.",
-                "context_used": False,
-                "success": True
-            }
-        
-        # Generate response with LLM
-        response = llm_client.generate_response(prompt=user_message, context=context)
+        time_taken = round(time.time() - start_time, 2)
         
         return {
             "response": response,
-            "context_used": True,
-            "success": True
+            "success": True,
+            "time_taken": time_taken,
+            "model": "strict_rag"
         }
         
     except Exception as e:
         logger.error(f"Chat error: {e}")
         return {
-            "response": "Sorry, I encountered an error processing your question.",
-            "success": False,
-            "error": str(e)
+            "response": f"Error: {str(e)[:100]}",
+            "success": False
         }
 
-@router.get("/test")
-async def test_chat():
-    """Test endpoint to debug chat functionality"""
-    test_query = "What is MyLOFT?"
-    
+@router.post("/chat")
+async def legacy_chat_endpoint(request: dict):
+    """Legacy endpoint - redirects to strict RAG"""
+    return await strict_rag_query(request)
+
+@router.get("/status")
+async def chat_status():
+    """Check system status"""
     try:
-        vector_store = get_vector_store()
-        llm_client = get_llm_client()
+        from app.core.vector_store import VectorStore
         
-        # Ensure vector store is loaded
-        if not vector_store:
-            return {"error": "Vector store not initialized"}
-        
-        # Load the vector store
+        vector_store = VectorStore()
         vector_store.load()
         
-        if not vector_store.loaded:
-            return {
-                "error": "Vector store not loaded", 
-                "vector_store_path": str(config.vector_store_path),
-                "exists": config.vector_store_path.exists()
-            }
-        
-        # Fallback to regular search
-        search_results = vector_store.search(test_query, k=5)
-        context = format_context(search_results)
-        response = llm_client.generate_response(prompt=test_query, context=context)
-        
         return {
-            "query": test_query,
-            "search_results_count": len(search_results),
-            "context_length": len(context),
-            "response": response,
             "vector_store_loaded": vector_store.loaded,
-            "chunks_count": len(vector_store.chunks) if vector_store.loaded else 0
+            "chunks_count": len(vector_store.chunks) if vector_store.loaded else 0,
+            "system": "strict_rag"
         }
     except Exception as e:
-        logger.error(f"Test chat error: {e}")
-        return {"error": str(e), "traceback": traceback.format_exc()}
+        return {"error": str(e)}
+
+# For backward compatibility
+async def chat_api(request: dict):
+    """For backward compatibility"""
+    return await strict_rag_query(request)
+
+__all__ = ['router', 'chat_api']

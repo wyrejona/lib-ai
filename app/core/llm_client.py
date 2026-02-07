@@ -1,183 +1,305 @@
 """
-Ollama LLM client for chat functionality
+Fixed LLM client - SIMPLE VERSION
 """
 import requests
-import json
-import re
+import numpy as np
+from typing import List, Dict, Any, Optional
 import logging
 import time
+import hashlib
+import re
 
 from app.config import config
 
-# Configure logging
 logger = logging.getLogger(__name__)
 
-class OllamaClient:
-    def __init__(self, model: str = None):
-        # Use passed model or config model
-        self.model = model or config.chat_model
-        self.base_url = config.ollama_base_url
-        
-        # Use config timeout
-        self.timeout = config.ollama_timeout
-        
-        self.system_prompt = """You are the University of Embu Library AI.
-STRICT INSTRUCTIONS:
-1. Answer using ONLY the provided Context.
-2. If the Context contains a list or steps (like "MyLOFT", "past exam papers", "accessing exam papers"), list ALL steps exactly as they appear in the Context.
-3. For step-by-step instructions, present them clearly with numbering or bullet points.
-4. Be concise but complete.
-5. If the answer is not in the context, say "I cannot find that information in the library documents."
-6. When providing steps, make sure to include ALL steps from the context without cutting off.
-"""
 
-    def test_connection(self) -> tuple[bool, str]:
-        """Test if Ollama is accessible and get available models"""
+class SimpleLLMClient:
+    """Simple client that works"""
+
+    def __init__(self):
+        self.base_url = config.ollama_base_url.rstrip('/')
+        self.chat_model = config.chat_model
+        self.embedding_model = config.embedding_model
+        self.timeout = 60
+
+    def get_embeddings(self, texts: List[str]) -> List[np.ndarray]:
+        """Create simple hash-based embeddings"""
+        embeddings = []
+
+        for text in texts:
+            # Create deterministic embedding
+            text_hash = hashlib.sha256(text.encode()).hexdigest()
+            emb = np.zeros(384, dtype=np.float32)
+
+            for i in range(384):
+                char_idx = i % len(text_hash)
+                emb[i] = (ord(text_hash[char_idx]) / 255.0) - 0.5
+
+            # Normalize
+            norm = np.linalg.norm(emb)
+            if norm > 0:
+                emb = emb / norm
+
+            embeddings.append(emb)
+
+        return embeddings
+
+    def generate_answer(self, query: str, context: str) -> str:
+        """Generate answer using Ollama"""
         try:
-            response = requests.get(f"{self.base_url}/api/tags", timeout=5)
-            if response.status_code == 200:
-                models = response.json().get("models", [])
-                model_names = [m.get("name", "") for m in models]
-                return True, f"Connected. Available models: {', '.join(model_names[:5])}"
-            else:
-                return False, f"Ollama API returned status {response.status_code}"
-        except requests.exceptions.ConnectionError:
-            return False, "Cannot connect to Ollama. Make sure Ollama is running on http://localhost:11434"
-        except Exception as e:
-            return False, f"Error: {str(e)}"
-    
-    def is_model_available(self) -> tuple[bool, str]:
-        """Check if the current model is available"""
-        try:
-            response = requests.get(f"{self.base_url}/api/tags", timeout=5)
-            if response.status_code == 200:
-                models = response.json().get("models", [])
-                available_models = [m.get("name", "") for m in models]
-                
-                if self.model in available_models:
-                    return True, f"Model '{self.model}' is available"
-                else:
-                    # Suggest similar models
-                    similar = [m for m in available_models if self.model.split(':')[0] in m]
-                    suggestion = ""
-                    if similar:
-                        suggestion = f" Similar available models: {', '.join(similar[:3])}"
-                    return False, f"Model '{self.model}' not found.{suggestion}"
-            return False, "Could not retrieve model list"
-        except Exception as e:
-            return False, f"Error checking model: {str(e)}"
+            # Simple prompt
+            prompt = f"""Based on these library documents, answer the question.
 
-    def generate_response(self, prompt: str, context: str = "") -> str:
-        # First check if Ollama is running
-        try:
-            health_response = requests.get(f"{self.base_url}/api/tags", timeout=5)
-            if health_response.status_code != 200:
-                return "Error: Ollama is not running or not accessible. Please make sure Ollama is running."
-        except requests.exceptions.ConnectionError:
-            return "Error: Cannot connect to Ollama. Please:\n1. Make sure Ollama is running ('ollama serve')\n2. Check if port 11434 is accessible"
-        except Exception as e:
-            return f"Error checking Ollama: {str(e)}"
-        
-        # Check if model is available
-        model_available, model_msg = self.is_model_available()
-        if not model_available:
-            return f"Error: {model_msg}\n\nPlease install the model using: ollama pull {self.model}"
-        
-        if not context:
-            return "I cannot find relevant information in the library documents."
+LIBRARY DOCUMENTS:
+{context}
 
-        # Truncate context if it's too long
-        max_context_length = 3000
-        if len(context) > max_context_length:
-            context = context[:max_context_length] + "... [truncated]"
-        
-        user_message = f"CONTEXT:\n{context}\n\nQUESTION:\n{prompt}"
+QUESTION: {query}
 
-        messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "user", "content": user_message}
-        ]
+ANSWER:"""
 
-        try:
-            logger.info(f"Sending request to Ollama ({self.model})...")
-            
-            # Optimized parameters for speed
-            payload = {
-                "model": self.model,
-                "messages": messages,
+            data = {
+                "model": self.chat_model,
+                "prompt": prompt,
                 "stream": False,
                 "options": {
-                    "temperature": config.ollama_temperature,
-                    "num_ctx": 2048,  # Reduced from 4096
-                    "num_predict": 512,  # Reduced from 1024
-                    "top_k": 20,
-                    "top_p": 0.9,
-                    "repeat_penalty": 1.1,
-                    "stop": ["\n\n", "Question:", "Context:", "Answer:"]
+                    "temperature": 0.1,
+                    "num_predict": 800
                 }
             }
-            
-            start_time = time.time()
-            
+
             response = requests.post(
-                f"{self.base_url}/api/chat",
-                json=payload,
+                f"{self.base_url}/api/generate",
+                json=data,
                 timeout=self.timeout
             )
-            
-            elapsed_time = time.time() - start_time
-            logger.info(f"Ollama response received in {elapsed_time:.2f} seconds")
-            
+
             if response.status_code == 200:
-                content = response.json().get("message", {}).get("content", "")
-                if not content:
-                    return "I received an empty response. Please try again or try a different model."
-                
-                cleaned = self._clean_response(content)
-                
-                # If response is suspiciously short
-                if len(cleaned) < 20:
-                    return f"Response seems incomplete. Model used: {self.model}. Try a simpler question."
-                
-                return cleaned
-            elif response.status_code == 404:
-                return f"Error: Model '{self.model}' not found. Please install it using: ollama pull {self.model}"
-            elif response.status_code == 503:
-                return "Error: Model is still loading. Please wait a moment and try again."
-            else:
-                logger.error(f"Ollama API Error {response.status_code}: {response.text[:200]}")
-                return f"Error: AI Service returned {response.status_code}. Please try again."
+                result = response.json()
+                answer = result.get("response", "").strip()
 
-        except requests.exceptions.Timeout:
-            logger.error(f"Ollama request timed out after {self.timeout}s.")
-            return f"""The model '{self.model}' is taking too long to respond. 
+                # Clean up answer
+                if answer.startswith("ANSWER:"):
+                    answer = answer[7:].strip()
 
-Quick fixes:
-1. Switch to a smaller model in Dashboard (like qwen:0.5b, phi:latest)
-2. Install faster model: ollama pull qwen:0.5b
-3. Check system memory and restart Ollama"""
-            
-        except requests.exceptions.ConnectionError:
-            logger.error(f"Connection error to {self.base_url}")
-            return "Error: Cannot connect to Ollama. Please:\n1. Make sure Ollama is running ('ollama serve')\n2. Check if port 11434 is accessible\n3. Try restarting Ollama"
-            
+                return answer if answer else "No answer generated."
+
+            return f"Error: HTTP {response.status_code}"
+
         except Exception as e:
-            logger.error(f"Unexpected error in OllamaClient: {e}")
-            return f"Error: {str(e)[:200]}"
+            logger.error(f"Generation error: {e}")
+            return f"Error: {str(e)}"
 
-    def _clean_response(self, text: str) -> str:
-        text = text.strip()
-        patterns = [
-            r"^Based on the provided context,?",
-            r"^According to the documents?,?",
-            r"^From the context provided,?",
-            r"^The context (?:states|says|indicates) that,?",
-            r"^Based on (?:the )?information (?:provided|available),?"
-        ]
-        for pattern in patterns:
-            text = re.sub(pattern, "", text, flags=re.IGNORECASE).strip()
-        
-        # Remove excessive whitespace
-        text = re.sub(r'\n{3,}', '\n\n', text)
-        
-        return text
+    def generate_accurate_answer(
+            self,
+            query: str,
+            context: str,
+            question_type: str) -> str:
+        """Generate accurate answer with specialized prompting"""
+        try:
+            # Specialized prompts based on question type
+            if question_type == 'borrowing':
+                prompt = f"""You are a library assistant. Answer this borrowing question accurately using ONLY the information below.
+
+LIBRARY RULES:
+{context}
+
+QUESTION: {query}
+
+ANSWER (be specific with numbers/days/amounts):"""
+
+            elif question_type == 'fines':
+                prompt = f"""You are a library assistant. Answer this fines question accurately using ONLY the information below.
+
+FINES INFORMATION:
+{context}
+
+QUESTION: {query}
+
+ANSWER (include exact fine amounts and conditions):"""
+
+            elif question_type == 'plagiarism':
+                prompt = f"""You are an academic integrity advisor. Answer this plagiarism question using ONLY the information below.
+
+ACADEMIC INTEGRITY INFORMATION:
+{context}
+
+QUESTION: {query}
+
+ANSWER (be clear about consequences and procedures):"""
+
+            else:
+                prompt = f"""Based on these library documents, answer the question accurately. Use ONLY the provided information.
+
+LIBRARY INFORMATION:
+{context}
+
+QUESTION: {query}
+
+ACCURATE ANSWER:"""
+
+            data = {
+                "model": self.chat_model,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.1,  # Low temperature for accuracy
+                    "num_predict": 500,
+                    "top_p": 0.9,
+                    "repeat_penalty": 1.1
+                }
+            }
+
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json=data,
+                timeout=self.timeout
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                answer = result.get("response", "").strip()
+
+                # Clean up
+                answer = re.sub(
+                    r'^(ANSWER|RESPONSE|ACCURATE ANSWER)[:\s]*',
+                    '',
+                    answer,
+                    flags=re.IGNORECASE)
+
+                return answer if answer else "I couldn't find a specific answer in the documents."
+
+            return "Error retrieving answer."
+
+        except Exception as e:
+            logger.error(f"Generation error: {e}")
+            return f"System error: {str(e)[:100]}"
+
+    def generate_context_only_answer(self, query: str, context: str) -> str:
+        """Generate answer using ONLY context"""
+        try:
+            prompt = f"""You are a library assistant at University of Embu. Answer the question using ONLY the information provided below. DO NOT use any outside knowledge. If the answer is not in the provided information, say "The documents do not contain specific information about this."
+
+INFORMATION FROM LIBRARY DOCUMENTS:
+{context}
+
+QUESTION: {query}
+
+RULES:
+1. Answer ONLY from the information above
+2. Do not add information not found above
+3. If unsure, say "The documents do not contain specific information about this"
+4. Be specific and accurate
+5. Quote numbers and details exactly as they appear
+
+ANSWER BASED ONLY ON THE INFORMATION ABOVE:"""
+
+            data = {
+                "model": self.chat_model,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": 0.1,  # Very low temperature for accuracy
+                    "num_predict": 500,
+                    "top_p": 0.8,
+                    "repeat_penalty": 1.2,
+                    "stop": ["\n\n", "Note:", "However:", "Additionally:"]
+                }
+            }
+
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json=data,
+                timeout=self.timeout
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                answer = result.get("response", "").strip()
+
+                # Clean up
+                answer = re.sub(
+                    r'^(ANSWER|RESPONSE|BASED ON)[:\s]*',
+                    '',
+                    answer,
+                    flags=re.IGNORECASE)
+
+                # Check if answer is valid
+                if not answer or len(answer) < 10:
+                    return "The documents do not contain specific information about this."
+
+                return answer
+
+            return "Error retrieving answer from documents."
+
+        except Exception as e:
+            logger.error(f"Context-only generation error: {e}")
+            return "System error"
+
+    def quick_rag_response(self, query: str) -> str:
+        """Simple RAG response"""
+        try:
+            logger.info(f"Query: {query}")
+
+            # Get query embedding
+            query_emb = self.get_embeddings([query])[0]
+
+            # Search vector store
+            from app.core.vector_store import VectorStore
+            vector_store = VectorStore()
+            vector_store.load()
+
+            if not vector_store.loaded:
+                return "No documents loaded. Please ingest PDFs first."
+
+            # Search
+            results = vector_store.similarity_search(query_emb, k=5)
+
+            if not results:
+                # Try keyword search
+                results = vector_store.search_by_keyword(query, k=5)
+
+            if not results:
+                return "I couldn't find relevant information in the documents."
+
+            # Build context
+            context_parts = []
+            sources = set()
+
+            for result in results:
+                text = result.get("text", "").strip()
+                source = result.get("metadata", {}).get("source", "Document")
+
+                if text and len(text) > 20:
+                    context_parts.append(f"[From {source}]\n{text}")
+                    sources.add(source)
+
+            if not context_parts:
+                return "No useful content found."
+
+            context = "\n\n---\n\n".join(context_parts[:3])  # Use top 3
+
+            # Generate answer
+            answer = self.generate_answer(query, context)
+
+            # Add sources
+            if sources:
+                answer += f"\n\n📚 Sources: {', '.join(sorted(sources))}"
+
+            return answer
+
+        except Exception as e:
+            logger.error(f"RAG error: {e}")
+            return f"System error: {str(e)[:100]}"
+
+    def check_connection(self) -> bool:
+        """Check Ollama connection"""
+        try:
+            response = requests.get(f"{self.base_url}/api/tags", timeout=5)
+            return response.status_code == 200
+        except BaseException:
+            return False
+
+
+# Alias
+OllamaClient = SimpleLLMClient

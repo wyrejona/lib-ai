@@ -4,6 +4,299 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/index.css">
+<style>
+/* Model Management Styles */
+.model-management {
+    margin: 2rem 0;
+}
+
+.model-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #666;
+}
+
+.tab-btn.active {
+    color: #4361ee;
+    border-bottom-color: #4361ee;
+    font-weight: 600;
+}
+
+.model-content {
+    display: none;
+}
+
+.model-content.active {
+    display: block;
+}
+
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.model-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.model-card.installed {
+    border-color: #28a745;
+    background: #f8fff9;
+}
+
+.model-card.current {
+    border-color: #4361ee;
+    background: #f0f7ff;
+}
+
+.model-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.model-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.model-status {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.status-installed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-current {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.model-desc {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.model-stats {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.model-stat {
+    background: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+.model-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.model-actions button {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #4361ee;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #3a56d4;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #4361ee;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Progress */
+.progress-container {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #4361ee;
+    transition: width 0.3s;
+}
+
+.install-log {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Recommendations */
+.recommendations {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.recommendations h3 {
+    color: #856404;
+    margin-top: 0;
+}
+
+.recommendation-item {
+    background: white;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #ffc107;
+}
+
+.recommendation-item:last-child {
+    margin-bottom: 0;
+}
+</style>
 {% endblock %}
 
 {% block content %}
@@ -15,13 +308,13 @@
         </div>
         
         <div class="nav-links">
-            <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">
+            <a href="/" class="nav-link active">
                 <i class="fas fa-home"></i> Home
             </a>
-            <a href="/files" class="nav-link {% if request.url.path == '/files' %}active{% endif %}">
+            <a href="/files" class="nav-link">
                 <i class="fas fa-folder"></i> Manage Files
             </a>
-            <a href="/chat" class="nav-link {% if request.url.path == '/chat' %}active{% endif %}">
+            <a href="/chat" class="nav-link">
                 <i class="fas fa-comments"></i> Chat
             </a>
         </div>
@@ -38,120 +331,563 @@
             <i class="fas fa-comments"></i>
             <h3>AI Chat Interface</h3>
             <p>Query your uploaded research papers using natural language.</p>
-            <span style="color: var(--primary); font-weight: bold;">Open Chat →</span>
+            <span style="color: #4361ee; font-weight: bold;">Open Chat →</span>
         </a>
 
         <a href="/files" class="menu-card">
-            <i class="fas fa-file-invoice"></i>
-            <h3>Document Manager</h3>
-            <p>Upload, delete, and process PDF files for the vector store.</p>
-            <span style="color: var(--primary); font-weight: bold;">Manage Files →</span>
+            <i class="fas fa-folder"></i>
+            <h3>Manage Documents</h3>
+            <p>Upload, view, and manage your PDF documents.</p>
+            <span style="color: #4361ee; font-weight: bold;">Manage Files →</span>
         </a>
     </div>
 
-    <!-- Quick Status Grid -->
-    <div class="status-grid">
-        <div class="status-card">
-            <h4>Chat Model</h4>
-            <div class="status-value" id="currentChatModel">Loading...</div>
-            <div class="timestamp" id="chatModelTime"></div>
-        </div>
-        
-        <div class="status-card">
-            <h4>Embedding Model</h4>
-            <div class="status-value" id="currentEmbeddingModel">Loading...</div>
-            <div class="timestamp" id="embeddingModelTime"></div>
-        </div>
-        
-        <div class="status-card">
-            <h4>Vector Store</h4>
-            <div class="status-value" id="vectorStoreStatus">Checking...</div>
-            <div class="timestamp" id="vectorStoreTime"></div>
-        </div>
-        
-        <div class="status-card">
-            <h4>Ollama Connection</h4>
-            <div class="status-value" id="ollamaStatus">Checking...</div>
-            <div class="timestamp" id="ollamaTime"></div>
-        </div>
-    </div>
+    <!-- System Status -->
+    <section class="status-section">
+        <h2>System Status</h2>
+        <div class="status-grid">
+            <div class="status-card">
+                <h3><i class="fas fa-microchip"></i> AI Engine Status</h3>
+                <div class="status-item">
+                    <span class="status-label">Chat Model:</span>
+                    <span id="currentChatModel" class="status-value">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Embedding Model:</span>
+                    <span id="currentEmbeddingModel" class="status-value">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Vector Store:</span>
+                    <span id="vectorStoreStatus" class="status-value">Loading...</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Ollama:</span>
+                    <span id="ollamaStatus" class="status-value">Loading...</span>
+                </div>
+            </div>
 
-    <!-- System Resources -->
-    <div class="system-resources">
-        <h2><i class="fas fa-chart-line"></i> System Resources</h2>
-        
-        <div class="resource-card">
-            <h3><i class="fas fa-memory"></i> Memory Usage</h3>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="memoryProgress" style="width: 0%"></div>
+            <div class="status-card">
+                <h3><i class="fas fa-server"></i> System Resources</h3>
+                <div class="status-item">
+                    <span class="status-label">RAM:</span>
+                    <span id="memoryAvailable">Loading...</span> available
                 </div>
-                <div class="resource-stats">
-                    <span id="memoryUsed">0 GB</span>
-                    <span id="memoryPercent">0%</span>
-                    <span id="memoryTotal">0 GB</span>
+                <div class="status-item">
+                    <span class="status-label">CPU:</span>
+                    <span id="cpuPercent">Loading...</span> used
                 </div>
-            </div>
-        </div>
-        
-        <div class="resource-card">
-            <h3><i class="fas fa-microchip"></i> CPU Usage</h3>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="cpuProgress" style="width: 0%"></div>
-                </div>
-                <div class="resource-stats">
-                    <span id="cpuCores">Cores: 0</span>
-                    <span id="cpuPercent">0%</span>
-                    <span id="cpuLoad">Load: 0.0</span>
+                <div class="status-item">
+                    <span class="status-label">Disk:</span>
+                    <span id="diskFree">Loading...</span> free
                 </div>
             </div>
         </div>
-        
-        <div class="resource-card">
-            <h3><i class="fas fa-hdd"></i> Disk Usage</h3>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="diskProgress" style="width: 0%"></div>
-                </div>
-                <div class="resource-stats">
-                    <span id="diskUsed">0 GB</span>
-                    <span id="diskPercent">0%</span>
-                    <span id="diskTotal">0 GB</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 
     <!-- Model Management -->
-    <div class="model-management">
-        <h2><i class="fas fa-cogs"></i> Model Management</h2>
+    <section class="model-management">
+        <h2><i class="fas fa-cubes"></i> Model Management</h2>
         
-        <div class="model-card">
-            <h3><i class="fas fa-robot"></i> Chat Model</h3>
-            <p>Select a chat model for Q&A:</p>
-            <select id="chatModelSelect" class="model-select">
-                <option value="">Loading models...</option>
-            </select>
-            <button onclick="dashboard.updateChatModel()" class="update-btn" id="updateChatBtn" disabled>
-                <i class="fas fa-sync-alt"></i> Update Chat Model
-            </button>
+        <!-- Recommendations -->
+        <div id="recommendations" class="recommendations">
+            <h3><i class="fas fa-lightbulb"></i> Recommendations</h3>
+            <p>Loading recommendations based on your system...</p>
         </div>
         
-        <div class="model-card">
-            <h3><i class="fas fa-language"></i> Embedding Model</h3>
-            <p>Select an embedding model for document search:</p>
-            <select id="embeddingModelSelect" class="model-select">
-                <option value="">Loading models...</option>
-            </select>
-            <button onclick="dashboard.updateEmbeddingModel()" class="update-btn" id="updateEmbeddingBtn" disabled>
-                <i class="fas fa-sync-alt"></i> Update Embedding Model
-            </button>
+        <!-- Tabs -->
+        <div class="model-tabs">
+            <button class="tab-btn active" onclick="showTab('chat')">Chat Models</button>
+            <button class="tab-btn" onclick="showTab('embedding')">Embedding Models</button>
+            <button class="tab-btn" onclick="showTab('installed')">Installed Models</button>
+        </div>
+        
+        <!-- Chat Models -->
+        <div id="chatModels" class="model-content active">
+            <div class="model-grid" id="chatModelsGrid">
+                <p>Loading chat models...</p>
+            </div>
+        </div>
+        
+        <!-- Embedding Models -->
+        <div id="embeddingModels" class="model-content">
+            <div class="model-grid" id="embeddingModelsGrid">
+                <p>Loading embedding models...</p>
+            </div>
+        </div>
+        
+        <!-- Installed Models -->
+        <div id="installedModels" class="model-content">
+            <div class="model-grid" id="installedModelsGrid">
+                <p>Loading installed models...</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Install Modal -->
+<div id="installModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-download"></i> Install Model</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h4 id="modalModelName">Model Name</h4>
+            <p id="modalModelDesc">Description</p>
+            
+            <div id="installProgress" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="installProgressBar" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p id="installStatus">Starting...</p>
+                </div>
+                <div id="installLog" class="install-log"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button id="installBtn" class="btn btn-primary" onclick="startInstall()">Install</button>
         </div>
     </div>
 </div>
-{% endblock %}
 
-{% block extra_js %}
-<script src="/static/js/index.js"></script>
+<!-- JavaScript -->
+<script>
+// Global state
+let currentModelToInstall = null;
+let currentModelType = null;
+let eventSource = null;
+
+// Tab switching
+function showTab(tabName) {
+    // Update tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(tabName)) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Update content
+    document.querySelectorAll('.model-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    document.getElementById(tabName + 'Models').classList.add('active');
+    
+    // Load content
+    loadTabContent(tabName);
+}
+
+// Load tab content
+async function loadTabContent(tabName) {
+    try {
+        const response = await fetch('/api/models/list');
+        const data = await response.json();
+        
+        if (tabName === 'chat') {
+            renderChatModels(data);
+        } else if (tabName === 'embedding') {
+            renderEmbeddingModels(data);
+        } else if (tabName === 'installed') {
+            renderInstalledModels(data);
+        }
+    } catch (error) {
+        console.error('Failed to load models:', error);
+        document.getElementById(tabName + 'ModelsGrid').innerHTML = 
+            '<p class="error">Failed to load models</p>';
+    }
+}
+
+// Render chat models
+function renderChatModels(data) {
+    const grid = document.getElementById('chatModelsGrid');
+    const models = data.all_models.chat;
+    const installed = data.installed || [];
+    const current = data.current_chat;
+    
+    let html = '';
+    models.forEach(model => {
+        const isInstalled = installed.includes(model.name);
+        const isCurrent = model.name === current;
+        
+        html += `
+            <div class="model-card ${isInstalled ? 'installed' : ''} ${isCurrent ? 'current' : ''}">
+                <div class="model-header">
+                    <span class="model-name">${model.display}</span>
+                    <span class="model-status ${isCurrent ? 'status-current' : isInstalled ? 'status-installed' : ''}">
+                        ${isCurrent ? 'Active' : isInstalled ? 'Installed' : 'Available'}
+                    </span>
+                </div>
+                <p class="model-desc">${model.desc}</p>
+                <div class="model-stats">
+                    <span class="model-stat">${model.size}</span>
+                    <span class="model-stat">${model.ram} RAM</span>
+                    <span class="model-stat">${model.type}</span>
+                </div>
+                <div class="model-actions">
+                    ${isCurrent ? `
+                        <button class="btn btn-secondary" disabled>Current</button>
+                    ` : isInstalled ? `
+                        <button class="btn btn-primary" onclick="applyModel('${model.name}', 'chat')">Apply</button>
+                    ` : `
+                        <button class="btn btn-success" onclick="showInstallModal('${model.name}', 'chat', '${model.display}', '${model.desc}')">Install</button>
+                    `}
+                </div>
+            </div>
+        `;
+    });
+    
+    grid.innerHTML = html;
+}
+
+// Render embedding models
+function renderEmbeddingModels(data) {
+    const grid = document.getElementById('embeddingModelsGrid');
+    const models = data.all_models.embedding;
+    const installed = data.installed || [];
+    const current = data.current_embedding;
+    
+    let html = '';
+    models.forEach(model => {
+        const isInstalled = installed.includes(model.name);
+        const isCurrent = model.name === current;
+        
+        html += `
+            <div class="model-card ${isInstalled ? 'installed' : ''} ${isCurrent ? 'current' : ''}">
+                <div class="model-header">
+                    <span class="model-name">${model.display}</span>
+                    <span class="model-status ${isCurrent ? 'status-current' : isInstalled ? 'status-installed' : ''}">
+                        ${isCurrent ? 'Active' : isInstalled ? 'Installed' : 'Available'}
+                    </span>
+                </div>
+                <p class="model-desc">${model.desc}</p>
+                <div class="model-stats">
+                    <span class="model-stat">${model.size}</span>
+                    <span class="model-stat">${model.ram} RAM</span>
+                </div>
+                <div class="model-actions">
+                    ${isCurrent ? `
+                        <button class="btn btn-secondary" disabled>Current</button>
+                    ` : isInstalled ? `
+                        <button class="btn btn-primary" onclick="applyModel('${model.name}', 'embedding')">Apply</button>
+                    ` : `
+                        <button class="btn btn-success" onclick="showInstallModal('${model.name}', 'embedding', '${model.display}', '${model.desc}')">Install</button>
+                    `}
+                </div>
+            </div>
+        `;
+    });
+    
+    grid.innerHTML = html;
+}
+
+// Render installed models
+function renderInstalledModels(data) {
+    const grid = document.getElementById('installedModelsGrid');
+    const installed = data.installed || [];
+    const currentChat = data.current_chat;
+    const currentEmbedding = data.current_embedding;
+    
+    if (installed.length === 0) {
+        grid.innerHTML = '<p>No models installed yet.</p>';
+        return;
+    }
+    
+    // Combine all models
+    const allModels = [...data.all_models.chat, ...data.all_models.embedding];
+    
+    let html = '';
+    installed.forEach(modelName => {
+        const model = allModels.find(m => m.name === modelName) || {
+            display: modelName,
+            desc: 'Installed model',
+            size: 'Unknown',
+            ram: 'Unknown'
+        };
+        
+        const isChat = data.all_models.chat.some(m => m.name === modelName);
+        const isCurrent = modelName === currentChat || modelName === currentEmbedding;
+        const type = isChat ? 'chat' : 'embedding';
+        
+        html += `
+            <div class="model-card installed ${isCurrent ? 'current' : ''}">
+                <div class="model-header">
+                    <span class="model-name">${model.display}</span>
+                    <span class="model-status ${isCurrent ? 'status-current' : 'status-installed'}">
+                        ${isCurrent ? 'Active' : 'Installed'}
+                    </span>
+                </div>
+                <p class="model-desc">${model.desc}</p>
+                <div class="model-stats">
+                    <span class="model-stat">${model.size}</span>
+                    <span class="model-stat">${model.ram} RAM</span>
+                    <span class="model-stat">${type}</span>
+                </div>
+                <div class="model-actions">
+                    ${isCurrent ? `
+                        <button class="btn btn-secondary" disabled>Active</button>
+                    ` : `
+                        <button class="btn btn-primary" onclick="applyModel('${modelName}', '${type}')">Apply</button>
+                    `}
+                    <button class="btn btn-danger" onclick="removeModel('${modelName}')">Remove</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    grid.innerHTML = html;
+}
+
+// Show install modal
+function showInstallModal(modelName, type, displayName, description) {
+    currentModelToInstall = modelName;
+    currentModelType = type;
+    
+    document.getElementById('modalModelName').textContent = displayName;
+    document.getElementById('modalModelDesc').textContent = description;
+    document.getElementById('installProgress').style.display = 'none';
+    document.getElementById('installBtn').style.display = 'block';
+    
+    document.getElementById('installModal').classList.add('active');
+}
+
+// Start installation
+async function startInstall() {
+    const installBtn = document.getElementById('installBtn');
+    installBtn.disabled = true;
+    installBtn.textContent = 'Installing...';
+    
+    document.getElementById('installProgress').style.display = 'block';
+    document.getElementById('installLog').innerHTML = '';
+    
+    // Close any existing connection
+    if (eventSource) {
+        eventSource.close();
+    }
+    
+    // Create SSE connection
+    eventSource = new EventSource(`/api/models/install?model=${currentModelToInstall}`);
+    
+    eventSource.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        
+        if (data.message) {
+            const log = document.getElementById('installLog');
+            log.innerHTML += `<div>${data.message}</div>`;
+            log.scrollTop = log.scrollHeight;
+            
+            // Update status
+            document.getElementById('installStatus').textContent = data.message;
+            
+            // Check for progress
+            if (data.message.includes('%')) {
+                const match = data.message.match(/(\d+)%/);
+                if (match) {
+                    const percent = parseInt(match[1]);
+                    document.getElementById('installProgressBar').style.width = percent + '%';
+                }
+            }
+        }
+        
+        if (data.success) {
+            document.getElementById('installStatus').textContent = 'Installation complete!';
+            installBtn.textContent = 'Close';
+            installBtn.disabled = false;
+            installBtn.onclick = closeModal;
+            eventSource.close();
+            
+            // Reload models
+            setTimeout(() => {
+                loadTabContent(currentModelType);
+                loadTabContent('installed');
+                loadRecommendations();
+            }, 1000);
+        }
+        
+        if (data.error) {
+            document.getElementById('installStatus').textContent = 'Error: ' + data.error;
+            installBtn.textContent = 'Retry';
+            installBtn.disabled = false;
+            installBtn.onclick = startInstall;
+            eventSource.close();
+        }
+    };
+    
+    eventSource.onerror = function() {
+        document.getElementById('installStatus').textContent = 'Connection error';
+        installBtn.textContent = 'Retry';
+        installBtn.disabled = false;
+        installBtn.onclick = startInstall;
+        eventSource.close();
+    };
+}
+
+// Apply model
+async function applyModel(modelName, type) {
+    try {
+        const field = type === 'chat' ? 'chat_model' : 'embedding_model';
+        
+        const response = await fetch('/api/config/model', {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({[field]: modelName})
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(`Model switched to ${modelName}`);
+            
+            // Reload current tab
+            if (type === 'chat') {
+                loadTabContent('chat');
+            } else {
+                loadTabContent('embedding');
+            }
+            loadTabContent('installed');
+            
+            // Update status
+            loadSystemStatus();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to apply model'));
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+// Remove model
+async function removeModel(modelName) {
+    if (!confirm(`Remove ${modelName}? This will free up disk space.`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/models/remove', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({model: modelName})
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert(`Model ${modelName} removed`);
+            
+            // Reload installed models
+            loadTabContent('installed');
+            
+            // Reload other tabs if needed
+            loadTabContent('chat');
+            loadTabContent('embedding');
+        } else {
+            alert('Error: ' + (result.error || 'Failed to remove model'));
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+// Close modal
+function closeModal() {
+    document.getElementById('installModal').classList.remove('active');
+    
+    if (eventSource) {
+        eventSource.close();
+        eventSource = null;
+    }
+    
+    // Reset button
+    const installBtn = document.getElementById('installBtn');
+    installBtn.disabled = false;
+    installBtn.textContent = 'Install';
+    installBtn.onclick = startInstall;
+}
+
+// Load system status
+async function loadSystemStatus() {
+    try {
+        const response = await fetch('/api/system/status');
+        const data = await response.json();
+        
+        document.getElementById('currentChatModel').textContent = 'Loading...';
+        document.getElementById('currentEmbeddingModel').textContent = 'Loading...';
+        document.getElementById('memoryAvailable').textContent = data.memory.available_gb + ' GB';
+        document.getElementById('cpuPercent').textContent = data.cpu.percent + '%';
+        document.getElementById('diskFree').textContent = data.disk.free_gb + ' GB';
+        
+        // Get engine status
+        const engineResponse = await fetch('/api/engine-status');
+        const engineData = await engineResponse.json();
+        
+        document.getElementById('currentChatModel').textContent = engineData.chatModel;
+        document.getElementById('currentEmbeddingModel').textContent = engineData.embeddingModel;
+        document.getElementById('vectorStoreStatus').textContent = engineData.vectorStore;
+        document.getElementById('ollamaStatus').textContent = engineData.ollamaStatus;
+        
+        // Color code status
+        const statusElements = document.querySelectorAll('.status-value');
+        statusElements.forEach(el => {
+            if (el.textContent.includes('Ready') || el.textContent.includes('Connected')) {
+                el.style.color = '#28a745';
+            } else if (el.textContent.includes('Not ready') || el.textContent.includes('Disconnected')) {
+                el.style.color = '#dc3545';
+            }
+        });
+        
+    } catch (error) {
+        console.error('Failed to load system status:', error);
+    }
+}
+
+// Load recommendations
+async function loadRecommendations() {
+    try {
+        const response = await fetch('/api/models/recommend');
+        const data = await response.json();
+        
+        let html = `<h3><i class="fas fa-lightbulb"></i> Recommendations (${data.system_ram}GB RAM available)</h3>`;
+        
+        if (data.chat && data.chat.length > 0) {
+            html += '<h4>Chat Models:</h4>';
+            data.chat.forEach(rec => {
+                html += `
+                    <div class="recommendation-item">
+                        <strong>${rec.name}</strong> - ${rec.reason}
+                    </div>
+                `;
+            });
+        }
+        
+        if (data.embedding && data.embedding.length > 0) {
+            html += '<h4>Embedding Models:</h4>';
+            data.embedding.forEach(rec => {
+                html += `
+                    <div class="recommendation-item">
+                        <strong>${rec.name}</strong> - ${rec.reason}
+                    </div>
+                `;
+            });
+        }
+        
+        document.getElementById('recommendations').innerHTML = html;
+        
+    } catch (error) {
+        console.error('Failed to load recommendations:', error);
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load initial data
+    loadSystemStatus();
+    loadTabContent('chat');
+    loadRecommendations();
+    
+    // Auto-refresh every 30 seconds
+    setInterval(loadSystemStatus, 30000);
+});
+</script>
 {% endblock %}

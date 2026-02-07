@@ -1,0 +1,80 @@
+"""
+Enhanced chat API for step-by-step answers
+"""
+from fastapi import APIRouter, HTTPException
+import logging
+import time
+
+router = APIRouter()
+logger = logging.getLogger(__name__)
+
+# Define chat_api for import
+async def chat_api(request: dict):
+    """For backward compatibility"""
+    return await rag_query(request)
+
+@router.post("/query")
+async def rag_query(request: dict):
+    """Enhanced RAG query endpoint for procedural answers"""
+    try:
+        message = request.get("message", "").strip()
+        if not message:
+            return {"response": "Please enter a question.", "success": False}
+        
+        start_time = time.time()
+        
+        from app.core.llm_client import OllamaClient
+        llm_client = OllamaClient()
+        
+        # Check connection
+        if not llm_client.check_connection():
+            return {
+                "response": "Ollama is not running. Please start Ollama first.",
+                "success": False
+            }
+        
+        # Get enhanced response
+        response = llm_client.quick_rag_response(message)
+        
+        time_taken = round(time.time() - start_time, 2)
+        
+        return {
+            "response": response,
+            "success": True,
+            "time_taken": time_taken,
+            "model": llm_client.chat_model
+        }
+        
+    except Exception as e:
+        logger.error(f"Chat error: {e}")
+        return {
+            "response": f"Error: {str(e)}",
+            "success": False
+        }
+
+@router.get("/status")
+async def chat_status():
+    """Check system status"""
+    try:
+        from app.core.llm_client import OllamaClient
+        from app.core.vector_store import VectorStore
+        
+        llm_client = OllamaClient()
+        vector_store = VectorStore()
+        vector_store.load()
+        
+        stats = vector_store.get_stats()
+        
+        return {
+            "ollama_connected": llm_client.check_connection(),
+            "chat_model": llm_client.chat_model,
+            "embedding_model": llm_client.embedding_model,
+            "vector_store_loaded": vector_store.loaded,
+            "chunks_count": len(vector_store.chunks) if vector_store.loaded else 0,
+            "stats": stats
+        }
+    except Exception as e:
+        return {"error": str(e)}
+
+# Export
+__all__ = ['router', 'chat_api']

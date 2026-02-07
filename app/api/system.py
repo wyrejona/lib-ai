@@ -9,6 +9,10 @@ import requests
 from datetime import datetime, timezone
 import logging
 from pathlib import Path
+import subprocess
+import json
+import asyncio
+from fastapi.responses import StreamingResponse
 
 from app.config import config
 from app.core.vector_store import VectorStore
@@ -68,6 +72,25 @@ async def get_configuration():
             chat_models = ["llama2:7b", "mistral:7b", "qwen:0.5b"]
             embedding_models = ["nomic-embed-text:latest", "all-minilm:latest"]
         
+        # Get installed models
+        installed_models = []
+        try:
+            result = subprocess.run(
+                ["ollama", "list"],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            if result.returncode == 0:
+                lines = result.stdout.strip().split('\n')
+                if len(lines) > 1:
+                    for line in lines[1:]:
+                        parts = line.split()
+                        if len(parts) >= 2:
+                            installed_models.append(parts[0])
+        except:
+            installed_models = []
+        
         return {
             "current": {
                 "chat_model": config.chat_model,
@@ -78,6 +101,7 @@ async def get_configuration():
                 "chat_models": chat_models,
                 "embedding_models": embedding_models
             },
+            "installed_models": installed_models,
             "system": {
                 "pdfs_dir": str(config.pdfs_dir),
                 "vector_store_path": str(config.vector_store_path),
@@ -251,3 +275,156 @@ async def engine_status():
             "vectorStore": "Error checking",
             "ollamaStatus": "Error checking"
         }
+
+# ========== MODEL MANAGEMENT ENDPOINTS ==========
+
+@router.get("/models/list")
+async def list_all_models():
+    """Get all available and recommended models"""
+    # Popular models database
+    all_models = {
+        "chat": [
+            {"name": "qwen:0.5b", "display": "Qwen 0.5B", "size": "0.3GB", "ram": "1GB", "type": "light", "desc": "Very fast, basic tasks"},
+            {"name": "phi:2.7b", "display": "Phi 2.7B", "size": "1.6GB", "ram": "3GB", "type": "balanced", "desc": "Good performance, efficient"},
+            {"name": "mistral:7b", "display": "Mistral 7B", "size": "4.2GB", "ram": "8GB", "type": "recommended", "desc": "Fast, great for coding"},
+            {"name": "llama3:8b", "display": "Llama 3 8B", "size": "4.7GB", "ram": "10GB", "type": "recommended", "desc": "Excellent all-around"},
+            {"name": "llama3:70b", "display": "Llama 3 70B", "size": "40GB", "ram": "80GB", "type": "powerful", "desc": "High quality, professional"},
+            {"name": "tinyllama:1.1b", "display": "TinyLlama 1.1B", "size": "0.7GB", "ram": "1.5GB", "type": "light", "desc": "Fastest, for testing"}
+        ],
+        "embedding": [
+            {"name": "all-minilm:latest", "display": "All-MiniLM", "size": "0.2GB", "ram": "1GB", "type": "light", "desc": "Fast, good accuracy"},
+            {"name": "nomic-embed-text:latest", "display": "Nomic Embed", "size": "0.4GB", "ram": "2GB", "type": "recommended", "desc": "Best overall, long context"},
+            {"name": "mxbai-embed-large:latest", "display": "MXBAI Large", "size": "0.8GB", "ram": "3GB", "type": "powerful", "desc": "High quality embeddings"}
+        ]
+    }
+    
+    # Get installed models
+    installed = []
+    try:
+        result = subprocess.run(["ollama", "list"], capture_output=True, text=True, timeout=5)
+        if result.returncode == 0:
+            lines = result.stdout.strip().split('\n')
+            if len(lines) > 1:
+                for line in lines[1:]:
+                    parts = line.split()
+                    if len(parts) >= 2:
+                        installed.append(parts[0])
+    except:
+        pass
+    
+    return {
+        "all_models": all_models,
+        "installed": installed,
+        "current_chat": config.chat_model,
+        "current_embedding": config.embedding_model
+    }
+
+@router.post("/models/install")
+async def install_model(request: Request):
+    """Install a model"""
+    try:
+        data = await request.json()
+        model = data.get("model")
+        
+        if not model:
+            return JSONResponse({"success": False, "error": "No model specified"})
+        
+        async def generate():
+            process = await asyncio.create_subprocess_exec(
+                "ollama", "pull", model,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE
+            )
+            
+            while True:
+                line = await process.stdout.readline()
+                if not line:
+                    break
+                
+                output = line.decode().strip()
+                if output:
+                    yield f"data: {json.dumps({'message': output})}\n\n"
+            
+            await process.wait()
+            if process.returncode == 0:
+                yield f"data: {json.dumps({'success': True, 'message': f'Model {model} installed'})}\n\n"
+            else:
+                yield f"data: {json.dumps({'error': f'Failed to install {model}'})}\n\n"
+        
+        return StreamingResponse(generate(), media_type="text/event-stream")
+        
+    except Exception as e:
+        logger.error(f"Install error: {e}")
+        return JSONResponse({"success": False, "error": str(e)})
+
+@router.post("/models/remove")
+async def remove_model(request: Request):
+    """Remove a model"""
+    try:
+        data = await request.json()
+        model = data.get("model")
+        
+        if not model:
+            return JSONResponse({"success": False, "error": "No model specified"})
+        
+        result = subprocess.run(
+            ["ollama", "rm", model],
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        
+        if result.returncode == 0:
+            return JSONResponse({"success": True, "message": f"Model {model} removed"})
+        else:
+            return JSONResponse({"success": False, "error": result.stderr})
+            
+    except Exception as e:
+        logger.error(f"Remove error: {e}")
+        return JSONResponse({"success": False, "error": str(e)})
+
+@router.get("/models/recommend")
+async def recommend_models():
+    """Get model recommendations based on system resources"""
+    try:
+        mem = psutil.virtual_memory()
+        available_gb = mem.available / 1024**3
+        
+        recommendations = {
+            "chat": [],
+            "embedding": [],
+            "system_ram": round(available_gb, 1)
+        }
+        
+        # Recommend based on available RAM
+        if available_gb > 50:
+            recommendations["chat"] = [
+                {"name": "llama3:70b", "reason": "Plenty of RAM for high-quality models"},
+                {"name": "mixtral:8x7b", "reason": "Expert model for demanding tasks"}
+            ]
+        elif available_gb > 8:
+            recommendations["chat"] = [
+                {"name": "llama3:8b", "reason": "Balanced performance"},
+                {"name": "mistral:7b", "reason": "Efficient and fast"}
+            ]
+        elif available_gb > 2:
+            recommendations["chat"] = [
+                {"name": "phi:2.7b", "reason": "Good for limited RAM"},
+                {"name": "qwen:0.5b", "reason": "Very fast, basic tasks"}
+            ]
+        else:
+            recommendations["chat"] = [
+                {"name": "tinyllama:1.1b", "reason": "Minimal RAM usage"}
+            ]
+        
+        # Always recommend these embeddings
+        recommendations["embedding"] = [
+            {"name": "nomic-embed-text:latest", "reason": "Best overall quality"},
+            {"name": "all-minilm:latest", "reason": "Fast and lightweight"}
+        ]
+        
+        return recommendations
+        
+    except Exception as e:
+        logger.error(f"Recommend error: {e}")
+        return {"error": str(e)}

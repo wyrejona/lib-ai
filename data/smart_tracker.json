@@ -1,0 +1,51 @@
+{
+  "/home/repository/lib-ai/pdfs/E-Resources \u2013 University of Embu Library.pdf": {
+    "hash": "8ab2f88d967f84d498f41c17b240a580",
+    "processed": "2026-02-07T04:20:52.992205",
+    "questions": 0,
+    "definitions": 0,
+    "source": "E-Resources \u2013 University of Embu Library.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/Library Circulation.pdf": {
+    "hash": "c406475bae1c158338e6fa9ddeab22c6",
+    "processed": "2026-02-07T04:20:53.109180",
+    "questions": 11,
+    "definitions": 0,
+    "source": "Library Circulation.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/Comprehensive University of Embu Library Guide.pdf": {
+    "hash": "d8f4674328f101d9f36cfdd8d06f3acf",
+    "processed": "2026-02-07T04:20:53.556322",
+    "questions": 139,
+    "definitions": 4,
+    "source": "Comprehensive University of Embu Library Guide.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/Guide to Referencing using APA.pdf": {
+    "hash": "e0a252db0de494b73828b5dfcf477185",
+    "processed": "2026-02-07T04:20:53.629091",
+    "questions": 9,
+    "definitions": 0,
+    "source": "Guide to Referencing using APA.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/The Frequently Asked Questions \u2013 University of Embu Library.pdf": {
+    "hash": "9bb7ee01179ad38214a43a619da76f61",
+    "processed": "2026-02-07T04:20:53.708385",
+    "questions": 43,
+    "definitions": 3,
+    "source": "The Frequently Asked Questions \u2013 University of Embu Library.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/What is Plagiarism.pdf": {
+    "hash": "a9bebdb83daeb0f9728dc73533a60dab",
+    "processed": "2026-02-07T04:20:53.821997",
+    "questions": 11,
+    "definitions": 1,
+    "source": "What is Plagiarism.pdf"
+  },
+  "/home/repository/lib-ai/pdfs/What is Referencing.pdf": {
+    "hash": "ba04f9ea40ab9b2f930e3e0634bc3a7c",
+    "processed": "2026-02-07T04:20:53.922756",
+    "questions": 4,
+    "definitions": 0,
+    "source": "What is Referencing.pdf"
+  }
+}

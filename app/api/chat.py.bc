@@ -1,12 +1,10 @@
 """
 Chat API endpoints
 """
-from fastapi import APIRouter, Request, HTTPException
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.templating import Jinja2Templates
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import JSONResponse
 import logging
 import traceback
-import os
 
 from app.config import config
 from app.core.vector_store import VectorStore, format_context
@@ -15,7 +13,7 @@ from app.core.llm_client import OllamaClient
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-# Initialize components (can be lazy-loaded or dependency injected)
+# Initialize components
 vector_store = None
 llm_client = None
 
@@ -34,38 +32,7 @@ def get_llm_client():
         llm_client = OllamaClient()
     return llm_client
 
-# Web routes (for templates)
-web_routes = APIRouter()
-
-@web_routes.get("/chat", response_class=HTMLResponse)
-async def chat_page(request: Request):
-    """Chat interface page"""
-    templates = Jinja2Templates(directory=str(config.templates_dir))
-    
-    pdfs_dir = config.pdfs_dir
-    files_count = len([f for f in os.listdir(pdfs_dir) if f.endswith(".pdf")]) if pdfs_dir.exists() else 0
-    
-    return templates.TemplateResponse("chat.html", {
-        "request": request,
-        "total_files": files_count,
-        "current_model": config.chat_model
-    })
-
-# Add a POST endpoint at the root of web_routes for frontend compatibility
-@web_routes.post("/chat")
-async def chat_frontend(request: Request):
-    """Frontend chat endpoint - accepts POST to /chat"""
-    try:
-        data = await request.json()
-        return await chat_api(data)
-    except Exception as e:
-        logger.error(f"Frontend chat error: {e}")
-        return JSONResponse(
-            {"response": f"Error: {str(e)}"},
-            status_code=500
-        )
-
-@router.post("/", response_class=JSONResponse)
+@router.post("/")
 async def chat_api(request_data: dict):
     """Chat API endpoint at /api/chat/"""
     user_message = request_data.get("message") or request_data.get("query") or ""
@@ -79,9 +46,8 @@ async def chat_api(request_data: dict):
         # Check if vector store is loaded
         if not vector_store or not vector_store.loaded:
             return {
-                "response": "Library documents not loaded. Please run ingestion first.",
-                "context_used": False,
-                "model_used": "error"
+                "response": "Library documents not loaded. Please upload and process PDF files first.",
+                "success": False
             }
         
         # Search for relevant context
@@ -90,13 +56,9 @@ async def chat_api(request_data: dict):
         
         if not context or len(context.strip()) < 50:
             return {
-                "response": "I cannot find relevant information in the library documents.",
+                "response": "I cannot find relevant information in the library documents for your question.",
                 "context_used": False,
-                "model_used": config.chat_model,
-                "confidence": 0,
-                "search_time": 0,
-                "cache_hit": False,
-                "source": "none"
+                "success": True
             }
         
         # Generate response with LLM
@@ -105,19 +67,14 @@ async def chat_api(request_data: dict):
         return {
             "response": response,
             "context_used": True,
-            "model_used": config.chat_model,
-            "confidence": 0,
-            "search_time": 0,
-            "cache_hit": False,
-            "source": "vector_store"
+            "success": True
         }
         
     except Exception as e:
         logger.error(f"Chat error: {e}")
         return {
             "response": "Sorry, I encountered an error processing your question.",
-            "context_used": False,
-            "model_used": "error",
+            "success": False,
             "error": str(e)
         }
 

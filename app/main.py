@@ -78,7 +78,7 @@ try:
     
     app.include_router(chat_router, prefix="/api/chat", tags=["chat"])
     app.include_router(files_router, prefix="/api/files", tags=["files"])
-    app.include_router(system_router, tags=["system"])
+    app.include_router(system_router, prefix="/api", tags=["system"])  # CHANGED: Added prefix="/api"
     app.include_router(tasks_router, prefix="/api/tasks", tags=["tasks"])
     
     logger.info("API routers loaded successfully")
@@ -245,7 +245,7 @@ async def chat_frontend_compat(request: Request):
             "error": str(e)
         }, status_code=500)
 
-# =================== SYSTEM API ENDPOINTS ===================
+# =================== ENGINE STATUS ENDPOINT ===================
 
 @app.get("/api/engine-status")
 async def engine_status():
@@ -281,69 +281,6 @@ async def engine_status():
             "vectorStore": "Error checking",
             "ollamaStatus": "Error checking"
         }
-
-@app.get("/api/system/status")
-async def system_status_frontend():
-    """Get system status for frontend"""
-    try:
-        # Try to get from system module
-        from app.api.system import system_status
-        return await system_status()
-    except ImportError:
-        # Fallback implementation
-        import psutil
-        memory = psutil.virtual_memory()
-        disk = psutil.disk_usage('/')
-        cpu_percent = psutil.cpu_percent(interval=0.1)
-        
-        return {
-            "cpu": {
-                "percent": cpu_percent,
-                "cores": psutil.cpu_count(),
-                "load_average": psutil.getloadavg() if hasattr(psutil, 'getloadavg') else [0, 0, 0]
-            },
-            "memory": {
-                "total_gb": round(memory.total / 1024**3, 2),
-                "used_gb": round(memory.used / 1024**3, 2),
-                "percent": memory.percent
-            },
-            "disk": {
-                "total_gb": round(disk.total / 1024**3, 2),
-                "used_gb": round(disk.used / 1024**3, 2),
-                "percent": disk.percent
-            }
-        }
-
-@app.get("/api/config")
-async def get_config_frontend():
-    """Get configuration for frontend"""
-    try:
-        from app.api.system import get_configuration
-        return await get_configuration()
-    except ImportError:
-        return {
-            "current": {
-                "chat_model": config.chat_model,
-                "embedding_model": config.embedding_model,
-                "ollama_base_url": config.ollama_base_url
-            },
-            "available_models": {
-                "chat_models": [config.chat_model, "llama2:7b", "mistral:7b"],
-                "embedding_models": [config.embedding_model, "nomic-embed-text:latest"]
-            }
-        }
-
-@app.put("/api/config/model")
-async def update_model_frontend(data: dict):
-    """Update model configuration"""
-    try:
-        from app.api.system import update_model
-        return await update_model(data)
-    except ImportError:
-        return JSONResponse({
-            "success": False,
-            "error": "Model update not available"
-        }, status_code=501)
 
 # =================== ERROR HANDLING ===================
 

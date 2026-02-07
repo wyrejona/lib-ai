@@ -1,0 +1,228 @@
+"""
+Enhanced LLM client for step-by-step answers
+"""
+import requests
+import numpy as np
+from typing import List, Dict, Any, Optional
+import logging
+import time
+
+from app.config import config
+
+logger = logging.getLogger(__name__)
+
+class EnhancedOllamaClient:
+    """Enhanced client optimized for procedural answers"""
+    
+    def __init__(self):
+        self.base_url = config.ollama_base_url.rstrip('/')
+        self.chat_model = config.chat_model
+        self.embedding_model = config.embedding_model
+        self.timeout = 45  # Longer timeout for complex answers
+        
+        # Cache for common queries
+        self._embedding_cache = {}
+        self.cache_size = 100
+    
+    def get_embeddings(self, texts: List[str]) -> List[np.ndarray]:
+        """Get embeddings with error handling"""
+        if not texts:
+            return []
+        
+        embeddings = []
+        
+        for text in texts:
+            # Check cache first
+            import hashlib
+            text_hash = hashlib.md5(text.encode()).hexdigest()
+            
+            if text_hash in self._embedding_cache:
+                embeddings.append(self._embedding_cache[text_hash])
+                continue
+            
+            try:
+                data = {
+                    "model": self.embedding_model,
+                    "prompt": text
+                }
+                
+                response = requests.post(
+                    f"{self.base_url}/api/embeddings",
+                    json=data,
+                    timeout=self.timeout
+                )
+                
+                if response.status_code == 200:
+                    result = response.json()
+                    embedding = np.array(result.get("embedding", []), dtype=np.float32)
+                    embeddings.append(embedding)
+                    
+                    # Cache it
+                    if len(self._embedding_cache) >= self.cache_size:
+                        self._embedding_cache.pop(next(iter(self._embedding_cache)))
+                    self._embedding_cache[text_hash] = embedding
+                else:
+                    logger.warning(f"Embedding failed, using zeros")
+                    embeddings.append(np.zeros(384))
+                    
+            except Exception as e:
+                logger.error(f"Embedding error: {e}")
+                embeddings.append(np.zeros(384))
+        
+        return embeddings
+    
+    def generate_procedural_answer(self, query: str, context: str) -> str:
+        """Generate step-by-step answer"""
+        try:
+            # Enhanced prompt for procedural answers
+            system_prompt = """You are a helpful library assistant expert at explaining procedures and processes.
+Your task is to provide clear, step-by-step answers based on the provided context.
+
+IMPORTANT GUIDELINES:
+1. If the context contains numbered steps (1., 2., 3.), use those exact steps
+2. If the context contains bullet points, organize your answer with bullet points
+3. Always maintain the order of steps as they appear in the context
+4. Use clear headings for each major step if applicable
+5. Keep explanations concise and practical
+6. If the context doesn't contain complete steps, say so clearly
+
+CONTEXT:
+{context}
+
+QUESTION: {query}
+
+Provide a structured, easy-to-follow answer:"""
+            
+            full_prompt = system_prompt.format(context=context, query=query)
+            
+            data = {
+                "model": self.chat_model,
+                "messages": [
+                    {"role": "system", "content": full_prompt},
+                    {"role": "user", "content": query}
+                ],
+                "stream": False,
+                "options": {
+                    "temperature": 0.1,  # Low for consistent answers
+                    "num_predict": 800,  # Longer for detailed steps
+                    "top_k": 20,
+                    "top_p": 0.9
+                }
+            }
+            
+            response = requests.post(
+                f"{self.base_url}/api/chat",
+                json=data,
+                timeout=self.timeout
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                return result.get("message", {}).get("content", "")
+            
+            return "I couldn't generate an answer at this time."
+            
+        except Exception as e:
+            logger.error(f"Generation error: {e}")
+            return f"Error generating answer: {str(e)}"
+    
+    def quick_rag_response(self, query: str, k: int = 7) -> str:
+        """Enhanced RAG pipeline with procedural focus"""
+        try:
+            start_time = time.time()
+            
+            # Check if query asks for steps/procedures
+            step_keywords = ['step', 'process', 'procedure', 'how to', 'guide', 
+                           'tutorial', 'method', 'instructions', 'step by step',
+                           'steps to', 'ways to', 'approaches', 'explain the process',
+                           'what are the steps', 'how do i', 'how can i']
+            
+            is_procedural_query = any(keyword in query.lower() for keyword in step_keywords)
+            
+            # Get query embedding
+            logger.info(f"🔍 Processing query: '{query}'")
+            query_embedding = self.get_embeddings([query])[0]
+            
+            # Search vector store
+            from app.core.vector_store import VectorStore
+            vector_store = VectorStore()
+            vector_store.load()
+            
+            if not vector_store.loaded:
+                return "No documents have been processed yet. Please upload and process PDFs first."
+            
+            # Get more results for procedural queries
+            search_k = 10 if is_procedural_query else 7
+            results = vector_store.similarity_search(query_embedding, k=search_k)
+            
+            if not results:
+                # Fallback to keyword search
+                results = vector_store.search_by_keyword(query, k=5)
+            
+            if not results:
+                return "I couldn't find relevant information in the uploaded documents."
+            
+            # For procedural queries, prioritize procedural chunks
+            if is_procedural_query:
+                procedural_results = [r for r in results if r.get("metadata", {}).get("is_procedural", False)]
+                if procedural_results:
+                    results = procedural_results[:7]  # Use procedural chunks first
+                    logger.info(f"📋 Using {len(results)} procedural chunks")
+            
+            # Build enhanced context
+            context_parts = []
+            sources_set = set()
+            
+            for i, result in enumerate(results):
+                text = result.get("text", "")
+                source = result.get("metadata", {}).get("source", "Unknown")
+                chunk_type = result.get("metadata", {}).get("chunk_type", "text")
+                similarity = result.get("similarity", 0)
+                
+                # Only include highly relevant chunks
+                if similarity > 0.1:
+                    sources_set.add(source)
+                    
+                    # Add metadata tag
+                    if chunk_type in ["numbered_step", "bullet_point", "procedural_section"]:
+                        tag = f"[PROCEDURAL - {source}]"
+                    else:
+                        tag = f"[From {source}]"
+                    
+                    context_parts.append(f"{tag}\n{text}\n")
+            
+            if not context_parts:
+                return "The documents don't contain specific information about this topic."
+            
+            context = "\n---\n".join(context_parts)
+            
+            # Generate answer
+            if is_procedural_query:
+                answer = self.generate_procedural_answer(query, context)
+            else:
+                answer = self.generate_procedural_answer(query, context)  # Use same method for consistency
+            
+            # Add sources
+            if sources_set:
+                answer += f"\n\n📚 **Sources:** {', '.join(sorted(sources_set))}"
+            
+            # Add timing
+            time_taken = time.time() - start_time
+            answer += f"\n\n⏱️ _Generated in {time_taken:.1f} seconds_"
+            
+            return answer
+            
+        except Exception as e:
+            logger.error(f"RAG error: {e}")
+            return f"I encountered an error: {str(e)}\n\nPlease try again or rephrase your question."
+    
+    def check_connection(self) -> bool:
+        """Check if Ollama is running"""
+        try:
+            response = requests.get(f"{self.base_url}/api/tags", timeout=5)
+            return response.status_code == 200
+        except:
+            return False
+
+# Alias for backward compatibility
+OllamaClient = EnhancedOllamaClient
